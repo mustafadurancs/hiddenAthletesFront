@@ -85,7 +85,7 @@ class Feedback extends React.Component {
             autoplay: true,
             draggable: true,
             asNavFor: this.state.thumbnailsSlider,
-            draggable: false,
+            //draggable: false,
             arrows: false,
             nextArrow: false,
             prevArrow: false

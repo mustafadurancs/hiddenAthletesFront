@@ -7,15 +7,16 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 import "swiper/css";
 import "swiper/css/bundle";
 
+
 // Global Style
 import '@/public/css/style.css'
 import '@/public/css/responsive.css'
 import '@/public/css/rtl.css'
 
 // Multicolor if you want this color comment out 
-// import '@/public/css/colors/brink-pink-style.css'
+import '@/public/css/colors/brink-pink-style.css'
 // import '@/public/css/colors/pink-style.css'
-// import '@/public/css/colors/purple-style.css'  
+// import '@/public/css/colors/purple-style.css'
 
 import Layout from '@/components/_App/Layout'
 import { Provider } from 'react-redux'

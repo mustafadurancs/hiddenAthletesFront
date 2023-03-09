@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "@/components/_App/Navbar";
 import Footer from "@/components/_App/Footer";
 import PageBanner from '@/components/Common/PageBanner';
@@ -6,6 +6,29 @@ import Link from 'next/link';
 import * as Icon from 'react-feather';
  
 const Login = () => {
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const response = await fetch(
+            `http://localhost:8080/user/api/id?username=${username}&password=${password}`
+        );
+        const data = await response.json();
+        console.log(data);
+        if (data.id) {
+            localStorage.setItem("id", data.username);
+            setIsAuthenticated(true);
+            window.location.href = "/user-profile";
+        }
+
+    };
+
+
+
+
     return (
         <>
             <Navbar />
@@ -16,21 +39,27 @@ const Login = () => {
                 <div className="container">
                     <div className="auth-form">
                         <div className="auth-head">
-                            <Link href="/it-startup">
+                            <Link href="/">
                                 <a><img src="/images/logo.png" /></a>
                             </Link>
                             <p>Don't have an account yet? <Link href="/sign-up">Sign Up</Link></p>
                         </div>
 
-                        <form>
+                        <form onSubmit={handleLogin}>
                             <div className="mb-3">
                                 <label className="form-label">Email</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" />
+                                <input type="email" className="form-control" id="exampleInputEmail1"
+                                       value={username}
+                                       onChange={(e) => setUsername(e.target.value)}
+                                />
                             </div>
 
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" />
+                                <input type="password" className="form-control" id="exampleInputPassword1"
+                                       value={password}
+                                       onChange={(e) => setPassword(e.target.value)}
+                                />
                             </div>
 
                             <div className="mb-3">
@@ -66,7 +95,7 @@ const Login = () => {
  
             <Footer />
         </>
-    )
-}
+    );
+};
 
 export default Login;

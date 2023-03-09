@@ -28,29 +28,31 @@ const Footer = () => {
                             <h3>Company</h3>
                             <ul className="list">
                                 <li>
-                                    <Link href="/about-1">
+                                    <Link href="/">
                                         <a>About Us</a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/services-1">
+                                    <Link href="/">
                                         <a>Services</a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/features">
+                                    <Link href="/">
                                         <a>Features</a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/pricing">
-                                        <a>Our Pricing</a>
+                                    <Link href="/">
+                                        <a>Pricing</a>
                                     </Link>
                                 </li>
                                 <li>
+                                    {/*
                                     <Link href="/blog-1">
                                         <a>Latest News</a>
                                     </Link>
+                                    */}
                                 </li>
                             </ul>
                         </div>
@@ -76,12 +78,14 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                    {/*
                                     <Link href="/team">
                                         <a>Team</a>
                                     </Link>
+                                    */}
                                 </li>
                                 <li>
-                                    <Link href="/contact">
+                                    <Link href="/">
                                         <a>Contact Us</a>
                                     </Link>
                                 </li>
@@ -102,32 +106,39 @@ const Footer = () => {
                                 */}
                                 <li>
                                     <Icon.Mail />
-                                    Email: <a href="mailto:startp@gmail.com">startp@gmail.com</a>
+                                    Email: <a href="mailto:support@hiddenathletes.com">support@hiddenathletes.com</a>
                                 </li>
+                                {/*
                                 <li> 
                                     <Icon.PhoneCall />
                                     Phone: <a href="tel:321984754">+ (321) 984 754</a>
                                 </li>
+                                */}
                             </ul>
                             <ul className="social-links">
                                 <li> 
-                                    <a href="https://www.facebook.com/" className="facebook" target="_blank">
+                                    <a href="https://www.facebook.com/profile.php?id=100069589126238" className="facebook" target="_blank">
                                         <Icon.Facebook />
                                     </a> 
                                 </li>
                                 <li>
-                                    <a href="https://www.twitter.com/" className="twitter" target="_blank">
+                                    <a href="https://twitter.com/HiddenAthletes" className="twitter" target="_blank">
                                         <Icon.Twitter />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagramcom/" className="instagram" target="_blank">
+                                    <a href="https://www.instagram.com/hiddenathletesllc/" className="instagram" target="_blank">
                                         <Icon.Instagram />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.linkedin.com/" className="linkedin" target="_blank">
+                                    <a href="https://www.linkedin.com/company/hidden-athletes" className="linkedin" target="_blank">
                                         <Icon.Linkedin />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/" className="youtube" target="_blank">
+                                        <Icon.Youtube/>
                                     </a>
                                 </li>
                             </ul>

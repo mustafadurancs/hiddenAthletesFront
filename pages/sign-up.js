@@ -1,10 +1,37 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Navbar from "@/components/_App/Navbar";
+//import Navbar from "@/components/_App/NavbarOrg";
+import NavbarStyleThree from "@/components/_App/NavbarStyleThree";
 import Footer from "@/components/_App/Footer";
 import PageBanner from '@/components/Common/PageBanner';
 import Link from 'next/link';
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
+const checkUsernameExist = async (username) => {
+    const url = `http://localhost:8080/user/api/id?username=${username}&password`;
+
+    try {
+        const response = await axios.get(url);
+        const data = response.data;
+
+        // check if the response contains a user object
+        if (data.username) {
+            return true;
+        } else {
+            // user does not exist
+            return false;
+        }
+    } catch (error) {
+        // handle any errors
+        console.error(error);
+        return false;
+    }
+};
+
 
 
 const Signup = () => {
@@ -25,70 +52,60 @@ const Signup = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (formData.password !== formData.confirmPassword) {
-            setError("Passwords do not match");
-        } else {
-            axios
-                .post("http://localhost:8080/user/api/save", formData)
-                .then((response) => {
-                    console.log(response);
-                    window.location.href = "/login"; // handle successful signup here
-                })
-                .catch((error) => {
-                    console.log(error);
-                    // handle signup error here
-                    alert("Something is wrong"+error);
-                });
-        }
+
+        checkUsernameExist(formData.username)
+            .then((exists) => {
+                if (exists) {
+                    //alert(`User ${formData.username} exists`);
+                    MySwal.fire({
+                        title: "User Exist!!!",
+                        text: "Please choose another username",
+                        icon: "info",
+                        timer: 3000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                    });
+                } else {
+
+                    if (formData.password !== formData.confirmPassword) {
+                        setError("Passwords do not match");
+                    } else {
+                        //alert(formData.password);
+                        axios.post("http://localhost:8080/user/api/save",
+                            {
+                                "username": formData.username,
+                                "password": formData.password
+                            }
+                            )
+                            .then((response) => {
+                                console.log(response);
+                                MySwal.fire({
+                                    title: "You have been signed up!!!",
+                                    text: "You will be directed to login page",
+                                    icon: "success",
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    showConfirmButton: true,
+                                });
+                                window.location.href = "/login";
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                alert("Something is wrong");
+                            });
+                    }
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
     };
-    {/*
-    return (
-        <div>
-            <h1>Signup</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input
-                        type="text"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <br />
-                <label>
-                    Confirm Password:
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <br />
-                {error && <div>{error}</div>}
-                <button type="submit">Signup</button>
-            </form>
-        </div>
-    );
-*/}
+
 
     return (
         <>
-            <Navbar />
+            <NavbarStyleThree />
 
             <PageBanner pageTitle="Sign Up" />
 
@@ -96,8 +113,7 @@ const Signup = () => {
                 <div className="container">
                     <div className="auth-form">
                         <div className="auth-head">
-                            <Link href="/">
-                                <a><img src="/images/logo.png" /></a>
+                            <Link href="/"><a><img src="/images/logo.png" /></a>
                             </Link>
                             <p>Create a new account</p>
                         </div>
@@ -147,7 +163,5 @@ const Signup = () => {
         </>
     )
 };
-
-
 
 export default Signup;

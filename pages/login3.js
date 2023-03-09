@@ -1,45 +1,64 @@
-import { useState } from 'react';
+import React, { useState } from "react";
+import Navbar from "@/components/_App/Navbar";
 
-function Login({ history }) {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+const LoginPage = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        fetch(`http://localhost:8080/user/api/id?username=${username}&password=${password}`)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Invalid username or password');
-                }
-            })
-            .then(userInfo => {
-                // store user info in state or in a global state management tool
-                history.push('/'); // redirect to the dashboard page
-            })
-            .catch(error => {
-                setError(error.message);
-            });
-    }
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const response = await fetch(
+            `http://localhost:8080/user/api/id?username=${username}&password=${password}`
+        );
+        const data = await response.json();
+        console.log(data);
+        if (data.id) {
+            localStorage.setItem("id", data.username);
+            setIsAuthenticated(true);
+        }
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("id");
+        setIsAuthenticated(false);
+    };
+
+    const ProfilePage = () => {
+        const userId = localStorage.getItem("id");
+        return <h2>Welcome, User {userId}!</h2>;
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Username:</label>
-                <input type="text" value={username} onChange={event => setUsername(event.target.value)} />
-            </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
-            </div>
-            <div>
-                <button type="submit">Log in</button>
-            </div>
-            {error && <div>{error}</div>}
-        </form>
+        <div>
+            {isAuthenticated ? (
+                <div>
+                    <ProfilePage />
+                    <button onClick={handleLogout}>Logout</button>
+                </div>
+            ) : (
+                <form onSubmit={handleLogin}>
+                    <label>
+                        Username:
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </label>
+                    <label>
+                        Password:
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
+                    <button type="submit">Login</button>
+                </form>
+            )}
+        </div>
     );
-}
+};
 
-export default Login;
+export default LoginPage;

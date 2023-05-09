@@ -16,48 +16,69 @@ function Table() {
             .then(data => setData(data));
     }, []);
 
+    const handleDetailsClick = (email) => {
+        fetch(`http://localhost:8080/questionaire/api/id/${email}`)
+            .then(response => response.json())
+            .then(data => {
+                // Assuming the user-detail.js file exports an object with properties
+                const { firstName, lastName, city, state, gpa } = data;
+                // Display the details in some way, for example:
+                console.log(`${firstName} ${lastName}, ${city}, ${state}, ${gpa}`);
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error("Failed to fetch user details");
+            });
+    };
+
     return (
         <>
             <div className="cart-table table-responsive">
                 <table className="table table-bordered">
                     <thead>
-                        <tr>
-                            <th scope="col">Email</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Submission Date</th>
-                            <th scope="col">General Info</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Submission Date</th>
+                        <th scope="col">Paid?</th>
+                        <th scope="col">Details</th>
+                    </tr>
                     </thead>
 
                     <tbody>
-                        {data.map(item =>  (
-                            <tr key={item.id}>
-                                <td className="product-thumbnail">
-                                    <Link href="/product-details">
-                                        <a>
-                                            {item.email}
-                                        </a>
-                                    </Link>
-                                </td>
+                    {data.map(item =>  (
+                        <tr key={item.id}>
+                            <td className="product-thumbnail">
+                                <Link href={`/user-detail?id=${encodeURIComponent(item.id)}`}>
+                                    <a onClick={() => handleDetailsClick(item.id)}>
+                                        {item.email}
+                                    </a>
+                                </Link>
+                            </td>
 
-                                <td className="product-name">
-                                        {item.firstName}
-                                </td>
+                            <td className="product-name">
+                                {item.firstName}
+                            </td>
 
-                                <td className="product-price">
-                                    <span className="unit-amount">{item.lastName}</span>
-                                </td>
+                            <td className="product-price">
+                                <span className="unit-amount">{item.lastName}</span>
+                            </td>
 
-                                <td className="product-price">
-                                    <span className="unit-amount">{item.creationDate}</span>
-                                </td>
-                                <td className="product-name">
-                                    {item.generalInfo}
-                                </td>
+                            <td className="product-price">
+                                <span className="unit-amount">{item.creationDate}</span>
+                            </td>
+                            <td className="product-name">
+                                {item.id}
+                            </td>
+                            <td>
+                                <button onClick={() => handleDetailsClick(item.id)}>
+                                    View Details
+                                </button>
+                            </td>
 
-                            </tr>
-                        ))}
+                        </tr>
+                    ))}
                     </tbody>
                 </table>
 

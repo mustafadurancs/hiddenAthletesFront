@@ -6,6 +6,13 @@ import * as Icon from 'react-feather';
 import Link from 'next/link';
 import axios from "axios";
 
+const backgroundImage = {
+    backgroundImage: 'url("/images/logo_bg.png")',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    backgroundAttachment: 'fixed',
+    //backgroundSize: 'cover'
+};
 
 const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null
 
@@ -38,52 +45,127 @@ const UserProfile = () => {
         <>
             <Navbar />
 
-            <PageBanner pageTitle="PROFILE PAGE" />
+            <PageBanner pageTitle="YOUR HIDDEN ATHLETE PROFILE" />
 
 
-                <div className="container">
+
+                <div className="container" >
                     <div className="row justify-content-center">
-                        <div className="col-lg-8 col-md-12">
-                            <div className="single-team">
+                        <div className="col-lg-12 col-md-12" style={{background: "orange"}}>
+                            <div className="single-team" style={{background: "orange"}}>
                                 <div className="team-image">
-                                    <img src="/images/team-image/profile.png" alt="image" />
+                                    <img src="/images/profile_giant.png" alt="image"/>
+                                    <h1>{user.name}  {user.lastname}</h1>
                                 </div>
-
+                                <h3>FOOTBALL</h3>
+                            </div>
+                        </div>
+                        <div className="row" style={backgroundImage}>
+                            <div className="col-lg-6 col-md-6">
                                 <div className="team-content">
                                     <div className="team-info">
-                                        <h3>{user.name} {user.lastname}</h3>
-                                        <span>{user.username} </span>
+                                        <h3>My Contact</h3><hr/>
                                     </div>
 
                                     <ul>
-                                        <li> Facebook
+                                        <li>
+                                            <a href="" target="_blank">
+                                                <Icon.Inbox /> {user.username}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" target="_blank">
+                                                <Icon.Phone /> {user.address}
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="https://www.facebook.com/" target="_blank">
-                                                <Icon.Facebook />
+                                                <Icon.Facebook /> Facebook
                                             </a>
                                         </li>
-                                        <li> Instagram
+                                        <li>
                                             <a href="https://www.instagram.com/" target="_blank">
-                                                <Icon.Instagram />
+                                                <Icon.Instagram /> Instagram
                                             </a>
                                         </li>
-                                        <li> Snapchat
+                                        <li>
                                             <a href="https://www.snapchat.com/" target="_blank">
-                                                <Icon.Square />
+                                                <Icon.Square /> Snapchat
                                             </a>
                                         </li>
 
                                     </ul>
-
-                                    <p align="left"><strong>Address : </strong>{user.address} </p>
-                                    <p align="left"><strong>Email : </strong>{user.email} </p>
-                                    <p align="left"><strong>Sport : </strong>{user.sport} </p>
-                                    <p align="left"><strong>Position : </strong>{user.position} </p>
-                                    <p align="left"><strong>Star Rating : </strong>{user.starRating} </p>
-                                    <p align="left"><strong>Tangables : </strong>{user.tangables} </p>
-                                    <Link href="/football"><a className="btn btn-primary">Football</a>
-                                    </Link>
                                 </div>
+
+
+                                <h3>Tangibles</h3><hr/>
+
+                                    <p align="left"><strong>HEIGHT : </strong>{user.address} </p>
+                                    <p align="left"><strong>WEIGHT : </strong>{user.email} </p>
+                                    <p align="left"><strong>40 : </strong>{user.sport} </p>
+                                    <p align="left"><strong>40 Laser : </strong>{user.position} </p>
+                                    <p align="left"><strong>PRO SHUTTLE : </strong>{user.starRating} </p>
+                                    <p align="left"><strong>VERTICAL : </strong>{user.tangables} </p>
+                                    <p align="left"><strong>BROAD JUMP : </strong>{user.position} </p>
+                                    <p align="left"><strong>BENCH : </strong>{user.starRating} </p>
+                                    <p align="left"><strong>SQUAT : </strong>{user.tangables} </p>
+                                    <p align="left"><strong>P.CLEAN : </strong>{user.tangables} </p>
+
+
+                            <h3>ACADEMICS</h3><hr/>
+
+                                <p align="left"><strong>GPA : </strong>{user.address} </p>
+                                <p align="left"><strong>ACT : </strong>{user.email} </p>
+                                <p align="left"><strong>SAT : </strong>{user.sport} </p>
+                                <p align="left"><strong>TRANSCRIPTS : </strong>{user.tangables} </p>
+
+
                             </div>
+
+                            <div className="col-lg-6 col-md-6">
+                                <div className="team-content">
+                                    <div className="team-info">
+                                        <h3>About Me</h3><hr/>
+                                    </div>
+                                    <p> Some text from db</p>
+
+                                </div>
+
+
+                                <h3>STATISTICS</h3> <hr/>
+
+                                <h5>SENIOR YEAR</h5>
+                                <ul>
+                                    <li>Analyze current and past financial data</li>
+                                    <li>Look at recent financial performance and identify trends</li>
+                                    <li>Prepare reports on the above information and communicate the insights of these reports to the broader business</li>
+                                    <li>Consult with the management team to develop long-term</li>
+                                    commercial plans
+                                    <li>Suggest budgets and improvements based on the above
+                                        information</li>
+                                </ul>
+                                <h5>JUNIOR YEAR</h5>
+                                <ul>
+                                    <li>Analyze current and past financial data</li>
+                                    <li>Look at recent financial performance and identify trends</li>
+                                    <li>Prepare reports on the above information and communicate the insights of these reports to the broader business</li>
+                                    <li>Consult with the management team to develop long-term</li>
+                                    commercial plans
+                                    <li>Suggest budgets and improvements based on the above
+                                        information</li>
+                                </ul>
+
+
+                                <h3>Accolades</h3>
+
+                                <p align="left">AWARDS</p>
+
+
+
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>

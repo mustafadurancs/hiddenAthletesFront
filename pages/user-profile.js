@@ -52,19 +52,29 @@ const UserProfile = () => {
                 <div className="container" >
                     <div className="row justify-content-center">
                         <div className="col-lg-12 col-md-12" style={{background: "orange"}}>
+
+                            {/*
                             <div className="single-team" style={{background: "orange"}}>
+                                <div className="col-md-3">
+                                    <Icon.Edit/> <Link href="/" activeClassName="active"><a className="nav-link">Edit My Profile</a>
+                                </Link>
+                                </div>
                                 <div className="team-image">
                                     <img src="/images/profile_giant.png" alt="image"/>
                                     <h1>{user.name}  {user.lastname}</h1>
                                 </div>
                                 <h3>FOOTBALL</h3>
                             </div>
+                            */}
                         </div>
                         <div className="row" style={backgroundImage}>
                             <div className="col-lg-6 col-md-6">
                                 <div className="team-content">
                                     <div className="team-info">
-                                        <h3>My Contact</h3><hr/>
+                                        <h3>My Contact  <Link href="/" activeClassName="active"><a><Icon.Edit/></a>
+                                        </Link></h3>
+
+                                        <hr/>
                                     </div>
 
                                     <ul>
@@ -75,22 +85,32 @@ const UserProfile = () => {
                                         </li>
                                         <li>
                                             <a href="" target="_blank">
-                                                <Icon.Phone /> {user.address}
+                                                <Icon.Phone /> {user.phone}
                                             </a>
                                         </li>
                                         <li>
                                             <a href="https://www.facebook.com/" target="_blank">
-                                                <Icon.Facebook /> Facebook
+                                                <Icon.Facebook /> Facebook : {user.facebook}
                                             </a>
                                         </li>
                                         <li>
                                             <a href="https://www.instagram.com/" target="_blank">
-                                                <Icon.Instagram /> Instagram
+                                                <Icon.Instagram /> Instagram : {user.instagram}
                                             </a>
                                         </li>
                                         <li>
                                             <a href="https://www.snapchat.com/" target="_blank">
-                                                <Icon.Square /> Snapchat
+                                                <Icon.Square /> Snapchat : {user.snapchat}
+                                            </a>
+                                        </li>
+                                        <li>
+
+                                                <Icon.Link /> HighLight : {user.highLight}
+
+                                        </li>
+                                        <li>
+                                            <a href="https://www.snapchat.com/" target="_blank">
+                                                <Icon.User/> Photo : {user.username}
                                             </a>
                                         </li>
 
@@ -98,26 +118,29 @@ const UserProfile = () => {
                                 </div>
 
 
-                                <h3>Tangibles</h3><hr/>
+                                <h3>Tangibles <Link href="/" activeClassName="active"><a><Icon.Edit/></a>
+                                </Link></h3>
+                                <hr/>
 
-                                    <p align="left"><strong>HEIGHT : </strong>{user.address} </p>
-                                    <p align="left"><strong>WEIGHT : </strong>{user.email} </p>
-                                    <p align="left"><strong>40 : </strong>{user.sport} </p>
-                                    <p align="left"><strong>40 Laser : </strong>{user.position} </p>
-                                    <p align="left"><strong>PRO SHUTTLE : </strong>{user.starRating} </p>
-                                    <p align="left"><strong>VERTICAL : </strong>{user.tangables} </p>
-                                    <p align="left"><strong>BROAD JUMP : </strong>{user.position} </p>
-                                    <p align="left"><strong>BENCH : </strong>{user.starRating} </p>
-                                    <p align="left"><strong>SQUAT : </strong>{user.tangables} </p>
-                                    <p align="left"><strong>P.CLEAN : </strong>{user.tangables} </p>
+                                    <p align="left"><strong>HEIGHT : </strong>{user.height} </p>
+                                    <p align="left"><strong>WEIGHT : </strong>{user.weight} </p>
+                                    <p align="left"><strong>40 : </strong>{user.forty} </p>
+                                    <p align="left"><strong>40 Laser : </strong>{user.fortyLazer} </p>
+                                    <p align="left"><strong>PRO SHUTTLE : </strong>{user.proShuttle} </p>
+                                    <p align="left"><strong>VERTICAL : </strong>{user.verticle} </p>
+                                    <p align="left"><strong>BROAD JUMP : </strong>{user.broadJump} </p>
+                                    <p align="left"><strong>BENCH : </strong>{user.bench} </p>
+                                    <p align="left"><strong>SQUAT : </strong>{user.squat} </p>
+                                    <p align="left"><strong>P.CLEAN : </strong>{user.pClean} </p>
 
 
-                            <h3>ACADEMICS</h3><hr/>
+                            <h3>ACADEMICS <Link href="/" activeClassName="active"><a><Icon.Edit/></a>
+                            </Link></h3>
+                                <hr/>
 
-                                <p align="left"><strong>GPA : </strong>{user.address} </p>
-                                <p align="left"><strong>ACT : </strong>{user.email} </p>
-                                <p align="left"><strong>SAT : </strong>{user.sport} </p>
-                                <p align="left"><strong>TRANSCRIPTS : </strong>{user.tangables} </p>
+                                <p align="left"><strong>GPA : </strong>{user.gpa} </p>
+                                <p align="left"><strong>ACT : </strong>{user.act} </p>
+                                <p align="left"><strong>SAT : </strong>{user.sat} </p>
 
 
                             </div>
@@ -125,16 +148,21 @@ const UserProfile = () => {
                             <div className="col-lg-6 col-md-6">
                                 <div className="team-content">
                                     <div className="team-info">
-                                        <h3>About Me</h3><hr/>
+                                        <h3>About Me <Link href="/" activeClassName="active"><a><Icon.Edit/></a>
+                                        </Link></h3>
+                                        <hr/>
                                     </div>
-                                    <p> Some text from db</p>
+                                    <p> {user.aboutMe}</p>
 
                                 </div>
 
 
-                                <h3>STATISTICS</h3> <hr/>
+                                <h3>STATISTICS <Link href="/" activeClassName="active"><a><Icon.Edit/></a>
+                                </Link></h3>
+                                <hr/>
 
                                 <h5>SENIOR YEAR</h5>
+                                <h6>{user.seniorYear}</h6>
                                 <ul>
                                     <li>Analyze current and past financial data</li>
                                     <li>Look at recent financial performance and identify trends</li>
@@ -145,6 +173,7 @@ const UserProfile = () => {
                                         information</li>
                                 </ul>
                                 <h5>JUNIOR YEAR</h5>
+                                <h6>{user.juniorYear}</h6>
                                 <ul>
                                     <li>Analyze current and past financial data</li>
                                     <li>Look at recent financial performance and identify trends</li>
@@ -156,11 +185,16 @@ const UserProfile = () => {
                                 </ul>
 
 
-                                <h3>Accolades</h3>
-
+                                <h3>Accolades <Link href="/" activeClassName="active"><a><Icon.Edit/></a>
+                                </Link></h3>
+                                <h5>{user.accolades}</h5>
                                 <p align="left">AWARDS</p>
 
 
+                                <h3>Evaluations & Recruiting <Link href="/" activeClassName="active"><a><Icon.Edit/></a>
+                                </Link></h3>
+                                <h5>{user.accolades}</h5>
+                                <p align="left">AWARDS</p>
 
                             </div>
 

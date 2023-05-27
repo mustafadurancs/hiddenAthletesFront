@@ -40,7 +40,11 @@ const Navbar = () => {
                             <img src="/images/logo.png" alt="logo" />
                         </a>
                         </Link>
-                        {userName}
+                        <ul>
+                            <li>{userName}</li>
+
+                            <li> <Link href="/"><a>Download Your profile <Icon.Download/></a></Link> </li>
+                        </ul>
                         <button
                             onClick={toggleNavbar}
                             className={classTwo}
@@ -56,8 +60,10 @@ const Navbar = () => {
                         </button>
 
                         <div className={classOne} id="navbarSupportedContent">
+
                             <ul className="navbar-nav ms-auto">
                                 <li className="nav-item">
+
                                     <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
                                         Recruiting <Icon.ChevronDown />
                                     </a>
@@ -74,32 +80,32 @@ const Navbar = () => {
 
                                             <ul className="dropdown-menu">
                                                 <li className="nav-item">
-                                                    <Link href="/services-1" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Football</a>
+                                                    <Link href="/football" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Football</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/services-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball</a>
+                                                    <Link href="/basketball" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/services-3" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer</a>
+                                                    <Link href="/soccer" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/services-4" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball Woman</a>
+                                                    <Link href="/basketball-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball Woman</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/services-5" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer Woman</a>
+                                                    <Link href="/soccer-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer Woman</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/service-details" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Spare Menu</a>
+                                                    <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Spare Menu</a>
                                                     </Link>
                                                 </li>
                                             </ul>
@@ -121,7 +127,7 @@ const Navbar = () => {
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/https://play.mynaia.org/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NAIA</a>
+                                                    <Link href="https://play.mynaia.org/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NAIA</a>
                                                     </Link>
                                                 </li>
 
@@ -129,12 +135,12 @@ const Navbar = () => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/iot" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA Rules</a>
+                                            <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA Rules</a>
                                             </Link>
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/hosting" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NAIA Rules</a>
+                                            <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NAIA Rules</a>
                                             </Link>
                                         </li>
 
@@ -261,6 +267,7 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                             </ul>
+
                         </div>
 
                         <div className="others-option">
@@ -272,8 +279,8 @@ const Navbar = () => {
                             </Link>
                             */}
                             {userName ? (
-                            <Link href="/user-profile"><a className="btn btn-light">My Page</a>
-                            </Link>
+                                <Link href="/user-profile"><a className="btn btn-light">My Page</a>
+                                </Link>
                             ) : (
                                 <Link href="/login"><a></a>
                                 </Link>
@@ -290,6 +297,7 @@ const Navbar = () => {
 
                         </div>
                     </nav>
+
                 </div>
             </div>
         </header>

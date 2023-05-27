@@ -1,17 +1,10 @@
 import React, {useState} from 'react';
-import Navbar from "@/components/_App/Navbar";
-import Footer from "@/components/_App/Footer";
+
 import PageBanner from '@/components/Common/PageBanner';
 import Link from 'next/link';
 import * as Icon from 'react-feather';
-
-
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-const MySwal = withReactContent(Swal);
-
  
-const Login = () => {
+const LoginAdmin = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -24,22 +17,14 @@ const Login = () => {
         );
         const data = await response.json();
         console.log(data);
-        if (data.id && username == data.username && password == data.password) {
+        alert(data.username);
+        if ( data.username=="admin@hiddenathletes.com" ) {
+            alert("OK");
             localStorage.setItem("id", data.username);
             setIsAuthenticated(true);
-            window.location.href = "/user-profile";
+            window.location.href = "/dashboard";
         }
         else{
-
-            MySwal.fire({
-                title: "User name or password is wrong",
-                text: "You will be directed to landing page",
-                icon: "error",
-                timer: 3000,
-                timerProgressBar: true,
-                showConfirmButton: true,
-            });
-
             window.location.href = "/";
         }
 
@@ -50,9 +35,9 @@ const Login = () => {
 
     return (
         <>
-            <Navbar />
 
-            <PageBanner pageTitle="Login" />
+
+            <PageBanner pageTitle="Admin Login" />
 
             <div className="ptb-80">
                 <div className="container">
@@ -61,7 +46,6 @@ const Login = () => {
                             <Link href="/">
                                 <a><img src="/images/logo.png" /></a>
                             </Link>
-                            <p>Don't have an account yet? <Link href="/sign-up">Sign Up</Link></p>
                         </div>
 
                         <form onSubmit={handleLogin}>
@@ -82,39 +66,19 @@ const Login = () => {
                             </div>
 
                             <div className="mb-3">
-                                <p><Link href="/forgot-password"><a>Forgot Password</a></Link></p>
                             </div>
 
                             <button type="submit" className="btn btn-primary">Login</button>
                         </form>
 
-                        <div className="foot">
-                            <p>or connect with</p>
-                            <ul>
-                                <li>
-                                    <a href="https://www.mail.com/" target="_blank">
-                                        <Icon.Mail />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank">
-                                        <Icon.Facebook />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.twitter.com/" target="_blank">
-                                        <Icon.Twitter />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
  
-            <Footer />
+
         </>
     );
 };
 
-export default Login;
+export default LoginAdmin;

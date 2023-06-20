@@ -73,6 +73,7 @@ const UserProfile = () => {
             act: user.act,
             sat: user.sat,
             transcript: user.transcript,
+            highLight: user.highLight
         };
 
         axios
@@ -213,6 +214,51 @@ const UserProfile = () => {
                                             />
                                         ) : (
                                             user.username
+                                        )}
+
+                                    </p>
+                                    <p>
+                        <span>
+                          <Icon.User /> SAT : &nbsp;
+                        </span>
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.sat}
+                                                onChange={(e) => setUser({ ...user, sat: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.sat
+                                        )}
+
+                                    </p>
+                                    <p>
+                        <span>
+                          <Icon.User /> GPA : &nbsp;
+                        </span>
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.gpa}
+                                                onChange={(e) => setUser({ ...user, gpa: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.gpa
+                                        )}
+
+                                    </p>
+                                    <p>
+                        <span>
+                          <Icon.User /> ACT : &nbsp;
+                        </span>
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.act}
+                                                onChange={(e) => setUser({ ...user, act: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.act
                                         )}
 
                                     </p>

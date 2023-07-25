@@ -107,7 +107,7 @@ const Signup = () => {
 
     return (
         <>
-            <NavbarStyleThree />
+            <Navbar />
 
             <PageBanner pageTitle="Sign Up" />
 

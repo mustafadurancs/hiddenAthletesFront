@@ -11,8 +11,10 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
+import configData from  '../jsconfig.json';
+
 const checkUsernameExist = async (username) => {
-    const url = `http://localhost:8080/user/api/id?username=${username}&password`;
+    const url = `${configData.SERVER_URL}/api/id?username=${username}&password`;
 
     try {
         const response = await axios.get(url);
@@ -71,7 +73,7 @@ const Signup = () => {
                         setError("Passwords do not match");
                     } else {
                         //alert(formData.password);
-                        axios.post("http://localhost:8080/user/api/save",
+                        axios.post(`${configData.SERVER_URL}/user/api/save`,
                             {
                                 "username": formData.username,
                                 "password": formData.password

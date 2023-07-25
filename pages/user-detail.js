@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import configData from '../jsconfig.json';
+
 function UserDetail() {
     const router = useRouter();
     const { id } = router.query;
@@ -8,7 +10,7 @@ function UserDetail() {
 
     useEffect(() => {
         if (id) {
-            fetch(`http://localhost:8080/questionaire/api/id/${id}`)
+            fetch(`${configData.SERVER_URL}/questionaire/api/id/${id}`)
                 .then(response => response.json())
                 .then(data => setUser(data))
                 .catch(error => console.error(error));

@@ -5,6 +5,7 @@ import PageBanner from '@/components/Common/PageBanner';
 import Link from 'next/link';
 import * as Icon from 'react-feather';
 
+import configData from '../jsconfig.json';
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -20,7 +21,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:8080/user/api/id?username=${username}&password=${password}`
+            `${configData.SERVER_URL}/user/api/id?username=${username}&password=${password}`
         );
         const data = await response.json();
         console.log(data);

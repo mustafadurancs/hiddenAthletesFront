@@ -6,6 +6,8 @@ import * as Icon from 'react-feather';
 import Link from 'next/link';
 import axios from 'axios';
 
+import configData from '../jsconfig.json';
+
 const backgroundImage = {
     backgroundImage: 'url("/images/logo_bg.png")',
     backgroundRepeat: 'no-repeat',
@@ -27,7 +29,7 @@ const UserProfile = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/user/api/id?username=${username}&password`)
+            .get(`${configData.SERVER_URL}/user/api/id?username=${username}&password`)
             .then((response) => {
                 setUser(response.data);
             })
@@ -77,7 +79,7 @@ const UserProfile = () => {
         };
 
         axios
-            .post('http://localhost:8080/user/api/update', data)
+            .post(`${configData.SERVER_URL}/user/api/update`, data)
             .then((response) => {
                 console.log('Contact information updated successfully');
                 // You can perform additional actions or update the UI as needed

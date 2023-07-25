@@ -6,5 +6,6 @@
             "@/utils/*": ["utils/*"],
             "@/public/*": ["public/*"]
         }
-    }
+    },
+    "SERVER_URL": "https://srs-spring-docker.onrender.com"
 }

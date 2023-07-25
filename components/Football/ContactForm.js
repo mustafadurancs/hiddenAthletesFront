@@ -6,6 +6,8 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 import baseUrl from '../../utils/baseUrl'
 
+import configData from '../../jsconfig.json';
+
 const alertContent = () => {
     MySwal.fire({
       title: "Congratulations!",
@@ -50,7 +52,7 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `http://localhost:8080/questionaire/api/save`; //`${baseUrl}/api/contact`
+            const url = `${configData.SERVER_URL}/questionaire/api/save`; //`${baseUrl}/api/contact`
             const {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act } = contact;
             const payload = {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act};
             const response = await axios.post(url, payload);

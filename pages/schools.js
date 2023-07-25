@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import configData from '../jsconfig.json';
+
 const SchoolsPage = () => {
     const [schoolsData, setSchoolsData] = useState([]);
 
@@ -10,7 +12,7 @@ const SchoolsPage = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/school/api/schoolsByParameters?gpa=3&sat=1000&act=20&hbcu=HBCU&type=Private&starRate=1&year=2');
+            const response = await axios.get(`${configData.SERVER_URL}/school/api/schoolsByParameters?gpa=3&sat=1000&act=20&hbcu=HBCU&type=Private&starRate=1&year=2`);
             const data = response.data;
             setSchoolsData(data);
         } catch (error) {

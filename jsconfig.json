@@ -7,5 +7,5 @@
             "@/public/*": ["public/*"]
         }
     },
-    "SERVER_URL": "https://srs-spring-docker.onrender.com"
+    "SERVER_URL": "https://backend-web-service-vbfh.onrender.com"
 }

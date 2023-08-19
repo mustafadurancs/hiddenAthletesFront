@@ -12,7 +12,7 @@ function Table() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('${configData.SERVER_URL}/questionaire/api/all')
+        fetch(`${configData.SERVER_URL}/questionaire/api/all`)
             .then(response => response.json())
             .then(data => setData(data));
     }, []);

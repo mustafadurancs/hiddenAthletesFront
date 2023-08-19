@@ -6,18 +6,19 @@ import { toast } from "react-hot-toast";
 import { useRouter } from 'next/router'
 import QtyForm from './QtyForm'
 
+import configData from  '../jsconfig.json';
 
 function Table() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/questionaire/api/all')
+        fetch('${configData.SERVER_URL}/questionaire/api/all')
             .then(response => response.json())
             .then(data => setData(data));
     }, []);
 
     const handleDetailsClick = (email) => {
-        fetch(`http://localhost:8080/questionaire/api/id/${email}`)
+        fetch(`${configData.SERVER_URL}/questionaire/api/id/${email}`)
             .then(response => response.json())
             .then(data => {
                 // Assuming the user-detail.js file exports an object with properties

@@ -3,6 +3,8 @@ import Navbar from "@/components/_App/Navbar"
 import Footer from "@/components/_App/Footer"
 import PageBanner from '@/components/Common/PageBanner'
 import CartContent from '@/components/Cart/CartContent'
+
+
  
 const Cart = () => {
     return (

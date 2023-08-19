@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import { useRouter } from 'next/router'
 import QtyForm from './QtyForm'
 
-import configData from  '../jsconfig.json';
+import configData from  '../../jsconfig.json';
 
 function Table() {
     const [data, setData] = useState([]);

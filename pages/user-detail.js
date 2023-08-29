@@ -45,6 +45,7 @@ function UserDetail() {
             <input type="button" value="SUBMIT"/>
 
         </div>
+            <PageBanner pageTitle="" />
         </>
     );
 }

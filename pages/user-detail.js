@@ -40,7 +40,7 @@ function UserDetail() {
             <li>ACT: {user.act}</li>
             </ul>
             <textarea
-                rows="10"
+                rows="20"
                 defaultValue="Feedback here..." style={{ width: '100%'}}>
 
             </textarea>

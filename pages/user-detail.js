@@ -39,7 +39,9 @@ function UserDetail() {
             <li>2/4 Year: {user.twoFourYear}</li>
             <li>ACT: {user.act}</li>
             </ul>
-            <textarea defaultValue="Feedback here..." style={{ width: '100%'}}>
+            <textarea
+                rows="10"
+                defaultValue="Feedback here..." style={{ width: '100%'}}>
 
             </textarea>
             <input type="button" value="SUBMIT"/>

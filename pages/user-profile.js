@@ -110,13 +110,7 @@ const UserProfile = () => {
                             <div className="team-content">
                                 <div className="team-info">
                                             <p>
-                                                <h3> My Contact &nbsp;
-                                                {!editingContact && (
-                                                    <a href="#" onClick={() => setEditingContact(true)}>
-                                                        <Icon.Edit />
-                                                    </a>
-                                                )}
-                                                </h3>
+
                         <span>
                           <Icon.Mail /> Email : &nbsp;
                         </span>
@@ -220,6 +214,14 @@ const UserProfile = () => {
 
                                     </p>
                                     <p>
+
+                                        <h3> ACADEMIC INFO &nbsp;
+                                            {!editingContact && (
+                                                <a href="#" onClick={() => setEditingContact(true)}>
+                                                    <Icon.Edit />
+                                                </a>
+                                            )}
+                                        </h3>
                         <span>
                           <Icon.User /> SAT : &nbsp;
                         </span>

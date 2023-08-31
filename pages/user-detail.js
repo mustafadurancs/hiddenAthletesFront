@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import configData from '../jsconfig.json';
 import PageBanner from "@/components/Common/PageBanner";
 
-import FancyTextarea from "./fancy-text";
 
 function UserDetail() {
     const router = useRouter();
@@ -41,8 +40,14 @@ function UserDetail() {
                 <li><strong>2/4 Year : </strong> <input type="text" value={user.twoFourYear} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
                 <li><strong>ACT : </strong> <input type="text" value={user.act} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
             </ul>
+            <textarea
+                rows="20"
+                placeholder="Please provide feedback for this student...."
+                style={{ width: '100%' }}
+            >
 
-            <FancyTextarea/>
+            </textarea>
+
             <input type="button" value="SUBMIT"/>
 
         </div>

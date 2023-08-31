@@ -73,9 +73,13 @@ function Table() {
                                 {item.id}
                             </td>
                             <td>
+                                <Link href={`/user-detail?id=${encodeURIComponent(item.id)}`}>
+                                    <a onClick={() => handleDetailsClick(item.id)}>
                                 <button onClick={() => handleDetailsClick(item.id)}>
                                     View Details
                                 </button>
+                                    </a>
+                                </Link>
                             </td>
 
                         </tr>

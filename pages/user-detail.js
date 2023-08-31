@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import configData from '../jsconfig.json';
 import PageBanner from "@/components/Common/PageBanner";
 
+import FancyTextarea from "./fancy-text";
+
 function UserDetail() {
     const router = useRouter();
     const { id } = router.query;
@@ -28,22 +30,19 @@ function UserDetail() {
         <div className="container">
             <h1>{user.firstName} {user.lastName}</h1>
             <ul>
-                <li><strong>Email</strong>: <input type="text" value={user.email} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
-            <li>City: {user.city}</li>
-            <li>State: {user.state}</li>
-            <li>GPA: {user.gpa}</li>
-            <li>SAT: {user.sat}</li>
-            <li>Home Address: {user.homeAddress}</li>
-            <li>Academic Info: {user.academicInfo}</li>
-            <li>General Info: {user.generalInfo}</li>
-            <li>2/4 Year: {user.twoFourYear}</li>
-            <li>ACT: {user.act}</li>
+                <li><strong>Email : </strong> <input type="text" value={user.email} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>City : </strong><input type="text" value={user.city} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>State : </strong><input type="text" value={user.state} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>GPA : </strong> <input type="text" value={user.gpa} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>SAT : </strong> <input type="text" value={user.sat} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>Home Address : </strong> <input type="text" value={user.homeAddress} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>Academic Info : </strong> <input type="text" value={user.academicInfo} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>General Info : </strong> <input type="text" value={user.generalInfo} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>2/4 Year : </strong> <input type="text" value={user.twoFourYear} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
+                <li><strong>ACT : </strong> <input type="text" value={user.act} disabled  style={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}/></li>
             </ul>
-            <textarea
-                rows="20"
-                defaultValue="Feedback here..." style={{ width: '100%'}}>
 
-            </textarea>
+            <FancyTextarea/>
             <input type="button" value="SUBMIT"/>
 
         </div>

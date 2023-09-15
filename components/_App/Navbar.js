@@ -38,8 +38,18 @@ const Navbar = () => {
 
     useEffect(() => {
         setUserName(localStorage.getItem('id'));
-        fetchPdfUrl();
+
+        const fetchData = async () => {
+            try {
+                await fetchPdfUrl();
+            } catch (error) {
+                console.error('Error fetching PDF:', error);
+            }
+        };
+
+        fetchData();
     }, []);
+
 
     const fetchPdfUrl = async () => {
         try {
@@ -72,11 +82,10 @@ const Navbar = () => {
                             <li>{userName}</li>
                             {userName ? (
                                 <li>
-                                    {pdfUrl && (
                                         <a href={pdfUrl} download="profile.pdf">
                                             Download Your Profile <Icon.Download />
                                         </a>
-                                    )}
+
                                 </li>
                             ) : (
                                 <p></p>

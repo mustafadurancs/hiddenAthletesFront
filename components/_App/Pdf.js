@@ -25,7 +25,18 @@ const DownloadPDF = () => {
         }
     };
 
-
+    return (
+        <div>
+            <button onClick={fetchPDF}>Fetch PDF</button>
+            {pdfUrl && (
+                <div>
+                    <a href={pdfUrl} download="profile.pdf">
+                        Download Your Profile
+                    </a>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default DownloadPDF;

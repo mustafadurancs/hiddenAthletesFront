@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from '@/utils/ActiveLink';
 import * as Icon from 'react-feather';
-import axios from 'axios';
+import DownloadPDF from "@/components/_App/Pdf";
 
 
 const Navbar = () => {
@@ -34,37 +34,9 @@ const Navbar = () => {
     };
 
 
-    const [pdfUrl, setPdfUrl] = useState(null);
-
-    useEffect(() => {
-        setUserName(localStorage.getItem('id'));
-
-        const fetchData = async () => {
-            try {
-                await fetchPdfUrl();
-            } catch (error) {
-                console.error('Error fetching PDF:', error);
-            }
-        };
-
-        fetchData();
-    }, []);
 
 
-    const fetchPdfUrl = async () => {
-        try {
-            const response = await axios.get(
-                'https://backend-web-service-vbfh.onrender.com/user/api/getpdf?userId=1',
-                { responseType: 'blob' } // Specify responseType as 'blob' to handle binary data
-            );
 
-            const blob = new Blob([response.data], { type: 'application/pdf' });
-            const pdfBlobUrl = window.URL.createObjectURL(blob);
-            setPdfUrl(pdfBlobUrl);
-        } catch (error) {
-            console.error('Error fetching PDF:', error);
-        }
-    };
 
 
 
@@ -81,15 +53,14 @@ const Navbar = () => {
                         <ul>
                             <li>{userName}</li>
                             {userName ? (
-                                <li>
-                                        <a href={pdfUrl} download="profile.pdf">
-                                            Download Your Profile <Icon.Download />
-                                        </a>
 
-                                </li>
-                            ) : (
-                                <p></p>
-                            )}
+                            //<li> <Link href="/"><a>Download Your profile <DownloadPDF/> <Icon.Download/></a></Link> </li>
+                            <li><DownloadPDF/></li>
+
+                                ):
+                                (<p></p> )
+
+                            }
                         </ul>
                         <button
                             onClick={toggleNavbar}

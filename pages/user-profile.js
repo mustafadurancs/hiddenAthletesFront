@@ -109,95 +109,95 @@ const UserProfile = () => {
                         <div className="col-lg-6 col-md-6">
                             <div className="team-content">
                                 <div className="team-info">
-                                            <p>
+                                    <p>
 
                         <span>
                           <Icon.Mail /> Email : &nbsp;
                         </span>
-                                                {editingContact ? (
-                                                    <input
-                                                        type="text"
-                                                        value={user.email}
-                                                        onChange={(e) => setUser({ ...user, email: e.target.value })}
-                                                    />
-                                                ) : (
-                                                    user.email
-                                                )}
-                                            </p>
-                                            <p>
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.email}
+                                                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.email
+                                        )}
+                                    </p>
+                                    <p>
                         <span>
                           <Icon.Phone /> Phone : &nbsp;
                         </span>
-                                                {editingContact ? (
-                                                    <input
-                                                        type="text"
-                                                        value={user.phone}
-                                                        onChange={(e) => setUser({ ...user, phone: e.target.value })}
-                                                    />
-                                                ) : (
-                                                    user.phone
-                                                )}
-                                            </p>
-                                            <p>
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.phone}
+                                                onChange={(e) => setUser({ ...user, phone: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.phone
+                                        )}
+                                    </p>
+                                    <p>
                         <span>
                           <Icon.Facebook /> Facebook : &nbsp;
                         </span>
-                                                {editingContact ? (
-                                                    <input
-                                                        type="text"
-                                                        value={user.facebook}
-                                                        onChange={(e) => setUser({ ...user, facebook: e.target.value })}
-                                                    />
-                                                ) : (
-                                                    user.facebook
-                                                )}
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.facebook}
+                                                onChange={(e) => setUser({ ...user, facebook: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.facebook
+                                        )}
 
-                                            </p>
-                                            <p>
+                                    </p>
+                                    <p>
                         <span>
                           <Icon.Instagram /> Instagram : &nbsp;
                         </span>
-                                                {editingContact ? (
-                                                    <input
-                                                        type="text"
-                                                        value={user.instagram}
-                                                        onChange={(e) => setUser({ ...user, instagram: e.target.value })}
-                                                    />
-                                                ) : (
-                                                    user.instagram
-                                                )}
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.instagram}
+                                                onChange={(e) => setUser({ ...user, instagram: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.instagram
+                                        )}
 
-                                            </p>
-                                            <p>
+                                    </p>
+                                    <p>
                         <span>
                           <Icon.Square />  Snapchat : &nbsp;
                         </span>
-                                                {editingContact ? (
-                                                    <input
-                                                        type="text"
-                                                        value={user.snapchat}
-                                                        onChange={(e) => setUser({ ...user, facebook: e.target.value })}
-                                                    />
-                                                ) : (
-                                                    user.snapchat
-                                                )}
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.snapchat}
+                                                onChange={(e) => setUser({ ...user, facebook: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.snapchat
+                                        )}
 
-                                            </p>
-                                            <p>
+                                    </p>
+                                    <p>
                         <span>
                           <Icon.Link /> HighLight : &nbsp;
                         </span>
-                                                {editingContact ? (
-                                                    <input
-                                                        type="text"
-                                                        value={user.highLight}
-                                                        onChange={(e) => setUser({ ...user, highLight: e.target.value })}
-                                                    />
-                                                ) : (
-                                                    user.highLight
-                                                )}
+                                        {editingContact ? (
+                                            <input
+                                                type="text"
+                                                value={user.highLight}
+                                                onChange={(e) => setUser({ ...user, highLight: e.target.value })}
+                                            />
+                                        ) : (
+                                            user.highLight
+                                        )}
 
-                                            </p>
+                                    </p>
                                     <p>
                         <span>
                           <Icon.User /> Photo : &nbsp;
@@ -222,7 +222,7 @@ const UserProfile = () => {
                                                 </a>
                                             )}
                                         </h3>
-                        <span>
+                                        <span>
                           <Icon.User /> SAT : &nbsp;
                         </span>
                                         {editingContact ? (
@@ -266,7 +266,7 @@ const UserProfile = () => {
                                         )}
 
                                     </p>
-                                            {/* Render other contact information fields in a similar way */}
+                                    {/* Render other contact information fields in a similar way */}
 
                                 </div>
                                 {/* ... */}

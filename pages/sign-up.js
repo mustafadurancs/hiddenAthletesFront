@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+import zxcvbn from "zxcvbn"; // Password strength checker library
 
 import Navbar from "@/components/_App/Navbar";
-//import NavbarStyleThree from "@/components/_App/NavbarStyleThree";
 import Footer from "@/components/_App/Footer";
-import PageBanner from '@/components/Common/PageBanner';
-import Link from 'next/link';
+import PageBanner from "@/components/Common/PageBanner";
+import Link from "next/link";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
-import configData from  '../jsconfig.json';
+import configData from "../jsconfig.json";
 
 const checkUsernameExist = async (username) => {
     const url = `${configData.SERVER_URL}/api/id?username=${username}&password`;
@@ -33,8 +33,6 @@ const checkUsernameExist = async (username) => {
         return false;
     }
 };
-
-
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -58,7 +56,6 @@ const Signup = () => {
         checkUsernameExist(formData.username)
             .then((exists) => {
                 if (exists) {
-                    //alert(`User ${formData.username} exists`);
                     MySwal.fire({
                         title: "User Exist!!!",
                         text: "Please choose another username",
@@ -67,43 +64,49 @@ const Signup = () => {
                         timerProgressBar: true,
                         showConfirmButton: false,
                     });
-                } else {
-
-                    if (formData.password !== formData.confirmPassword) {
-                        setError("Passwords do not match");
-                    } else {
-                        //alert(formData.password);
-                        axios.post(`${configData.SERVER_URL}/user/api/save`,
-                            {
-                                "username": formData.username,
-                                "password": formData.password
-                            }
-                            )
-                            .then((response) => {
-                                console.log(response);
-                                MySwal.fire({
-                                    title: "You have been signed up!!!",
-                                    text: "You will be directed to login page",
-                                    icon: "success",
-                                    timer: 3000,
-                                    timerProgressBar: true,
-                                    showConfirmButton: true,
-                                });
-                                window.location.href = "/login";
-                            })
-                            .catch((error) => {
-                                console.log(error);
-                                alert("Something is wrong");
+                } else if (formData.password !== formData.confirmPassword) {
+                    setError("Passwords do not match");
+                } else if (isPasswordComplex(formData.password)) {
+                    axios
+                        .post(`${configData.SERVER_URL}/user/api/save`, {
+                            username: formData.username,
+                            password: formData.password,
+                        })
+                        .then((response) => {
+                            console.log(response);
+                            MySwal.fire({
+                                title: "You have been signed up!!!",
+                                text: "You will be directed to the login page",
+                                icon: "success",
+                                timer: 3000,
+                                timerProgressBar: true,
+                                showConfirmButton: true,
                             });
-                    }
+                            window.location.href = "/login";
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            alert("Something is wrong");
+                        });
+                } else {
+                    setError("Password is not complex enough");
                 }
             })
             .catch((error) => {
                 console.error(error);
             });
-
     };
 
+    const isPasswordComplex = (password) => {
+        // Define password complexity rules
+        const minPasswordLength = 8;
+        const passwordStrength = zxcvbn(password);
+
+        return (
+            password.length >= minPasswordLength &&
+            passwordStrength.score >= 3 // You can adjust the score threshold as needed
+        );
+    };
 
     return (
         <>
@@ -115,7 +118,10 @@ const Signup = () => {
                 <div className="container">
                     <div className="auth-form">
                         <div className="auth-head">
-                            <Link href="/"><a><img src="/images/logo.png" /></a>
+                            <Link href="/">
+                                <a>
+                                    <img src="/images/logo.png" alt="Logo" />
+                                </a>
                             </Link>
                             <p>Create a new account</p>
                         </div>
@@ -123,39 +129,52 @@ const Signup = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label className="form-label">Email</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1"
-                                       name="username"
-                                       value={formData.username}
-                                       onChange={handleChange}
-                                       required
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    id="exampleInputEmail1"
+                                    name="username"
+                                    value={formData.username}
+                                    onChange={handleChange}
+                                    required
                                 />
                             </div>
 
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1"
-                                       name="password"
-                                       value={formData.password}
-                                       onChange={handleChange}
-                                       required
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    id="exampleInputPassword1"
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    required
                                 />
                             </div>
 
                             <div className="mb-3">
                                 <label className="form-label">Confirm Password</label>
-                                <input type="password" className="form-control" id="ConfirmPassword"
-                                       name="confirmPassword"
-                                       value={formData.confirmPassword}
-                                       onChange={handleChange}
-                                       required
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    id="ConfirmPassword"
+                                    name="confirmPassword"
+                                    value={formData.confirmPassword}
+                                    onChange={handleChange}
+                                    required
                                 />
                             </div>
                             {error && <div>{error}</div>}
-                            <button type="submit" className="btn btn-primary">Sign Up</button>
+                            <button type="submit" className="btn btn-primary">
+                                Sign Up
+                            </button>
                         </form>
 
                         <div className="foot">
-                            <p>Already have an account yet? <Link href="/login">Login</Link></p>
+                            <p>
+                                Already have an account yet? <Link href="/login">Login</Link>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -163,7 +182,7 @@ const Signup = () => {
 
             <Footer />
         </>
-    )
+    );
 };
 
 export default Signup;

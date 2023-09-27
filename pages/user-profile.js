@@ -109,6 +109,15 @@ const UserProfile = () => {
                         <div className="col-lg-6 col-md-6">
                             <div className="team-content">
                                 <div className="team-info">
+
+                                    <h3> MY CONTACT &nbsp;
+                                        {!editingContact && (
+                                            <a href="#" onClick={() => setEditingContact(true)}>
+                                                <Icon.Edit />
+                                            </a>
+                                        )}
+                                    </h3>
+
                                     <p>
 
                         <span>
@@ -176,7 +185,7 @@ const UserProfile = () => {
                                             <input
                                                 type="text"
                                                 value={user.snapchat}
-                                                onChange={(e) => setUser({ ...user, facebook: e.target.value })}
+                                                onChange={(e) => setUser({ ...user, snapchat: e.target.value })}
                                             />
                                         ) : (
                                             user.snapchat
@@ -213,15 +222,16 @@ const UserProfile = () => {
                                         )}
 
                                     </p>
+                                    <h3> ACADEMIC INFO &nbsp;
+                                        {!editingContact && (
+                                            <a href="#" onClick={() => setEditingContact(true)}>
+                                                <Icon.Edit />
+                                            </a>
+                                        )}
+                                    </h3>
                                     <p>
 
-                                        <h3> ACADEMIC INFO &nbsp;
-                                            {!editingContact && (
-                                                <a href="#" onClick={() => setEditingContact(true)}>
-                                                    <Icon.Edit />
-                                                </a>
-                                            )}
-                                        </h3>
+
                                         <span>
                           <Icon.User /> SAT : &nbsp;
                         </span>

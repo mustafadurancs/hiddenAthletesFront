@@ -14,7 +14,7 @@ const MySwal = withReactContent(Swal);
 import configData from "../jsconfig.json";
 
 const checkUsernameExist = async (username) => {
-    const url = `${configData.SERVER_URL}/api/id?username=${username}&password`;
+    const url = `${configData.SERVER_URL}/user/api/id?username=${username}&password`;
 
     try {
         const response = await axios.get(url);

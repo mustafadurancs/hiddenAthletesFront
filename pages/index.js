@@ -12,6 +12,7 @@ import Feedback from "@/components/Common/Feedback";
 import Partner from "@/components/Common/Partner";
 import BlogPost from "@/components/Common/BlogPost";
 import Footer from "@/components/_App/Footer";
+import Checkout from "./checkout/index";
 
 const Index = () => {
     return (
@@ -19,7 +20,10 @@ const Index = () => {
             <Navbar />
 
             <MainBanner />
-                {/*
+
+            <Checkout />
+            
+            {/*
             <Features />
 
             <ServicesArea />

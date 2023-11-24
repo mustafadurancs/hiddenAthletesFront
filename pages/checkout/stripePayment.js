@@ -11,15 +11,16 @@ export default function StripeCheckout() {
     const [clientSecret, setClientSecret] = useState("");
 
     useEffect(() => {
-        fetch(`${configData.SERVER_URL}/checkout`, {
+        fetch(`${configData.SERVER_URL}/create-payment-intent`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 items: [{}],
-                amount: 10000,
-                currency: "USD", // Replace with your desired currency
-                description:"Some description",
-                source: "Some source", // Replace with the desired status
+                amount: 15,
+                email:"1",
+                productName:"2"
+
+
             }),
         })
             .then((res) => {

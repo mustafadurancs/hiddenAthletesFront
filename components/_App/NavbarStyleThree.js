@@ -294,7 +294,7 @@ const NavbarStyleThree = () => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/checkout" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Checkout</a>
+                                            <Link href="/components/checkout" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Checkout</a>
                                             </Link>
                                         </li>
                                     </ul>

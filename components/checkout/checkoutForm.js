@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-//import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { Elements, PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import React, {useEffect, useState} from "react";
+import {PaymentElement, useStripe, useElements} from "@stripe/react-stripe-js";
 
 export default function CheckoutForm() {
-    const stripe = useStripe();
-    const elements = useElements();
+    const stripe =  useStripe();
+    const elements =  useElements();
 
     const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +21,7 @@ export default function CheckoutForm() {
             return;
         }
 
-        stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+        stripe.retrievePaymentIntent(clientSecret).then(({paymentIntent}) => {
             setMessage(paymentIntent.status === "succeeded" ? "Your payment succeeded" : "Unexpected error occurred");
         });
     }, [stripe]);
@@ -36,9 +35,9 @@ export default function CheckoutForm() {
 
         setIsLoading(true);
 
-        const { error } = await stripe.confirmPayment({
+        const {error} = await stripe.confirmPayment({
             elements,
-            confirmParams: { return_url: "http://localhost:3000/odeme-alindi" }
+            confirmParams: {return_url: "http://localhost:3000/odeme-alindi"}
         });
 
         if (error && (error.type === "card_error" || error.type === "validation_error")) {
@@ -48,11 +47,16 @@ export default function CheckoutForm() {
         setIsLoading(false);
     };
 
+    const paymentElementOptions = {
+        layout: "tabs"
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form id="payment-form" onSubmit={handleSubmit}>
             <p className="text-black mb-4">Complete your payment here!</p>
-            <PaymentElement />
-            <button className='bg-black rounded-xl text-white p-2 mt-6 mb-2' disabled={isLoading || !stripe || !elements}>
+            <PaymentElement id="payment-element" options={paymentElementOptions}/>
+            <button className='bg-black rounded-xl text-white p-2 mt-6 mb-2'
+                    disabled={isLoading || !stripe || !elements}>
                 {isLoading ? "Loading..." : "Pay now"}
             </button>
             {message && <div>{message}</div>}

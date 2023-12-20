@@ -584,7 +584,7 @@ const Navbar = () => {
 
                                             <li className="nav-item">
                                                 <Link
-                                                    href="/checkout/"
+                                                    href="/components/checkout/"
                                                     onClick={toggleNavbar}
                                                     className={`nav-link ${
                                                         currentPath == "/checkout/" && "active"

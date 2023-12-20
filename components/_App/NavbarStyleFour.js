@@ -333,7 +333,7 @@ const NavbarStyleFour = () => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/checkout" activeClassName="active">
+                                            <Link href="/components/checkout" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Checkout</a>
                                             </Link>
                                         </li>

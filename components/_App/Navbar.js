@@ -82,7 +82,7 @@ const Navbar = () => {
                                 <li className="nav-item">
 
                                     <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        Pick a Sport <Icon.ChevronDown />
+                                        Recruiting  <Icon.ChevronDown />
                                     </a>
                                     </Link>
 
@@ -91,7 +91,7 @@ const Navbar = () => {
 
                                         <li className="nav-item">
                                             <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                                Get Recruited <Icon.ChevronDown />
+                                                Pick a Sport <Icon.ChevronDown />
                                             </a>
                                             </Link>
 

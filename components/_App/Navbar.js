@@ -274,12 +274,12 @@ const Navbar = () => {
                                             <Link href="/blog-1" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Mission Statement</a>
                                             </Link>
                                         </li>
-
+                                        {/*
                                         <li className="nav-item">
                                             <Link href="/blog-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Staff</a>
                                             </Link>
                                         </li>
-
+                                        */}
 
                                     </ul>
                                 </li>

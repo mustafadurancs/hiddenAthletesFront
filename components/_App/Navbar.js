@@ -82,7 +82,7 @@ const Navbar = () => {
                                 <li className="nav-item">
 
                                     <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        Recruiting <Icon.ChevronDown />
+                                        Pick a Sport <Icon.ChevronDown />
                                     </a>
                                     </Link>
 
@@ -102,29 +102,30 @@ const Navbar = () => {
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/basketball" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball</a>
+                                                    <Link href="/basketball" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Basketball</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/soccer" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer</a>
+                                                    <Link href="/soccer" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Soccer</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/basketball-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball Woman</a>
+                                                    <Link href="/basketball-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Basketball</a>
                                                     </Link>
                                                 </li>
 
                                                 <li className="nav-item">
-                                                    <Link href="/soccer-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer Woman</a>
+                                                    <Link href="/soccer-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Soccer </a>
                                                     </Link>
                                                 </li>
-
+                                                {/*
                                                 <li className="nav-item">
                                                     <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Spare Menu</a>
                                                     </Link>
                                                 </li>
+                                                */}
                                             </ul>
                                         </li>
 
@@ -188,23 +189,23 @@ const Navbar = () => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/about-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball</a>
+                                            <Link href="/about-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Basketball</a>
                                             </Link>
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/about-3" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer</a>
+                                            <Link href="/about-3" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Soccer</a>
                                             </Link>
                                         </li>
 
 
                                         <li className="nav-item">
-                                            <Link href="/about-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Basketball Woman</a>
+                                            <Link href="/about-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Basketball </a>
                                             </Link>
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/about-3" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Soccer Woman</a>
+                                            <Link href="/about-3" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Soccer </a>
                                             </Link>
                                         </li>
                                     </ul>
@@ -212,7 +213,7 @@ const Navbar = () => {
 
                                 <li className="nav-item">
                                     <Link href="/#"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        Training <Icon.ChevronDown />
+                                        Combines <Icon.ChevronDown />
                                     </a>
                                     </Link>
 
@@ -238,6 +239,8 @@ const Navbar = () => {
                                     </ul>
                                 </li>
 
+                                {/*
+
                                 <li className="nav-item">
                                     <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
                                         Agency <Icon.ChevronDown />
@@ -255,8 +258,10 @@ const Navbar = () => {
                                             </Link>
                                         </li>
                                     </ul>
-                                    */}
+
                                 </li>
+
+                            */}
 
                                 <li className="nav-item">
                                     <Link href="/#"><a onClick={e => e.preventDefault()} className="nav-link">

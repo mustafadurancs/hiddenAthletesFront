@@ -28,31 +28,23 @@ const Footer = () => {
                             <h3>Company</h3>
                             <ul className="list">
                                 <li>
-                                    <Link href="/">
+                                    <Link href="/about-1">
                                         <a>About Us</a>
                                     </Link>
                                 </li>
+
+
                                 <li>
-                                    <Link href="/">
-                                        <a>Services</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/">
-                                        <a>Features</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/">
+                                    <Link href="/pricing">
                                         <a>Pricing</a>
                                     </Link>
                                 </li>
                                 <li>
-                                    {/*
+
                                     <Link href="/blog-1">
-                                        <a>Latest News</a>
+                                        <a>Career</a>
                                     </Link>
-                                    */}
+
                                 </li>
                             </ul>
                         </div>
@@ -62,11 +54,7 @@ const Footer = () => {
                         <div className="single-footer-widget">
                             <h3>Support</h3>
                             <ul className="list">
-                                <li>
-                                    <Link href="/faq">
-                                        <a>FAQ's</a>
-                                    </Link>
-                                </li>
+
                                 <li>
                                     <Link href="/privacy-policy">
                                         <a>Privacy Policy</a>
@@ -95,7 +83,7 @@ const Footer = () => {
 
                     <div className="col-lg-3 col-md-6">
                         <div className="single-footer-widget">
-                            <h3>Info</h3>
+                            <h3>Follow Us</h3>
                             
                             <ul className="footer-contact-info">
                                 {/*
@@ -103,12 +91,12 @@ const Footer = () => {
                                     <Icon.MapPin />
                                     3815 Lake Edinburg Ln, Richmond, <br /> TX 77406, USA
                                 </li>
-                                */}
+
                                 <li>
                                     <Icon.Mail />
                                     Email: <a href="mailto:support@hiddenathletes.com">support@hiddenathletes.com</a>
                                 </li>
-                                {/*
+
                                 <li> 
                                     <Icon.PhoneCall />
                                     Phone: <a href="tel:321984754">+ (321) 984 754</a>

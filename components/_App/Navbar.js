@@ -48,6 +48,7 @@ const Navbar = () => {
                     <nav className="navbar navbar-expand-md navbar-light">
                         <Link href="/"><a onClick={toggleNavbar} className="navbar-brand">
                             <img src="/images/logo.png" alt="logo" />
+                            <img src="/images/combine.png" alt="combine" />
                         </a>
                         </Link>
                         <ul>
@@ -153,14 +154,11 @@ const Navbar = () => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA Rules</a>
+                                            <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA / NAIA Rules</a>
                                             </Link>
                                         </li>
 
-                                        <li className="nav-item">
-                                            <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NAIA Rules</a>
-                                            </Link>
-                                        </li>
+
 
                                         <li className="nav-item">
                                             <Link href="https://ncaaorg.s3.amazonaws.com/compliance/recruiting/NCAA_RecruitingFactSheet.pdf" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA Recruiting Facts</a>

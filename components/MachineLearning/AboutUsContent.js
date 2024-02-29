@@ -20,7 +20,7 @@ const AboutUsContent = () => {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.Donec vitae sapien ut libero venenatis faucibus tempus.</p>
 
-                            <Link href="/about-1">
+                            <Link href="/about-us">
                                 <a className="btn btn-secondary">Discover More</a>
                             </Link>
                         </div>

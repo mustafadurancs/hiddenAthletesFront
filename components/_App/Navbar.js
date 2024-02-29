@@ -154,7 +154,7 @@ const Navbar = () => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA / NAIA Rules</a>
+                                            <Link href="/recruiting-rules" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA / NAIA Rules</a>
                                             </Link>
                                         </li>
 
@@ -182,12 +182,12 @@ const Navbar = () => {
 
                                     <ul className="dropdown-menu">
                                         <li className="nav-item">
-                                            <Link href="/about-1" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Football</a>
+                                            <Link href="/about-us" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Football</a>
                                             </Link>
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/about-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Basketball</a>
+                                            <Link href="/recruiting-rules" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Basketball</a>
                                             </Link>
                                         </li>
 
@@ -198,7 +198,7 @@ const Navbar = () => {
 
 
                                         <li className="nav-item">
-                                            <Link href="/about-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Basketball </a>
+                                            <Link href="/recruiting-rules" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Basketball </a>
                                             </Link>
                                         </li>
 
@@ -269,7 +269,7 @@ const Navbar = () => {
 
                                     <ul className="dropdown-menu">
                                         <li className="nav-item">
-                                            <Link href="/blog-1" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Mission Statement</a>
+                                            <Link href="/about-us" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Mission Statement</a>
                                             </Link>
                                         </li>
                                         {/*
@@ -281,11 +281,12 @@ const Navbar = () => {
 
                                     </ul>
                                 </li>
-
+                                {/*
                                 <li className="nav-item">
                                     <Link href="/contact" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Shop</a>
                                     </Link>
                                 </li>
+                                */}
                             </ul>
 
                         </div>

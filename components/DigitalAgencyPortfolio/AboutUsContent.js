@@ -12,7 +12,7 @@ const AboutUsContent = () => {
                             <h3>About Us</h3>
                             <p>Vestibulum ac posuere mi. Nullam euismod dui condimentum metus consequat blandit. Donec leo tortor, commodo eget fermentum id, molestie quis est. Ut lectus metus, condimentum eget facilisis sed, fermentum et tortor.</p>
 
-                            <Link href="/about-1">
+                            <Link href="/about-us">
                                 <a className="learn-more-btn">
                                     <i data-feather="plus-circle"></i> Learn More
                                 </a>
@@ -26,7 +26,7 @@ const AboutUsContent = () => {
                             <h3>Our Vision</h3>
                             <p>Vestibulum ac posuere mi. Nullam euismod dui condimentum metus consequat blandit. Donec leo tortor, commodo eget fermentum id, molestie quis est. Ut lectus metus, condimentum eget facilisis sed, fermentum et tortor.</p>
                             
-                            <Link href="/about-1">
+                            <Link href="/about-us">
                                 <a className="learn-more-btn">
                                     <i data-feather="plus-circle"></i> Learn More
                                 </a>
@@ -40,7 +40,7 @@ const AboutUsContent = () => {
                             <h3>Our Mission</h3>
                             <p>Vestibulum ac posuere mi. Nullam euismod dui condimentum metus consequat blandit. Donec leo tortor, commodo eget fermentum id, molestie quis est. Ut lectus metus, condimentum eget facilisis sed, fermentum et tortor.</p>
                             
-                            <Link href="/about-1">
+                            <Link href="/about-us">
                                 <a className="learn-more-btn">
                                     <i data-feather="plus-circle"></i> Learn More
                                 </a>

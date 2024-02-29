@@ -129,13 +129,13 @@ const NavbarStyleTwo = () => {
 
                                     <ul className="dropdown-menu">
                                         <li className="nav-item">
-                                            <Link href="/about-1" activeClassName="active">
+                                            <Link href="/about-us" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">About Style 1</a>
                                             </Link>
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/about-2" activeClassName="active">
+                                            <Link href="/recruiting-rules" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">About Style 2</a>
                                             </Link>
                                         </li>

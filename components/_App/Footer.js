@@ -28,7 +28,7 @@ const Footer = () => {
                             <h3>Company</h3>
                             <ul className="list">
                                 <li>
-                                    <Link href="/about-1">
+                                    <Link href="/about-us">
                                         <a>About Us</a>
                                     </Link>
                                 </li>

@@ -2,12 +2,11 @@ import React from 'react';
 import Navbar from "@/components/_App/Navbar";
 import Team from "@/components/Common/Team";
 import FunFactsArea from "@/components/Common/FunFactsArea";
+import Partner from "@/components/Common/Partner";
 import Footer from "@/components/_App/Footer";
 import PageBanner from '@/components/Common/PageBanner';
-import FeedbackStyleFour from '@/components/Common/FeedbackStyleFour';
-import Partner from '@/components/MachineLearning/Partner';
 
-const About2 = () => {
+const AboutUs = () => {
     return (
         <>
             <Navbar />
@@ -15,29 +14,31 @@ const About2 = () => {
             <PageBanner pageTitle="About Us" />
 
             <div className="about-area ptb-80">
-                <div className="container-fluid">
+                <div className="container">
                     <div className="row align-items-center">
+                        {/*
                         <div className="col-lg-6 col-md-12">
-                            <div className="ml-about-img">
-                                <img src="/images/about4.png" alt="image" />
+                            <div className="about-image">
+
+                                <img src="/images/about-one.png" alt="image" />
+
                             </div>
                         </div>
+                        */}
 
                         <div className="col-lg-6 col-md-12">
-                            <div className="ml-about-content">
-                                <span className="sub-title">About Us</span>
-                                <h2>Engaging New Audiences Through Smart Approach</h2>
-                                <div className="bar"></div>
+                            <div className="about-content">
+                                <div className="section-title">
+                                    <h2>MISSION STATEMENT</h2>
+                                    <div className="bar"></div>
+                                    <p>Hidden Athletes is a professional organization dedicated to providing parents, coaches, and high school athletes across the country a platform to ensure your future endeavors in your fields of study, and to compete at the highest level.</p>
+                                </div>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-                                <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.Donec vitae sapien ut libero venenatis faucibus tempus.</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="container">
                     <div className="about-inner-area">
                         <div className="row justify-content-center">
                             <div className="col-lg-4 col-md-6 col-sm-6">
@@ -64,20 +65,17 @@ const About2 = () => {
                     </div>
                 </div>
             </div>
-
+            {/*
             <Team />
 
-            <FeedbackStyleFour />
-           
-            <FunFactsArea />
+            <Partner />
 
-            <div className="pb-80">
-                <Partner />
-            </div>
+            <FunFactsArea />
+            */}
             
             <Footer />
         </>
     )
 }
 
-export default About2;
+export default AboutUs;

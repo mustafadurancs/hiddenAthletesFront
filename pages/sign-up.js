@@ -150,7 +150,11 @@ const Signup = () => {
                                     value={formData.password}
                                     onChange={handleChange}
                                     required
+
                                 />
+                                <small  style={{ textAlign: 'left', display: 'block' }} className="form-text text-muted ">
+                                    Password must be at least 8 characters long and contain a mix of uppercase, lowercase, numbers, and special characters.
+                                </small>
                             </div>
 
                             <div className="mb-3">
@@ -163,6 +167,7 @@ const Signup = () => {
                                     value={formData.confirmPassword}
                                     onChange={handleChange}
                                     required
+                                    title="Password must be at least 8 characters long and contain a mix of uppercase, lowercase, numbers, and special characters."
                                 />
                             </div>
                             {error && <div>{error}</div>}

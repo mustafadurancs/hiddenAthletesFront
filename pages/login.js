@@ -28,7 +28,7 @@ const Login = () => {
         if (data.id && username == data.username && password == data.password) {
             localStorage.setItem("id", data.username);
             setIsAuthenticated(true);
-            window.location.href = "/user-profile";
+            window.location.href = "/";
         }
         else{
 

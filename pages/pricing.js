@@ -12,11 +12,11 @@ const Pricing = () => {
             <Navbar />
 
             <PageBanner pageTitle="Pricing" />
-
+            {/*
             <PricingStyleOne />
 
             <PricingStyleTwo />
-
+             */}
             <div className="pt-80">
                 <PricingStyleFour />
             </div> 

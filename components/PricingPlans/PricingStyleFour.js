@@ -36,11 +36,11 @@ class PricingStyleFour extends Component {
                                 className="current"
                                 onClick={(e) => this.openTabSection(e, 'tab1')}
                             >
-                                Monthly Plan
+                                Recruiting
                             </li>
                             
                             <li onClick={(e) => this.openTabSection(e, 'tab2')}>
-                                Yearly Plan
+                                Evaluations
                             </li>
                         </ul>
 
@@ -50,12 +50,12 @@ class PricingStyleFour extends Component {
                                     <div className="col-lg-4 col-md-6 col-sm-6">
                                         <div className="pricing-box">
                                             <div className="pricing-header">
-                                                <h3>Free</h3>
+                                                <h3>OUR PRICE</h3>
                                                 <p>Get your business up <br /> and running</p>
                                             </div>
 
                                             <div className="price">
-                                                $0 <span>/m</span>
+                                                $399.99 <span></span>
                                             </div>
 
                                             <div className="buy-btn">
@@ -76,63 +76,9 @@ class PricingStyleFour extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-4 col-md-6 col-sm-6">
-                                        <div className="pricing-box">
-                                            <div className="pricing-header">
-                                                <h3>Pro</h3>
-                                                <p>Get your business up <br /> and running</p>
-                                            </div>
 
-                                            <div className="price">
-                                                $149 <span>/m</span>
-                                            </div>
 
-                                            <div className="buy-btn">
-                                                <Link href="#">
-                                                    <a className="btn btn-primary">Start 3 Days Free Trial</a>
-                                                </Link>
-                                            </div>
 
-                                            <ul className="pricing-features">
-                                                <li><Icon.Check /> Drag & Drop Builder</li>
-                                                <li><Icon.Check /> Lead Generation & Sales</li>
-                                                <li><Icon.Check /> Boot & Digital Assistants</li>
-                                                <li><Icon.Check /> Customer Service</li>
-                                                <li><Icon.Check /> Up to 3300 Subscribers</li>
-                                                <li><Icon.Check /> Unlimited Broadcasts</li>
-                                                <li><Icon.Check /> Landing Pages & Web Widgets</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-lg-4 col-md-6 col-sm-6">
-                                        <div className="pricing-box">
-                                            <div className="pricing-header">
-                                                <h3>Premium</h3>
-                                                <p>Get your business up <br /> and running</p>
-                                            </div>
-
-                                            <div className="price">
-                                                $179 <span>/m</span>
-                                            </div>
-
-                                            <div className="buy-btn">
-                                                <Link href="#">
-                                                    <a className="btn btn-primary">Start 6 Days Free Trial</a>
-                                                </Link>
-                                            </div>
-
-                                            <ul className="pricing-features">
-                                                <li><Icon.Check /> Drag & Drop Builder</li>
-                                                <li><Icon.Check /> Lead Generation & Sales</li>
-                                                <li><Icon.Check /> Boot & Digital Assistants</li>
-                                                <li><Icon.Check /> Customer Service</li>
-                                                <li><Icon.Check /> Up to 10000 Subscribers</li>
-                                                <li><Icon.Check /> Unlimited Broadcasts</li>
-                                                <li><Icon.Check /> Landing Pages & Web Widgets</li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -141,12 +87,12 @@ class PricingStyleFour extends Component {
                                     <div className="col-lg-4 col-md-6 col-sm-6">
                                         <div className="pricing-box">
                                             <div className="pricing-header">
-                                                <h3>Free</h3>
+                                                <h3>OUR PRICE</h3>
                                                 <p>Get your business up <br /> and running</p>
                                             </div>
 
                                             <div className="price">
-                                                $0 <span>/y</span>
+                                                $75 <span>/each</span>
                                             </div>
 
                                             <div className="buy-btn">
@@ -167,63 +113,9 @@ class PricingStyleFour extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-4 col-md-6 col-sm-6">
-                                        <div className="pricing-box">
-                                            <div className="pricing-header">
-                                                <h3>Pro</h3>
-                                                <p>Get your business up <br /> and running</p>
-                                            </div>
 
-                                            <div className="price">
-                                                $249 <span>/y</span>
-                                            </div>
 
-                                            <div className="buy-btn">
-                                                <Link href="#">
-                                                    <a className="btn btn-primary">Start 3 Days Free Trial</a>
-                                                </Link>
-                                            </div>
 
-                                            <ul className="pricing-features">
-                                                <li><Icon.Check /> Drag & Drop Builder</li>
-                                                <li><Icon.Check /> Lead Generation & Sales</li>
-                                                <li><Icon.Check /> Boot & Digital Assistants</li>
-                                                <li><Icon.Check /> Customer Service</li>
-                                                <li><Icon.Check /> Up to 3300 Subscribers</li>
-                                                <li><Icon.Check /> Unlimited Broadcasts</li>
-                                                <li><Icon.Check /> Landing Pages & Web Widgets</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-lg-4 col-md-6 col-sm-6">
-                                        <div className="pricing-box">
-                                            <div className="pricing-header">
-                                                <h3>Premium</h3>
-                                                <p>Get your business up <br /> and running</p>
-                                            </div>
-
-                                            <div className="price">
-                                                $279 <span>/y</span>
-                                            </div>
-
-                                            <div className="buy-btn">
-                                                <Link href="#">
-                                                    <a className="btn btn-primary">Start 6 Days Free Trial</a>
-                                                </Link>
-                                            </div>
-
-                                            <ul className="pricing-features">
-                                                <li><Icon.Check /> Drag & Drop Builder</li>
-                                                <li><Icon.Check /> Lead Generation & Sales</li>
-                                                <li><Icon.Check /> Boot & Digital Assistants</li>
-                                                <li><Icon.Check /> Customer Service</li>
-                                                <li><Icon.Check /> Up to 10000 Subscribers</li>
-                                                <li><Icon.Check /> Unlimited Broadcasts</li>
-                                                <li><Icon.Check /> Landing Pages & Web Widgets</li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

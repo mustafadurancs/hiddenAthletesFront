@@ -12,8 +12,8 @@ const ContactInfo = () => {
                                 <Icon.Mail />
                             </div>
                             <h3>Mail Here</h3>
-                            <p><a href="mailto:admin@startp.com">admin@startp.com</a></p>
-                            <p><a href="mailto:info@startp.com">info@startp.com</a></p>
+                            <p><a href="mailto:support@hiddenathletes.com">support@hiddenathletes.com</a></p>
+
                         </div>
                     </div>
 
@@ -23,7 +23,7 @@ const ContactInfo = () => {
                                 <Icon.MapPin />
                             </div>
                             <h3>Visit Here</h3>
-                            <p>3815 Lake Edinburg Ln, Richmond, TX 77406, United States of America</p>
+                            <p> </p>
                         </div>
                     </div>
 

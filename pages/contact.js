@@ -15,7 +15,7 @@ const Contact = () => {
 
             <ContactInfo />
 
-            <GoogleMap />
+            {/* <GoogleMap /> */}
 
             <ContactForm />
            

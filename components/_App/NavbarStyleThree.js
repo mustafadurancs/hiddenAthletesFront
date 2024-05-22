@@ -308,7 +308,7 @@ const NavbarStyleThree = () => {
 
                                     <ul className="dropdown-menu">
                                         <li className="nav-item">
-                                            <Link href="/blog-1" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Blog Grid</a>
+                                            <Link href="/careers" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Blog Grid</a>
                                             </Link>
                                         </li>
 

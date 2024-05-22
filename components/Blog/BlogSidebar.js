@@ -80,27 +80,27 @@ const BlogSidebar = () => {
 
                 <ul>
                     <li>
-                        <Link href="/blog-1">
+                        <Link href="/careers">
                             <a>Business</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/blog-1">
+                        <Link href="/careers">
                             <a>Privacy</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/blog-1">
+                        <Link href="/careers">
                             <a>Technology</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/blog-1">
+                        <Link href="/careers">
                             <a>Tips</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/blog-1">
+                        <Link href="/careers">
                             <a>Uncategorized</a>
                         </Link>
                     </li>
@@ -111,35 +111,35 @@ const BlogSidebar = () => {
                 <h3 className="widget-title">Tags</h3>
 
                 <div className="tagcloud">
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>IT <span className="tag-link-count">(3)</span></a>
                     </Link>
 
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>Spacle <span className="tag-link-count">(3)</span></a>
                     </Link>
 
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>Games <span className="tag-link-count">(2)</span></a>
                     </Link>
 
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>Fashion <span className="tag-link-count">(2)</span></a>
                     </Link>
 
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>Travel <span className="tag-link-count">(1)</span></a>
                     </Link>
 
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>Smart <span className="tag-link-count">(1)</span></a>
                     </Link>
 
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>Marketing <span className="tag-link-count">(1)</span></a>
                     </Link>
 
-                    <Link href="/blog-1">
+                    <Link href="/careers">
                         <a>Tips <span className="tag-link-count">(2)</span></a>
                     </Link>
                 </div>

@@ -76,13 +76,13 @@ const Signup = () => {
                             console.log(response);
                             MySwal.fire({
                                 title: "You have been signed up!!!",
-                                text: "You will be directed to the login page",
+                                text: "You will be directed to the email verification",
                                 icon: "success",
                                 timer: 3000,
                                 timerProgressBar: true,
                                 showConfirmButton: true,
                             });
-                            window.location.href = "/login";
+                            window.location.href = "/email-sent";
                         })
                         .catch((error) => {
                             console.log(error);

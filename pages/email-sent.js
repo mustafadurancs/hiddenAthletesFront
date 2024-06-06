@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from 'next/router';
+import React from "react";
 
 import Navbar from "@/components/_App/Navbar";
 import Footer from "@/components/_App/Footer";
@@ -7,32 +6,22 @@ import PageBanner from '@/components/Common/PageBanner';
 import Link from 'next/link';
 
 const SignupSuccess = () => {
-    const router = useRouter();
-    const [var1, setVar1] = useState('');
-
-    useEffect(() => {
-        if (router.query.var1) {
-            setVar1(router.query.var1);
-        }
-    }, [router.query]);
-
     return (
         <>
             <Navbar />
 
-            <PageBanner pageTitle="Sign Up Successful" />
+            <PageBanner pageTitle="Email Sent" />
 
             <div className="ptb-80">
                 <div className="container">
                     <div className="auth-form">
                         <div className="auth-head">
                             <Link href="/"><a><img src="/images/logo.png" alt="Logo" /></a></Link>
-                            <p>Your account has been successfully created!</p>
+                            <p>Your email verification has been sent to your email account</p>
                         </div>
 
                         <div className="text-center">
-                            <p>Thank you for signing up. You can now log in using your new account.</p>
-                            <p>Var1: {var1}</p> {/* Display the parsed var1 value */}
+                            <p>Please check your inbox and follow the instructions</p>
                             <Link href="/login">
                                 <a className="btn btn-primary">Go to Login</a>
                             </Link>
@@ -43,7 +32,7 @@ const SignupSuccess = () => {
 
             <Footer />
         </>
-    );
+    )
 };
 
 export default SignupSuccess;

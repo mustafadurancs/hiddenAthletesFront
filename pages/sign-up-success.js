@@ -8,10 +8,10 @@ import Link from 'next/link';
 
 const SignupSuccess = () => {
     const router = useRouter();
-    const [var1, setVar1] = useState('');
+    const [name, setVar1] = useState('');
 
     useEffect(() => {
-        if (router.query.var1) {
+        if (router.query.name) {
             setVar1(router.query.name);
         }
     }, [router.query]);

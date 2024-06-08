@@ -12,7 +12,7 @@ const SignupSuccess = () => {
 
     useEffect(() => {
         if (router.query.var1) {
-            setVar1(router.query.var1);
+            setVar1(router.query.name);
         }
     }, [router.query]);
 
@@ -32,7 +32,7 @@ const SignupSuccess = () => {
 
                         <div className="text-center">
                             <p>Thank you for signing up. You can now log in using your new account.</p>
-                            <p>Var1: {var1}</p> {/* Display the parsed var1 value */}
+                            <p>Email: {name}</p> {/* Display the parsed var1 value */}
                             <Link href="/login">
                                 <a className="btn btn-primary">Go to Login</a>
                             </Link>

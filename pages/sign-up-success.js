@@ -6,13 +6,34 @@ import Footer from "@/components/_App/Footer";
 import PageBanner from '@/components/Common/PageBanner';
 import Link from 'next/link';
 
+import configData from '../jsconfig.json';
+
 const SignupSuccess = () => {
     const router = useRouter();
-    const [name, setVar1] = useState('');
+    const [name, setName] = useState('');
 
     useEffect(() => {
         if (router.query.name) {
-            setVar1(router.query.name);
+            setName(router.query.name);
+            // Make API call when the username is available
+            const approveUser = async () => {
+                try {
+                    const response = await fetch(`${configData.SERVER_URL}/PostMapping/approve?username=${router.query.name}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const data = await response.json();
+                    console.log('User approved:', data);
+                } catch (error) {
+                    console.error('Error approving user:', error);
+                }
+            };
+            approveUser();
         }
     }, [router.query]);
 

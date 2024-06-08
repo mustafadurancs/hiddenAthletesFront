@@ -18,7 +18,7 @@ const SignupSuccess = () => {
             // Make API call when the username is available
             const approveUser = async () => {
                 try {
-                    const response = await fetch(`${configData.SERVER_URL}/PostMapping/approve?username=${router.query.name}`, {
+                    const response = await fetch(`${configData.SERVER_URL}/approve?username=${router.query.name}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

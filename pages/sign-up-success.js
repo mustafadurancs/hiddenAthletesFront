@@ -18,7 +18,9 @@ const SignupSuccess = () => {
             // Make API call when the username is available
             const approveUser = async () => {
                 try {
-                    const response = await fetch(`${configData.SERVER_URL}/user/api/approve?username=${router.query.name}`, {
+                    let u_name = router.query.name;
+                    u_name.slice(0,-1);
+                    const response = await fetch(`${configData.SERVER_URL}/user/api/approve?username=${u_name}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -53,7 +55,7 @@ const SignupSuccess = () => {
 
                         <div className="text-center">
                             <p>Thank you for signing up. You can now log in using your new account.</p>
-                            <p>Email: {name}</p> {/* Display the parsed var1 value */}
+                            <p>Email: {u_name}</p> {/* Display the parsed var1 value */}
                             <Link href="/login">
                                 <a className="btn btn-primary">Go to Login</a>
                             </Link>

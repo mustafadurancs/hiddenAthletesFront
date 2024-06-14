@@ -18,8 +18,8 @@ const SignupSuccess = () => {
             // Make API call when the username is available
             const approveUser = async () => {
                 try {
-                    let u_name = router.query.name;
-                    u_name.slice(0,-1);
+                    let u_name = router.query.name.slice(0,-1);
+                    console.log(u_name);
                     const response = await fetch(`${configData.SERVER_URL}/user/api/approve?username=${u_name}`, {
                         method: 'POST',
                         headers: {

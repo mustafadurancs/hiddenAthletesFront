@@ -55,7 +55,7 @@ const SignupSuccess = () => {
 
                         <div className="text-center">
                             <p>Thank you for signing up. You can now log in using your new account.</p>
-                            <p>Email: {u_name}</p> {/* Display the parsed var1 value */}
+                            <p>Email: {name.slice(0,-1)}</p> {/* Display the parsed var1 value */}
                             <Link href="/login">
                                 <a className="btn btn-primary">Go to Login</a>
                             </Link>

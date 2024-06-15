@@ -23,7 +23,7 @@ const ForgotPasswordEdit = () => {
         }
 
         try {
-            const response = await axios.post(`${configData.SERVER_URL}/updatePass`, null, {
+            const response = await axios.post(`${configData.SERVER_URL}/user/api/updatePass`, null, {
                 params: { uuid: router.query.uu, password: password },
                 headers: {
                     'Content-Type': 'application/json',

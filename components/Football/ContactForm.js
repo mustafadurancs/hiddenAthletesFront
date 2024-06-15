@@ -79,7 +79,7 @@ const ContactForm = () => {
                         <img src="/images/contact-img.png" alt="image" />
                     </div>
                     */}
-
+                    <h3>General Information</h3>
                     <div className="col-lg-12 col-md-12">
                         <form onSubmit={handleSubmit}>
                             <div className="row">
@@ -113,118 +113,34 @@ const ContactForm = () => {
                                     </div>
 
                                 </div>
-
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <input 
-                                            type="text" 
-                                            name="email" 
-                                            placeholder="Email Address"
-                                            className="form-control" 
-                                            value={contact.email}
+                                        <input
+                                            type="text"
+                                            name="homeAddress"
+                                            placeholder="Home Address"
+                                            className="form-control"
+                                            value={contact.homeAddress}
                                             onChange={handleChange}
                                             required
                                         />
+
                                     </div>
-                                </div>
 
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <input 
-                                            type="text" 
-                                            name="phoneNumber"
-                                            placeholder="Phone Number"
-                                            className="form-control" 
-                                            value={contact.phoneNumber}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <input 
-                                            type="text" 
-                                            name="act"
-                                            placeholder="ACT"
-                                            className="form-control" 
-                                            value={contact.act}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <input
-                                            type="text"
-                                            name="gpa"
-                                            placeholder="GPA"
-                                            className="form-control"
-                                            value={contact.gpa}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
                                 </div>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="sat"
-                                            placeholder="SAT"
+                                            name="city"
+                                            placeholder="City"
                                             className="form-control"
-                                            value={contact.sat}
+                                            value={contact.city}
                                             onChange={handleChange}
 
                                         />
                                     </div>
                                 </div>
-
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <textarea
-                                            name="academicInfo"
-                                            cols="30"
-                                            rows="5"
-                                            placeholder="Academic Info..."
-                                            className="form-control"
-                                            value={contact.academicInfo}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <input
-                                            type="text"
-                                            name="ratingBasedChart"
-                                            placeholder="Rating"
-                                            className="form-control"
-                                            value={contact.ratingBasedChart}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
-                                </div>
-                                    <a href="#">Star Rating Chart</a>
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <input
-                                            type="text"
-                                            name="startRatingBasedChart"
-                                            placeholder="Star Rating"
-                                            className="form-control"
-                                            value={contact.startRatingBasedChart}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
-                                </div>
-
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <select name="state" id="state" className="form-control"
@@ -286,21 +202,92 @@ const ContactForm = () => {
                                         </select>
                                     </div>
                                 </div>
-
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="city"
-                                            placeholder="City"
+                                            name="zipcode"
+                                            placeholder="Zip Code"
                                             className="form-control"
-                                            value={contact.city}
+                                            value={contact.zipCode}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <input
+                                            type="text"
+                                            name="phoneNumber"
+                                            placeholder="Phone Number"
+                                            className="form-control"
+                                            value={contact.phoneNumber}
                                             onChange={handleChange}
 
                                         />
                                     </div>
                                 </div>
 
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <input 
+                                            type="text" 
+                                            name="email" 
+                                            placeholder="Email Address"
+                                            className="form-control" 
+                                            value={contact.email}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <h3>Academic Information</h3>
+
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <input
+                                            type="text"
+                                            name="gpa"
+                                            placeholder="GPA"
+                                            className="form-control"
+                                            value={contact.gpa}
+                                            onChange={handleChange}
+
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <input
+                                            type="text"
+                                            name="sat"
+                                            placeholder="SAT"
+                                            className="form-control"
+                                            value={contact.sat}
+                                            onChange={handleChange}
+
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <input 
+                                            type="text" 
+                                            name="act"
+                                            placeholder="ACT"
+                                            className="form-control" 
+                                            value={contact.act}
+                                            onChange={handleChange}
+
+                                        />
+                                    </div>
+                                </div>
+
+                                <p>Are you looking for a two or four year school</p>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <select name="twoFourYear" id="year" className="form-control"
@@ -314,13 +301,80 @@ const ContactForm = () => {
                                     </div>
                                 </div>
 
+                                <p>Are you interested in attending an HBCU</p>
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <select name="hbcu" id="year" className="form-control"
+                                                value={contact.hbcu}
+                                                onChange={handleChange}
+                                                required>
+                                            <option value="" selected="selected">Yes / No</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {/*
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <textarea
+                                            name="academicInfo"
+                                            cols="30"
+                                            rows="5"
+                                            placeholder="Academic Info..."
+                                            className="form-control"
+                                            value={contact.academicInfo}
+                                            onChange={handleChange}
+
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <input
+                                            type="text"
+                                            name="ratingBasedChart"
+                                            placeholder="Rating"
+                                            className="form-control"
+                                            value={contact.ratingBasedChart}
+                                            onChange={handleChange}
+
+                                        />
+                                    </div>
+                                </div>
+                                */}
+                                <h6>Football Star Rating</h6>
+                                Use the chart to determine your number.  if you find yourself between charts add a half point.  example if some of your numbers on three and two then give yourself a 2. <a href="#">Star Rating Chart</a>
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <select name="startRatingBasedChart" id="startRatingBasedChart" className="form-control"
+                                                value={contact.startRatingBasedChart}
+                                                onChange={handleChange}
+                                                required>
+                                            <option value="" selected="selected">Choose your star rating</option>
+                                            <option value="1">1</option>
+                                            <option value="1.5">1.5</option>
+                                            <option value="2">2</option>
+                                            <option value="2.5">2.5</option>
+                                            <option value="3">3</option>
+                                            <option value="3.5">3.5</option>
+                                            <option value="4">4</option>
+                                            <option value="4.5">4.5</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <textarea 
                                             name="generalInfo"
                                             cols="30" 
                                             rows="5" 
-                                            placeholder="General Info..."
+                                            placeholder="Leave your note here .... "
                                             className="form-control" 
                                             value={contact.generalInfo}
                                             onChange={handleChange}

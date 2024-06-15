@@ -36,7 +36,9 @@ const alertContent = () => {
       ratingBasedChart : "",
       gpa : "",
       sat : "",
-      act : ""
+      act : "",
+      zipCode : "",
+      attendingHBCU : false
   };
 
 const ContactForm = () => {
@@ -53,8 +55,8 @@ const ContactForm = () => {
         e.preventDefault();
         try {
             const url = `${configData.SERVER_URL}/questionaire/api/save`; //`${baseUrl}/api/contact`
-            const {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act } = contact;
-            const payload = {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act};
+            const {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act, zipCode, attendingHBCU } = contact;
+            const payload = {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act, zipCode, attendingHBCU};
             const response = await axios.post(url, payload);
             console.log(response);
             setContact(INITIAL_STATE);
@@ -206,7 +208,7 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="zipcode"
+                                            name="zipCode"
                                             placeholder="Zip Code"
                                             className="form-control"
                                             value={contact.zipCode}
@@ -304,13 +306,13 @@ const ContactForm = () => {
                                 <p>Are you interested in attending an HBCU</p>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <select name="hbcu" id="year" className="form-control"
-                                                value={contact.hbcu}
+                                        <select name="attendingHBCU" id="year" className="form-control"
+                                                value={contact.attendingHBCU}
                                                 onChange={handleChange}
                                                 required>
                                             <option value="" selected="selected">Yes / No</option>
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
+                                            <option value="true">Yes</option>
+                                            <option value="false">No</option>
                                         </select>
                                     </div>
                                 </div>

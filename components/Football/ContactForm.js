@@ -263,8 +263,6 @@ const ContactForm = () => {
 
                                 <h6>Football Star Rating</h6>
                                 Use the chart to determine your number. If you find yourself between charts add a half point. Example: if some of your numbers are on three and two, then give yourself a 2.
-
-                                    <a href="#">Star Rating Chart</a>
                                 <div style={{ textAlign: 'center' }}>
                                     <img src="/images/starChart.png" alt="Star Chart" />
                                 </div>

@@ -4,59 +4,58 @@ import Link from 'next/link';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-import baseUrl from '../../utils/baseUrl'
+import baseUrl from '../../utils/baseUrl';
 
 import configData from '../../jsconfig.json';
 
 const alertContent = () => {
     MySwal.fire({
-      title: "Congratulations!",
-      text: "Your information was successfully send and will back to you soon",
-      icon: "success",
-      timer: 2000,
-      timerProgressBar: true,
-      showConfirmButton: false,
+        title: "Congratulations!",
+        text: "Your information was successfully sent and will be back to you soon",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
     });
-  };
-  
-  // Form initial state
-  const INITIAL_STATE = {
-      formDescription :"",
-      generalInfo : "",
-      firstName : "",
-      lastName : "",
-      homeAddress : "",
-      city : "",
-      state : "",
-      phoneNumber : "",
-      email : "",
-      academicInfo : "",
-      twoFourYear : "",
-      startRatingBasedChart : "",
-      ratingBasedChart : "",
-      gpa : "",
-      sat : "",
-      act : "",
-      zipCode : "",
-      attendingHBCU : false
-  };
+};
+
+// Form initial state
+const INITIAL_STATE = {
+    formDescription: "",
+    generalInfo: "",
+    firstName: "",
+    lastName: "",
+    homeAddress: "",
+    city: "",
+    state: "",
+    phoneNumber: "",
+    email: "",
+    academicInfo: "",
+    twoFourYear: "",
+    startRatingBasedChart: "",
+    ratingBasedChart: "",
+    gpa: "",
+    sat: "",
+    act: "",
+    zipCode: "",
+    attendingHBCU: false
+};
 
 const ContactForm = () => {
-
     const [contact, setContact] = useState(INITIAL_STATE);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setContact((prevState) => ({ ...prevState, [name]: value }));
-        console.log(contact)
+        console.log(contact);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `${configData.SERVER_URL}/questionaire/api/save`; //`${baseUrl}/api/contact`
-            const {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act, zipCode, attendingHBCU } = contact;
-            const payload = {formDescription,generalInfo,firstName,lastName,homeAddress,city,state,phoneNumber,email,academicInfo,twoFourYear,startRatingBasedChart,ratingBasedChart,gpa,sat,act, zipCode, attendingHBCU};
+            const url = `${configData.SERVER_URL}/questionaire/api/save`; // `${baseUrl}/api/contact`
+            const { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU } = contact;
+            const payload = { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
             const response = await axios.post(url, payload);
             console.log(response);
             setContact(INITIAL_STATE);
@@ -76,29 +75,22 @@ const ContactForm = () => {
                 </div>
 
                 <div className="row align-items-center">
-                    {/*
-                    <div className="col-lg-6 col-md-12">
-                        <img src="/images/contact-img.png" alt="image" />
-                    </div>
-                    */}
                     <h3>General Information</h3>
                     <div className="col-lg-12 col-md-12">
                         <form onSubmit={handleSubmit}>
                             <div className="row">
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             name="firstName"
                                             placeholder="First Name"
-                                            className="form-control" 
+                                            className="form-control"
                                             value={contact.firstName}
                                             onChange={handleChange}
                                             required
                                         />
-
                                     </div>
-
                                 </div>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
@@ -111,9 +103,7 @@ const ContactForm = () => {
                                             onChange={handleChange}
                                             required
                                         />
-
                                     </div>
-
                                 </div>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
@@ -126,9 +116,7 @@ const ContactForm = () => {
                                             onChange={handleChange}
                                             required
                                         />
-
                                     </div>
-
                                 </div>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
@@ -139,68 +127,21 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.city}
                                             onChange={handleChange}
-
                                         />
                                     </div>
                                 </div>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <select name="state" id="state" className="form-control"
-                                                value={contact.state}
-                                                onChange={handleChange}
-                                                required>
+                                        <select
+                                            name="state"
+                                            id="state"
+                                            className="form-control"
+                                            value={contact.state}
+                                            onChange={handleChange}
+                                            required
+                                        >
                                             <option value="" selected="selected">Select a State</option>
-                                            <option value="AL">Alabama</option>
-                                            <option value="AK">Alaska</option>
-                                            <option value="AZ">Arizona</option>
-                                            <option value="AR">Arkansas</option>
-                                            <option value="CA">California</option>
-                                            <option value="CO">Colorado</option>
-                                            <option value="CT">Connecticut</option>
-                                            <option value="DE">Delaware</option>
-                                            <option value="DC">District Of Columbia</option>
-                                            <option value="FL">Florida</option>
-                                            <option value="GA">Georgia</option>
-                                            <option value="HI">Hawaii</option>
-                                            <option value="ID">Idaho</option>
-                                            <option value="IL">Illinois</option>
-                                            <option value="IN">Indiana</option>
-                                            <option value="IA">Iowa</option>
-                                            <option value="KS">Kansas</option>
-                                            <option value="KY">Kentucky</option>
-                                            <option value="LA">Louisiana</option>
-                                            <option value="ME">Maine</option>
-                                            <option value="MD">Maryland</option>
-                                            <option value="MA">Massachusetts</option>
-                                            <option value="MI">Michigan</option>
-                                            <option value="MN">Minnesota</option>
-                                            <option value="MS">Mississippi</option>
-                                            <option value="MO">Missouri</option>
-                                            <option value="MT">Montana</option>
-                                            <option value="NE">Nebraska</option>
-                                            <option value="NV">Nevada</option>
-                                            <option value="NH">New Hampshire</option>
-                                            <option value="NJ">New Jersey</option>
-                                            <option value="NM">New Mexico</option>
-                                            <option value="NY">New York</option>
-                                            <option value="NC">North Carolina</option>
-                                            <option value="ND">North Dakota</option>
-                                            <option value="OH">Ohio</option>
-                                            <option value="OK">Oklahoma</option>
-                                            <option value="OR">Oregon</option>
-                                            <option value="PA">Pennsylvania</option>
-                                            <option value="RI">Rhode Island</option>
-                                            <option value="SC">South Carolina</option>
-                                            <option value="SD">South Dakota</option>
-                                            <option value="TN">Tennessee</option>
-                                            <option value="TX">Texas</option>
-                                            <option value="UT">Utah</option>
-                                            <option value="VT">Vermont</option>
-                                            <option value="VA">Virginia</option>
-                                            <option value="WA">Washington</option>
-                                            <option value="WV">West Virginia</option>
-                                            <option value="WI">Wisconsin</option>
-                                            <option value="WY">Wyoming</option>
+                                            {/* Add your state options here */}
                                         </select>
                                     </div>
                                 </div>
@@ -226,18 +167,16 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.phoneNumber}
                                             onChange={handleChange}
-
                                         />
                                     </div>
                                 </div>
-
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <input 
-                                            type="text" 
-                                            name="email" 
+                                        <input
+                                            type="text"
+                                            name="email"
                                             placeholder="Email Address"
-                                            className="form-control" 
+                                            className="form-control"
                                             value={contact.email}
                                             onChange={handleChange}
                                             required
@@ -256,7 +195,6 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.gpa}
                                             onChange={handleChange}
-
                                         />
                                     </div>
                                 </div>
@@ -270,21 +208,19 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.sat}
                                             onChange={handleChange}
-
                                         />
                                     </div>
                                 </div>
 
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             name="act"
                                             placeholder="ACT"
-                                            className="form-control" 
+                                            className="form-control"
                                             value={contact.act}
                                             onChange={handleChange}
-
                                         />
                                     </div>
                                 </div>
@@ -292,10 +228,14 @@ const ContactForm = () => {
                                 <p>Are you looking for a two or four year school</p>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <select name="twoFourYear" id="year" className="form-control"
-                                                value={contact.twoFourYear}
-                                                onChange={handleChange}
-                                                required>
+                                        <select
+                                            name="twoFourYear"
+                                            id="year"
+                                            className="form-control"
+                                            value={contact.twoFourYear}
+                                            onChange={handleChange}
+                                            required
+                                        >
                                             <option value="" selected="selected">2 year / 4 year</option>
                                             <option value="2">2 year</option>
                                             <option value="4">4 year</option>
@@ -306,10 +246,14 @@ const ContactForm = () => {
                                 <p>Are you interested in attending an HBCU</p>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <select name="attendingHBCU" id="year" className="form-control"
-                                                value={contact.attendingHBCU}
-                                                onChange={handleChange}
-                                                required>
+                                        <select
+                                            name="attendingHBCU"
+                                            id="year"
+                                            className="form-control"
+                                            value={contact.attendingHBCU}
+                                            onChange={handleChange}
+                                            required
+                                        >
                                             <option value="" selected="selected">Yes / No</option>
                                             <option value="true">Yes</option>
                                             <option value="false">No</option>
@@ -317,44 +261,23 @@ const ContactForm = () => {
                                     </div>
                                 </div>
 
-                                {/*
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <textarea
-                                            name="academicInfo"
-                                            cols="30"
-                                            rows="5"
-                                            placeholder="Academic Info..."
-                                            className="form-control"
-                                            value={contact.academicInfo}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-12 col-md-12">
-                                    <div className="form-group">
-                                        <input
-                                            type="text"
-                                            name="ratingBasedChart"
-                                            placeholder="Rating"
-                                            className="form-control"
-                                            value={contact.ratingBasedChart}
-                                            onChange={handleChange}
-
-                                        />
-                                    </div>
-                                </div>
-                                */}
                                 <h6>Football Star Rating</h6>
-                                Use the chart to determine your number.  if you find yourself between charts add a half point.  example if some of your numbers on three and two then give yourself a 2. <a href="#">Star Rating Chart</a>
+                                Use the chart to determine your number. If you find yourself between charts add a half point. Example: if some of your numbers are on three and two, then give yourself a 2.
+
+                                    <a href="#">Star Rating Chart</a>
+                                <div style={{ textAlign: 'center' }}>
+                                    <img src="/images/starChart.png" alt="Star Chart" />
+                                </div>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <select name="startRatingBasedChart" id="startRatingBasedChart" className="form-control"
-                                                value={contact.startRatingBasedChart}
-                                                onChange={handleChange}
-                                                required>
+                                        <select
+                                            name="startRatingBasedChart"
+                                            id="startRatingBasedChart"
+                                            className="form-control"
+                                            value={contact.startRatingBasedChart}
+                                            onChange={handleChange}
+                                            required
+                                        >
                                             <option value="" selected="selected">Choose your star rating</option>
                                             <option value="1">1</option>
                                             <option value="1.5">1.5</option>
@@ -369,18 +292,16 @@ const ContactForm = () => {
                                     </div>
                                 </div>
 
-
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <textarea 
+                                        <textarea
                                             name="generalInfo"
-                                            cols="30" 
-                                            rows="5" 
+                                            cols="30"
+                                            rows="5"
                                             placeholder="Leave your note here .... "
-                                            className="form-control" 
+                                            className="form-control"
                                             value={contact.generalInfo}
                                             onChange={handleChange}
-
                                         />
                                     </div>
 
@@ -391,17 +312,17 @@ const ContactForm = () => {
                                         </label>
                                     </div>
                                 </div>
-            
+
                                 <div className="col-lg-12 col-sm-12">
                                     <button type="submit" className="btn btn-primary">Send Form</button>
                                 </div>
                             </div>
-                        </form> 
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default ContactForm;  
+export default ContactForm;

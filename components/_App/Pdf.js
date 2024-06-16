@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import configData from '../../jsconfig.json';
+
+
 const DownloadPDF = () => {
     const [pdfUrl, setPdfUrl] = useState('');
 
@@ -8,7 +11,7 @@ const DownloadPDF = () => {
         try {
             // Make a GET request to the PDF endpoint
             const response = await axios.get(
-                'https://backend-web-service-vbfh.onrender.com/user/api/getpdf?userId=1',
+                `${configData.SERVER_URL}/user/api/getpdf?userId=1`,
                 {
                     responseType: 'blob', // Set the response type to 'blob' to handle binary data
                 }

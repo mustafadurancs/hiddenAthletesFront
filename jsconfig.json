@@ -7,5 +7,5 @@
             "@/public/*": ["public/*"]
         }
     },
-    "SERVER_URL": "https://bankendlast.onrender.com"
+    "SERVER_URL": "https://backendlast-o670.onrender.com"
 }

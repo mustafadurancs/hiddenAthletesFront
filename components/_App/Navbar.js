@@ -31,6 +31,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("id");
+        window.location('https://hiddenathletesfront.onrender.com/');
     };
 
 

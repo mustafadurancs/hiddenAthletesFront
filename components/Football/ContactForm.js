@@ -38,7 +38,9 @@ const INITIAL_STATE = {
     sat: "",
     act: "",
     zipCode: "",
-    attendingHBCU: false
+    attendingHBCU: false,
+    type: "",
+    region: ""
 };
 
 const ContactForm = () => {
@@ -54,8 +56,8 @@ const ContactForm = () => {
         e.preventDefault();
         try {
             const url = `${configData.SERVER_URL}/questionaire/api/save`; // `${baseUrl}/api/contact`
-            const { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU } = contact;
-            const payload = { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
+            const { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU } = contact;
+            const payload = { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
             const response = await axios.post(url, payload);
             console.log(response);
             setContact(INITIAL_STATE);
@@ -248,8 +250,9 @@ const ContactForm = () => {
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <input
-                                            type="text"
+                                            type="number"
                                             name="sat"
+                                            step="1"
                                             placeholder="SAT"
                                             className="form-control"
                                             value={contact.sat}
@@ -261,9 +264,10 @@ const ContactForm = () => {
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <input
-                                            type="text"
+                                            type="number"
                                             name="act"
                                             placeholder="ACT"
+                                            step="1"
                                             className="form-control"
                                             value={contact.act}
                                             onChange={handleChange}
@@ -288,21 +292,44 @@ const ContactForm = () => {
                                         </select>
                                     </div>
                                 </div>
-
-                                <p>Are you interested in attending an HBCU</p>
+                                <p>Public / Private</p>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <select
-                                            name="attendingHBCU"
-                                            id="year"
+                                            name="type"
+                                            id="typeSchool"
                                             className="form-control"
-                                            value={contact.attendingHBCU}
+                                            value={contact.type}
                                             onChange={handleChange}
                                             required
                                         >
-                                            <option value="" selected="selected">Yes / No</option>
-                                            <option value="true">Yes</option>
-                                            <option value="false">No</option>
+                                            <option value="" selected="selected">Public / Private</option>
+                                            <option value="All">All</option>
+                                            <option value="Public">Public</option>
+                                            <option value="Private">Private</option>
+                                        </select>
+                                    </div>
+                                </div>                               
+                                <p>Select the region</p>
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <select
+                                            name="region"
+                                            id="regionSchool"
+                                            className="form-control"
+                                            value={contact.region}
+                                            onChange={handleChange}
+                                            required
+                                        >
+                                            <option value="" selected="selected">Choose Region</option>
+                                            <option value="Nationwide">Nation wide</option>
+                                            <option value="West">West</option>
+                                            <option value="East">East</option>
+                                            <option value="South">South</option>
+                                            <option value="Mountain">Mountain</option>
+                                            <option value="Midwest">Midwest</option>
+                                            <option value="Southeast">Southeast</option>
+                                            <option value="Northeast">Northeast</option>
                                         </select>
                                     </div>
                                 </div>

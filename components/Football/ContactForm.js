@@ -22,7 +22,7 @@ const alertContent = () => {
 // Form initial state
 const INITIAL_STATE = {
     formDescription: "",
-    generalInfo: "",
+    notes: "",
     firstName: "",
     lastName: "",
     homeAddress: "",
@@ -57,7 +57,7 @@ const ContactForm = () => {
         try {
             const url = `${configData.SERVER_URL}/questionaire/api/save`; // `${baseUrl}/api/contact`
             const { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU } = contact;
-            const payload = { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
+            const payload = { formDescription, notes, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
             const response = await axios.post(url, payload);
             console.log(response);
             setContact(INITIAL_STATE);
@@ -366,7 +366,7 @@ const ContactForm = () => {
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <textarea
-                                            name="generalInfo"
+                                            name="notes"
                                             cols="30"
                                             rows="5"
                                             placeholder="Leave your note here .... "

@@ -21,7 +21,6 @@ const alertContent = () => {
 
 // Form initial state
 const INITIAL_STATE = {
-    formDescription: "",
     notes: "",
     firstName: "",
     lastName: "",
@@ -30,13 +29,11 @@ const INITIAL_STATE = {
     state: "",
     phoneNumber: "",
     email: "",
-    academicInfo: "",
     twoFourYear: "",
     startRatingBasedChart: "",
-    ratingBasedChart: "",
     gpa: "",
-    sat: "",
-    act: "",
+    sat: 0,
+    act: 0,
     zipCode: "",
     attendingHBCU: false,
     type: "",
@@ -49,17 +46,18 @@ const ContactForm = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setContact((prevState) => ({ ...prevState, [name]: value }));
-        console.log(contact);
+        console.log("On change ---> ",contact);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const url = `${configData.SERVER_URL}/questionaire/api/save`; // `${baseUrl}/api/contact`
-            const { formDescription, generalInfo, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU } = contact;
-            const payload = { formDescription, notes, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, ratingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
-            const response = await axios.post(url, payload);
-            console.log(response);
+            const { notes, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, gpa, sat, act, zipCode, attendingHBCU } = contact;
+            const payload = { notes, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
+            console.log("This is payload-> ",payload);
+            const response = await axios.post(url, payload)
+            console.log("THIS IS RESPONSE ==>",response);
             setContact(INITIAL_STATE);
             alertContent();
         } catch (error) {

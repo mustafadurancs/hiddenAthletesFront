@@ -25,12 +25,12 @@ const Navbar = () => {
     const classOne = menu ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
     const classTwo = menu ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
     useEffect(() => {
-        setUserName(localStorage.getItem('id'))
+        setUserName(localStorage.getItem('userName'))
     }, [])
 
 
     const handleLogout = () => {
-        localStorage.removeItem("id");
+        localStorage.removeItem("userName");
         window.location('https://hiddenathletesfront.onrender.com/');
     };
 

@@ -26,7 +26,8 @@ const Login = () => {
         const data = await response.json();
         console.log(data);
         if (data.id && username == data.username && password == data.password) {
-            localStorage.setItem("id", data.username);
+            localStorage.setItem("userName", data.username);
+            localStorage.setItem("id", data.id);
             setIsAuthenticated(true);
             window.location.href = "/";
         }

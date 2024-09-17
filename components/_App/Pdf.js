@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import configData from '../../jsconfig.json';
 
-
+const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
 const DownloadPDF = () => {
     const [pdfUrl, setPdfUrl] = useState('');
 
@@ -11,7 +11,7 @@ const DownloadPDF = () => {
         try {
             // Make a GET request to the PDF endpoint
             const response = await axios.get(
-                `${configData.SERVER_URL}/user/api/getpdf?userId=1`,
+                `${configData.SERVER_URL}/user/api/getpdf?userId=${userID}`,
                 {
                     responseType: 'blob', // Set the response type to 'blob' to handle binary data
                 }
@@ -29,6 +29,7 @@ const DownloadPDF = () => {
     };
 
     return (
+        //Drop down koy ve "football" secili gelsin
         <div>
             <button onClick={fetchPDF}>Fetch PDF</button>
             {pdfUrl && (

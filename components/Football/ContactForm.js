@@ -19,25 +19,18 @@ const alertContent = () => {
     });
 };
 
+const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
+const userEmail = typeof window !== 'undefined' ? localStorage.getItem('userName') : null;
+
 // Form initial state
 const INITIAL_STATE = {
-    notes: "",
-    firstName: "",
-    lastName: "",
-    homeAddress: "",
-    city: "",
-    state: "",
-    phoneNumber: "",
-    email: "",
-    twoFourYear: "",
-    startRatingBasedChart: "",
-    gpa: "",
-    sat: 0,
-    act: 0,
-    zipCode: "",
-    attendingHBCU: false,
-    type: "",
-    region: ""
+    twoFourYear: "", 
+    startRatingBasedChart: "", 
+    type: "", 
+    region: "",
+    //attendingHBCU: "",
+    notes:""
+    
 };
 
 const ContactForm = () => {
@@ -46,22 +39,37 @@ const ContactForm = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setContact((prevState) => ({ ...prevState, [name]: value }));
-        console.log("On change ---> ",contact);
+        console.log("On change ---> ", contact);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `${configData.SERVER_URL}/questionaire/api/save`; // `${baseUrl}/api/contact`
-            const { notes, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, gpa, sat, act, zipCode, attendingHBCU } = contact;
-            const payload = { notes, firstName, lastName, homeAddress, city, state, phoneNumber, email, academicInfo, twoFourYear, type, region, startRatingBasedChart, gpa, sat, act, zipCode, attendingHBCU };
-            console.log("This is payload-> ",payload);
-            const response = await axios.post(url, payload)
-            console.log("THIS IS RESPONSE ==>",response);
-            setContact(INITIAL_STATE);
-            alertContent();
+            const url = `${configData.SERVER_URL}/questionaire/api/save`;
+            const { twoFourYear, startRatingBasedChart, type, region, notes } = contact;
+            const payload = { 
+                twoFourYear, 
+                startRatingBasedChart, 
+                type, 
+                region, 
+                user: { id: userID },
+                //attendingHBCU,
+                notes 
+            };
+            console.log("This is payload-> ", payload);
+
+            const response = await axios.post(url, payload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            });
+            
+            console.log("THIS IS RESPONSE ==>", response);
+            setContact(INITIAL_STATE); // Reset the form state
+            alertContent(); // Assuming you have an alert function to display success
         } catch (error) {
-            console.log(error);
+            console.log("Error in submission:", error);
         }
     };
 
@@ -88,7 +96,7 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.firstName}
                                             onChange={handleChange}
-                                            required
+                                            //required
                                         />
                                     </div>
                                 </div>
@@ -101,7 +109,7 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.lastName}
                                             onChange={handleChange}
-                                            required
+                                            //required
                                         />
                                     </div>
                                 </div>
@@ -114,7 +122,7 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.homeAddress}
                                             onChange={handleChange}
-                                            required
+                                            //required
                                         />
                                     </div>
                                 </div>
@@ -135,7 +143,7 @@ const ContactForm = () => {
                                         <select name="state" id="state" className="form-control"
                                                 value={contact.state}
                                                 onChange={handleChange}
-                                                required>
+                                                >
                                             <option value="" selected="selected">Select a State</option>
                                             <option value="AL">Alabama</option>
                                             <option value="AK">Alaska</option>
@@ -200,7 +208,7 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.zipCode}
                                             onChange={handleChange}
-                                            required
+                                            //required
                                         />
                                     </div>
                                 </div>
@@ -225,7 +233,7 @@ const ContactForm = () => {
                                             className="form-control"
                                             value={contact.email}
                                             onChange={handleChange}
-                                            required
+                                            //required
                                         />
                                     </div>
                                 </div>
@@ -307,7 +315,24 @@ const ContactForm = () => {
                                             <option value="Private">Private</option>
                                         </select>
                                     </div>
-                                </div>                               
+                                </div>    
+                                <p>HBCU</p>
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="form-group">
+                                        <select
+                                            name="attendingHBCU"
+                                            id="attendingHBCUSchool"
+                                            className="form-control"
+                                            value={contact.attendingHBCU}
+                                            onChange={handleChange}
+                                            required
+                                        >
+                                            <option value="" selected="selected">Yes / No</option>                                        
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                </div>                            
                                 <p>Select the region</p>
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">

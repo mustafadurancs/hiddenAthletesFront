@@ -3,12 +3,25 @@ import StripeCheckout from "./stripePayment";
 
 const Checkout = () => {
     return (
-        <div className="font-mono text-white text-opacity-70 font-[700] text-opacity-90 h-screen flex justify-center items-center">
-            <div className='bg-white rounded-md p-12 bg-opacity-70'>
-                <span>Ersin</span>
-                <StripeCheckout />
+        <div className="main-banner" >
+
+            <div className="d-table">
+                <div className="d-table-cell">
+                    <div className="container">
+                        <div className="row h-100 justify-content-center align-items-center">
+                            <div className="col-lg-6">
+
+                                <div>
+                                    <span></span>
+                                    <StripeCheckout />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     );
 };
 

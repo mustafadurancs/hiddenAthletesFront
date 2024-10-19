@@ -14,7 +14,7 @@ const DownloadPDF = () => {
             const pdfIds = response.data; // Response is an array of IDs
             console.log(pdfIds);
             // Create links for each PDF ID
-            const pdfUrls = await Promise.all(pdfIds.map(async (id) => {
+            const pdfUrls = await Promise.all(pdfIds.id.map(async (id) => {
                 const pdfResponse = await axios.get(
                     `${configData.SERVER_URL}/user/api/getpdf?questionaireId=${id}`,
                     {

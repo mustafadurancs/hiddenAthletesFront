@@ -11,10 +11,12 @@ const DownloadPDF = () => {
         try {
             // Fetch PDF IDs from the new API
             const response = await axios.get( `${configData.SERVER_URL}/questionaire/api/userId/${userID}`);
+            consol.log("Resonse ==> ",response.data);
             const pdfIds = response.data; // Response is an array of IDs
-            console.log(pdfIds);
+            console.log("REturning value from questionaire/api/userId/${userID} -->",pdfIds);
             // Create links for each PDF ID
-            const pdfUrls = await Promise.all(pdfIds.id.map(async (id) => {
+    
+            const pdfUrls = await Promise.all(pdfIds.map(async (id) => {
                 const pdfResponse = await axios.get(
                     `${configData.SERVER_URL}/user/api/getpdf?questionaireId=${id}`,
                     {

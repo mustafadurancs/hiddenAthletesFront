@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {PaymentElement, useStripe, useElements} from "@stripe/react-stripe-js";
-
+import configData from '../../jsconfig.json';
 
 export default function CheckoutForm() {
     const stripe =  useStripe();
@@ -38,7 +38,7 @@ export default function CheckoutForm() {
 
         const {error} = await stripe.confirmPayment({
             elements,
-            confirmParams: {return_url: "/payment-succeed"}
+            confirmParams: {return_url: `${configData.HOME_PAGE}/payment-succeed`}
         });
 
         if (error && (error.type === "card_error" || error.type === "validation_error")) {

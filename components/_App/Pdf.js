@@ -24,8 +24,11 @@ const DownloadPDF = () => {
             }
 
             // Fetch each PDF and create a URL
-            const pdfUrls = await Promise.all(pdfIds.map(async (id) => {
-                console.log("id ->",id);
+            const pdfUrls = await Promise.all(pdfIds.map(async (questionaire) => {
+                const id = questionaire.id;
+                const paid = questionaire.paid;
+                console.log("id ->", id);
+
                 try {
                     const pdfResponse = await axios.get(
                         `${configData.SERVER_URL}/user/api/getpdf?questionaireId=${id}`,
@@ -33,22 +36,28 @@ const DownloadPDF = () => {
                     );
                     const blob = new Blob([pdfResponse.data], { type: 'application/pdf' });
                     const url = window.URL.createObjectURL(blob);
-                    return { id, url };
+                    return { id, paid, url };
                 } catch (pdfError) {
                     console.error(`Error fetching PDF for id ${id}:`, pdfError);
                     return null; // Return null for failed requests
                 }
+
+
             }));
 
             // Filter out any null values (failed requests)
             const validPdfUrls = pdfUrls.filter((pdf) => pdf !== null);
-
+            console.log(validPdfUrls);
             if (validPdfUrls.length === 0) {
                 throw new Error('No valid PDFs could be fetched.');
             }
-
-            // Set the array of valid PDF links in state
-            setPdfLinks(validPdfUrls);
+            if (validPdfUrls.paid) {
+                // Set the array of valid PDF links in state
+                setPdfLinks(validPdfUrls);
+            }
+            else {
+                throw new Error('Please make payment for the evaluation !!!');
+            }
         } catch (fetchError) {
             setError(fetchError.message); // Set error message in state
         } finally {

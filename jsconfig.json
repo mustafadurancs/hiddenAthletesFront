@@ -7,5 +7,6 @@
             "@/public/*": ["public/*"]
         }
     },
-    "SERVER_URL": "https://backendlast-o670.onrender.com"
+    "SERVER_URL": "https://backendlast-o670.onrender.com",
+    "HOME_PAGE" : "https://hiddenathletesfront.onrender.com"
 }

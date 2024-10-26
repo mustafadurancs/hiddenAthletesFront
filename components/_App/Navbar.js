@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from '@/utils/ActiveLink';
 import * as Icon from 'react-feather';
 import DownloadPDF from "@/components/_App/Pdf";
+import configData from '../../jsconfig.json';
 
 
 const Navbar = () => {
@@ -31,7 +32,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("userName");
-        window.location('https://hiddenathletesfront.onrender.com/');
+        window.location(`${configData.HOME_PAGE}`);
     };
 
 

@@ -56,7 +56,7 @@ const DownloadPDF = () => {
                 setPdfLinks(validPdfUrls);
             }
             else {
-                const payment_url = `${configData.SERVER_URL}/payment`;
+                const payment_url = `${configData.HOME_PAGE}/payment`;
                 document.getElementById('error-container').innerHTML = `Please make payment for the evaluation !!! <a href="${payment_url}">payment</a>`;
 
 

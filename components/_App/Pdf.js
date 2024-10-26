@@ -51,17 +51,11 @@ const DownloadPDF = () => {
             if (validPdfUrls.length === 0) {
                 throw new Error('No valid PDFs could be fetched.');
             }
-            if (validPdfUrls.paid) {
-                // Set the array of valid PDF links in state
-                setPdfLinks(validPdfUrls);
-            }
-            else {
-                const payment_url = `${configData.HOME_PAGE}/payment`;
-                document.getElementById('error-container').innerHTML = `Please make payment for the evaluation !!! <a href="${payment_url}">payment</a>`;
+
+            // Set the array of valid PDF links in state
+            setPdfLinks(validPdfUrls);
 
 
-
-            }
         } catch (fetchError) {
             setError(fetchError.message); // Set error message in state
         } finally {
@@ -81,9 +75,17 @@ const DownloadPDF = () => {
                     <ul>
                         {pdfLinks.map((pdf) => (
                             <li key={pdf.id}>
-                                <a href={pdf.url} download={`profile_${pdf.id}.pdf`}>
-                                    Download PDF {pdf.id}
-                                </a>
+                                {pdf.paid ? (
+                                    <a href={pdf.url} download={`profile_${pdf.id}.pdf`}>
+                                        Download PDF {pdf.id}
+                                    </a>
+                                ) : (
+                                    <a href={`${configData.HOME_PAGE}/payment`}>
+                                        Pay Now to Download PDF {pdf.id}
+                                    </a>
+
+                                )}
+
                             </li>
                         ))}
                     </ul>

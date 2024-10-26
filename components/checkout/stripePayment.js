@@ -21,7 +21,7 @@ export default function StripeCheckout() {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 items: [{}],
-                amount: 1500,  // assuming amount is in cents (15.00 USD)
+                amount: 150,  // assuming amount is in cents (15.00 USD)
                 email: "example@example.com",  // replace with dynamic value as needed
                 productName: "Sample Product"  // replace with dynamic value
             }),
@@ -30,6 +30,7 @@ export default function StripeCheckout() {
                 if (!res.ok) {
                     throw new Error("Network response was not ok");
                 }
+                log(res);
                 return res.json();
             })
             .then((data) => setClientSecret(data.clientSecret))

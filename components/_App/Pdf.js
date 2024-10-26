@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import configData from '../../jsconfig.json';
 
@@ -6,38 +6,63 @@ const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null
 
 const DownloadPDF = () => {
     const [pdfLinks, setPdfLinks] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const fetchPDFIds = async () => {
+        setLoading(true); // Set loading state
+        setError(null);   // Clear any previous errors
         try {
             // Fetch PDF IDs from the new API
-            const response = await axios.get( `${configData.SERVER_URL}/questionaire/api/userId/${userID}`);
-            consol.log("Resonse ==> ",response.data);
-            const pdfIds = response.data; // Response is an array of IDs
-            console.log("REturning value from questionaire/api/userId/${userID} -->",pdfIds);
-            // Create links for each PDF ID
-    
+            console.log(userID);
+            const response = await axios.get(`${configData.SERVER_URL}/questionaire/api/userId/${userID}`);
+            const pdfIds = response.data;
+            console.log(`Returning value from questionaire/api/userId/${userID} -->`, pdfIds);
+
+            if (pdfIds.length === 0) {
+                throw new Error('No PDFs found for the user.');
+            }
+
+            // Fetch each PDF and create a URL
             const pdfUrls = await Promise.all(pdfIds.map(async (id) => {
-                const pdfResponse = await axios.get(
-                    `${configData.SERVER_URL}/user/api/getpdf?questionaireId=${id}`,
-                    {
-                        responseType: 'blob', // Set response type to 'blob' for binary data
-                    }
-                );
-                const blob = new Blob([pdfResponse.data], { type: 'application/pdf' });
-                const url = window.URL.createObjectURL(blob);
-                return { id, url };
+                console.log("id ->",id);
+                try {
+                    const pdfResponse = await axios.get(
+                        `${configData.SERVER_URL}/user/api/getpdf?questionaireId=${id}`,
+                        { responseType: 'blob' }
+                    );
+                    const blob = new Blob([pdfResponse.data], { type: 'application/pdf' });
+                    const url = window.URL.createObjectURL(blob);
+                    return { id, url };
+                } catch (pdfError) {
+                    console.error(`Error fetching PDF for id ${id}:`, pdfError);
+                    return null; // Return null for failed requests
+                }
             }));
 
-            // Set the array of links in state
-            setPdfLinks(pdfUrls);
-        } catch (error) {
-            console.error('Error fetching PDF IDs or PDFs:', error);
+            // Filter out any null values (failed requests)
+            const validPdfUrls = pdfUrls.filter((pdf) => pdf !== null);
+
+            if (validPdfUrls.length === 0) {
+                throw new Error('No valid PDFs could be fetched.');
+            }
+
+            // Set the array of valid PDF links in state
+            setPdfLinks(validPdfUrls);
+        } catch (fetchError) {
+            setError(fetchError.message); // Set error message in state
+        } finally {
+            setLoading(false); // Stop loading when the request is done
         }
     };
 
     return (
         <div>
             <button onClick={fetchPDFIds}>Fetch PDFs</button>
+
+            {loading && <p>Loading...</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+
             {pdfLinks.length > 0 && (
                 <div>
                     <ul>
@@ -56,54 +81,3 @@ const DownloadPDF = () => {
 };
 
 export default DownloadPDF;
-
-
-
-/*
-import React, { useState } from 'react';
-import axios from 'axios';
-
-import configData from '../../jsconfig.json';
-
-const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
-const DownloadPDF = () => {
-    const [pdfUrl, setPdfUrl] = useState('');
-
-    const fetchPDF = async () => {
-        try {
-            // Make a GET request to the PDF endpoint
-            const response = await axios.get(
-                `${configData.SERVER_URL}/user/api/getpdf?userId=${userID}`,
-                {
-                    responseType: 'blob', // Set the response type to 'blob' to handle binary data
-                }
-            );
-
-            // Create a blob URL from the response data
-            const blob = new Blob([response.data], { type: 'application/pdf' });
-            const url = window.URL.createObjectURL(blob);
-
-            // Set the PDF URL in state
-            setPdfUrl(url);
-        } catch (error) {
-            console.error('Error fetching PDF:', error);
-        }
-    };
-
-    return (
-        //Drop down koy ve "football" secili gelsin
-        <div>
-            <button onClick={fetchPDF}>Fetch PDF</button>
-            {pdfUrl && (
-                <div>
-                    <a href={pdfUrl} download="profile.pdf">
-                        Download Your Profile
-                    </a>
-                </div>
-            )}
-        </div>
-    );
-};
-
-export default DownloadPDF;
-*/

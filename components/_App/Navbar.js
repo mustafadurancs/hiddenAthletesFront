@@ -32,7 +32,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("userName");
-        window.location(`${configData.HOME_PAGE}`);
+        window.location("/");
     };
 
 

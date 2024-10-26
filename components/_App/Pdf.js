@@ -56,7 +56,11 @@ const DownloadPDF = () => {
                 setPdfLinks(validPdfUrls);
             }
             else {
-                throw new Error('Please make payment for the evaluation !!!');
+                const payment_url = `${configData.SERVER_URL}/payment`;
+                document.getElementById('error-container').innerHTML = `Please make payment for the evaluation !!! <a href="${payment_url}">payment</a>`;
+
+
+
             }
         } catch (fetchError) {
             setError(fetchError.message); // Set error message in state
@@ -68,7 +72,7 @@ const DownloadPDF = () => {
     return (
         <div>
             <button onClick={fetchPDFIds}>Fetch PDFs</button>
-
+            <div id="error-container"></div>
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
 

@@ -83,7 +83,7 @@ const DownloadPDF = () => {
                                     </a>
                                 ) : (
                                     <a href={`${configData.HOME_PAGE}/payment?q_id=${pdf.id}`}>
-                                        Pay Now to Download PDF {pdf.id}
+                                        Pay Now to Download PDF {pdf.id} - {pdf.creationDate}
                                     </a>
 
                                 )}

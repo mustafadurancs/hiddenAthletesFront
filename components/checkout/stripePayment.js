@@ -30,13 +30,14 @@ export default function StripeCheckout() {
                 if (!res.ok) {
                     throw new Error("Network response was not ok");
                 }
-                console.log(res);
+                
                 return res.json();
             })
             .then((data) => setClientSecret(data.clientSecret))
             .catch((error) => {
                 console.error("Error fetching payment intent:", error);
             });
+            console.log(data.amount);
     }, []);
 
     const appearance = { theme: 'stripe' };

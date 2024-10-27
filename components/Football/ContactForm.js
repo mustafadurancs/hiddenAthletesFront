@@ -95,6 +95,7 @@ const ContactForm = () => {
                                             placeholder="First Name"
                                             className="form-control"
                                             value={contact.firstName}
+                                            disabled
                                             onChange={handleChange}
                                             //required
                                         />
@@ -108,6 +109,7 @@ const ContactForm = () => {
                                             placeholder="Last Name"
                                             className="form-control"
                                             value={contact.lastName}
+                                            disabled
                                             onChange={handleChange}
                                             //required
                                         />
@@ -121,6 +123,7 @@ const ContactForm = () => {
                                             placeholder="Home Address"
                                             className="form-control"
                                             value={contact.homeAddress}
+                                            disabled
                                             onChange={handleChange}
                                             //required
                                         />
@@ -134,6 +137,7 @@ const ContactForm = () => {
                                             placeholder="City"
                                             className="form-control"
                                             value={contact.city}
+                                            disabled
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -142,6 +146,7 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <select name="state" id="state" className="form-control"
                                                 value={contact.state}
+                                                disabled
                                                 onChange={handleChange}
                                                 >
                                             <option value="" selected="selected">Select a State</option>
@@ -207,6 +212,7 @@ const ContactForm = () => {
                                             placeholder="Zip Code"
                                             className="form-control"
                                             value={contact.zipCode}
+                                            disabled
                                             onChange={handleChange}
                                             //required
                                         />
@@ -220,6 +226,7 @@ const ContactForm = () => {
                                             placeholder="Phone Number"
                                             className="form-control"
                                             value={contact.phoneNumber}
+                                            disabled
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -232,6 +239,7 @@ const ContactForm = () => {
                                             placeholder="Email Address"
                                             className="form-control"
                                             value={contact.email}
+                                            disabled
                                             onChange={handleChange}
                                             //required
                                         />
@@ -248,6 +256,7 @@ const ContactForm = () => {
                                             placeholder="GPA"
                                             className="form-control"
                                             value={contact.gpa}
+                                            disabled
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -262,6 +271,7 @@ const ContactForm = () => {
                                             placeholder="SAT"
                                             className="form-control"
                                             value={contact.sat}
+                                            disabled
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -276,6 +286,7 @@ const ContactForm = () => {
                                             step="1"
                                             className="form-control"
                                             value={contact.act}
+                                            disabled
                                             onChange={handleChange}
                                         />
                                     </div>

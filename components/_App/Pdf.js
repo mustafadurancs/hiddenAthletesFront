@@ -38,7 +38,7 @@ const DownloadPDF = () => {
                     );
                     const blob = new Blob([pdfResponse.data], { type: 'application/pdf' });
                     const url = window.URL.createObjectURL(blob);
-                    return { id, paid, url };
+                    return { id, paid, creationDate, url };
                 } catch (pdfError) {
                     console.error(`Error fetching PDF for id ${id}:`, pdfError);
                     return null; // Return null for failed requests

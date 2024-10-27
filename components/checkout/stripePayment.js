@@ -7,9 +7,19 @@ import configData from "../../jsconfig.json";
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 console.log(stripePromise);
 export default function StripeCheckout() {
+    const [queryId, setQueryId] = useState(null);
     const [clientSecret, setClientSecret] = useState("");
 
     useEffect(() => {
+
+        const params = new URLSearchParams(window.location.search);
+        const q_id = params.get('q_id'); // Get the 'q_id' value from the URL
+        if (q_id) {
+            console.log("Query ID:", q_id);
+            alert("Query ID:", q_id);
+            setQueryId(q_id);
+        }
+
         // Ensure that the environment variable is correctly set
         if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
             console.error("Stripe publishable key is missing.");

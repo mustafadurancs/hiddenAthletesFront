@@ -28,7 +28,7 @@ const DownloadPDF = () => {
                 console.log(questionaire);
                 const id = questionaire.id;
                 const paid = questionaire.paid;
-                const creation_date = questionaire.creation_date;
+                const creationDate = questionaire.creationDate;
                 console.log("id ->", id);
 
                 try {
@@ -79,7 +79,7 @@ const DownloadPDF = () => {
                             <li key={pdf.id}>
                                 {pdf.paid ? (
                                     <a href={pdf.url} download={`profile_${pdf.id}.pdf`}>
-                                        Download PDF {pdf.id} - {pdf.creation_date}
+                                        Download PDF {pdf.id} - {pdf.creationDate}
                                     </a>
                                 ) : (
                                     <a href={`${configData.HOME_PAGE}/payment?q_id=${pdf.id}`}>

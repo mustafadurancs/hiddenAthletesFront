@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {loadStripe} from "@stripe/stripe-js";
-import {Elements} from "@stripe/react-stripe-js";
+import React, { useState, useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./checkoutForm";
 import configData from "../../jsconfig.json";
 
@@ -18,7 +18,7 @@ export default function StripeCheckout() {
         console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
         fetch(`${configData.SERVER_URL}/create-payment-intent`, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 items: [{}],
                 amount: 150,  // assuming amount is in cents (15.00 USD)
@@ -30,7 +30,6 @@ export default function StripeCheckout() {
                 if (!res.ok) {
                     throw new Error("Network response was not ok");
                 }
-                log(res);
                 return res.json();
             })
             .then((data) => setClientSecret(data.clientSecret))
@@ -40,7 +39,7 @@ export default function StripeCheckout() {
     }, []);
 
     const appearance = { theme: 'stripe' };
-    const options = {clientSecret, appearance};
+    const options = { clientSecret, appearance };
 
     return (
         <div>

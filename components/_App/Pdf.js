@@ -25,6 +25,7 @@ const DownloadPDF = () => {
 
             // Fetch each PDF and create a URL
             const pdfUrls = await Promise.all(pdfIds.map(async (questionaire) => {
+                console.log(questionaire);
                 const id = questionaire.id;
                 const paid = questionaire.paid;
                 console.log("id ->", id);

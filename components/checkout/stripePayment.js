@@ -30,6 +30,7 @@ export default function StripeCheckout() {
                 if (!res.ok) {
                     throw new Error("Network response was not ok");
                 }
+                console.log(res.json());
                 return res.json();
             })
             .then((data) => setClientSecret(data.clientSecret))

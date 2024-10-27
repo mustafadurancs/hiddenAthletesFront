@@ -36,13 +36,6 @@ const Navbar = () => {
     };
 
 
-
-
-
-
-
-
-
     return (
         <header id="header" className="headroom navbar-style-three">
             <div className="startp-nav">

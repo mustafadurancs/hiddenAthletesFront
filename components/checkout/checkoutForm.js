@@ -12,22 +12,20 @@ export default function CheckoutForm({ id, price }) {
 
     useEffect(() => {
         if (!stripe) return;
-
-        const clientSecret = new URLSearchParams(window.location.search).get(
-            process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-        );
-
+        const clientSecret = new URLSearchParams(window.location.search).get("client_secret");
+    
         if (!clientSecret) return;
-
+    
         stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
             if (paymentIntent.status === "succeeded") {
                 setMessage("Your payment succeeded");
-                handleSuccessfulPayment(); // Call the function after successful payment
+                handleSuccessfulPayment(id, price);
             } else {
                 setMessage("Unexpected error occurred");
             }
         });
-    }, [stripe]);
+    }, [stripe, elements, id, price]);
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,7 +42,7 @@ export default function CheckoutForm({ id, price }) {
         if (error && (error.type === "card_error" || error.type === "validation_error")) {
             setMessage(error.message);
         } else if (!error) {
-            handleSuccessfulPayment(); // Call the function if payment is successful
+            handleSuccessfulPayment(id, price); // Call the function if payment is successful
         }
 
         setIsLoading(false);
@@ -52,13 +50,22 @@ export default function CheckoutForm({ id, price }) {
 
     const handleSuccessfulPayment = async (id, price) => {
         try {
-            await axios.get(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {
+            console.log("Attempting to call payment-succeed endpoint...");
+            const response = await axios.get(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {
                 params: {
-                    id:161,
-                    price:99
+                    id,
+                    price
                 }
             });
-            console.log("Successfully called payment-succeed endpoint.");
+            
+            // Log the entire response object
+            console.log("Response from payment-succeed endpoint:", response);
+    
+            // Log specific response data if needed
+            console.log("Data:", response.data);
+            console.log("Status:", response.status);
+            console.log("Status Text:", response.statusText);
+    
         } catch (error) {
             console.error("Error calling payment-succeed endpoint:", error);
         }

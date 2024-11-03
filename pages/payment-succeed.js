@@ -3,6 +3,7 @@ import Navbar from "@/components/_App/Navbar";
 import Checkout from "../components/checkout/index";
 import Footer from "@/components/_App/Footer";
 import configData from '../jsconfig.json';
+import axios from "axios";
 
 const handleSuccessfulPayment = async (id, price) => {
     alert("CALLED FROM ANYWHERE********");

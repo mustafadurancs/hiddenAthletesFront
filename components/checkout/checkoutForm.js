@@ -4,6 +4,8 @@ import axios from "axios";
 import configData from '../../jsconfig.json';
 
 export default function CheckoutForm({ id, price }) {
+    console.log("This is q id ->",id);
+    console.log("This is amount ->",price);
     const stripe = useStripe();
     const elements = useElements();
 

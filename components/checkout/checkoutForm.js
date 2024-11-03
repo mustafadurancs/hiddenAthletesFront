@@ -50,12 +50,12 @@ export default function CheckoutForm({ id, price }) {
         setIsLoading(false);
     };
 
-    const handleSuccessfulPayment = async () => {
+    const handleSuccessfulPayment = async (id, price) => {
         try {
             await axios.get(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {
                 params: {
-                    id,
-                    price
+                    id:161,
+                    price:99
                 }
             });
             console.log("Successfully called payment-succeed endpoint.");

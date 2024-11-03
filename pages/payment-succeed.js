@@ -2,12 +2,14 @@ import React from 'react';
 import Navbar from "@/components/_App/Navbar";
 import Checkout from "../components/checkout/index";
 import Footer from "@/components/_App/Footer";
+import configData from '../../jsconfig.json';
 
 const handleSuccessfulPayment = async (id, price) => {
     alert("CALLED FROM ANYWHERE********");
     console.log("CALLED FROM ANYWHERE********");
     debugger;
     alert(`${configData.SERVER_URL}/questionaire/api/payment-succeed`);
+    debugger;
     try {
         console.log("Attempting to call payment-succeed endpoint...");
         const response = await axios.get(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {

@@ -4,6 +4,8 @@ import axios from "axios";
 import configData from '../../jsconfig.json';
 
 export default function CheckoutForm({ id, price }) {
+    alert("checkoutForm CALLED !!!");
+    debugger;
     console.log("This is q id ->",id);
     console.log("This is amount ->",price);
     const stripe = useStripe();
@@ -23,6 +25,8 @@ export default function CheckoutForm({ id, price }) {
             if (paymentIntent.status === "succeeded") {
                 setMessage("Your payment succeeded");
                 alert("CALLING");
+                console.log("handleSuccessfulPayment");
+                debugger;
                 handleSuccessfulPayment(id, price); // Call with id and price
             } else {
                 setMessage("Unexpected error occurred");
@@ -46,6 +50,8 @@ export default function CheckoutForm({ id, price }) {
             setMessage(error.message);
         } else if (!error) {
             alert("ANOTHER CALL");
+            console.log("ANOTHER handleSuccessfulPayment CALL");
+            debugger;
             handleSuccessfulPayment(id, price);
         }
 
@@ -53,7 +59,9 @@ export default function CheckoutForm({ id, price }) {
     };
 
     const handleSuccessfulPayment = async (id, price) => {
-        alert("CALLED ********");
+        alert("CALLED FROM ANYWHERE********");
+        console.log("CALLED FROM ANYWHERE********");
+        debugger;
         alert(`${configData.SERVER_URL}/questionaire/api/payment-succeed`);
         try {
             console.log("Attempting to call payment-succeed endpoint...");

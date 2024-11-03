@@ -13,13 +13,18 @@ const handleSuccessfulPayment = async (id, price) => {
     debugger;
     try {
         console.log("Attempting to call payment-succeed endpoint...");
-        const response = await axios.post(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {
-            params: { id, price }
-        });
-        console.log("Response from payment-succeed endpoint:", response);
+        const response = await axios.post(
+            `${configData.SERVER_URL}/questionaire/api/payment-succeed`, 
+            {}, // Empty data object, as we're using only query parameters
+            {
+                params: { id, price }
+            }
+        );
+        console.log("Response from payment-succeed endpoint:", response.data);
     } catch (error) {
         console.error("Error calling payment-succeed endpoint:", error);
     }
+    
 };
 handleSuccessfulPayment(161,99);
 const PaymentSuccess = () => {

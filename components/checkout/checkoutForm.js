@@ -12,20 +12,20 @@ export default function CheckoutForm({ id, price }) {
 
     useEffect(() => {
         if (!stripe) return;
+
         const clientSecret = new URLSearchParams(window.location.search).get("client_secret");
-    
+
         if (!clientSecret) return;
-    
+
         stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
             if (paymentIntent.status === "succeeded") {
                 setMessage("Your payment succeeded");
-                handleSuccessfulPayment(id, price);
+                handleSuccessfulPayment(id, price); // Call with id and price
             } else {
                 setMessage("Unexpected error occurred");
             }
         });
     }, [stripe, elements, id, price]);
-    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,7 +42,7 @@ export default function CheckoutForm({ id, price }) {
         if (error && (error.type === "card_error" || error.type === "validation_error")) {
             setMessage(error.message);
         } else if (!error) {
-            handleSuccessfulPayment(id, price); // Call the function if payment is successful
+            handleSuccessfulPayment(id, price);
         }
 
         setIsLoading(false);
@@ -52,35 +52,22 @@ export default function CheckoutForm({ id, price }) {
         try {
             console.log("Attempting to call payment-succeed endpoint...");
             const response = await axios.get(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {
-                params: {
-                    id,
-                    price
-                }
+                params: { id, price }
             });
-            
-            // Log the entire response object
             console.log("Response from payment-succeed endpoint:", response);
-    
-            // Log specific response data if needed
-            console.log("Data:", response.data);
-            console.log("Status:", response.status);
-            console.log("Status Text:", response.statusText);
-    
         } catch (error) {
             console.error("Error calling payment-succeed endpoint:", error);
         }
     };
 
-    const paymentElementOptions = {
-        layout: "tabs"
-    };
+    const paymentElementOptions = { layout: "tabs" };
 
     return (
         <form id="payment-form" onSubmit={handleSubmit}>
             <p className="text-black mb-4">Complete your payment here!</p>
             <PaymentElement id="payment-element" options={paymentElementOptions} />
             <button className='bg-black rounded-xl text-white p-2 mt-6 mb-2'
-                    disabled={isLoading || !stripe || !elements}>
+                    disabled={isLoading || !stripe || !elements} aria-busy={isLoading}>
                 {isLoading ? "Loading..." : "Pay now"}
             </button>
             {message && <div>{message}</div>}

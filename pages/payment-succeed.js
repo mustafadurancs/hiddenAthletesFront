@@ -13,7 +13,7 @@ const handleSuccessfulPayment = async (id, price) => {
     debugger;
     try {
         console.log("Attempting to call payment-succeed endpoint...");
-        const response = await axios.get(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {
+        const response = await axios.post(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {
             params: { id, price }
         });
         console.log("Response from payment-succeed endpoint:", response);

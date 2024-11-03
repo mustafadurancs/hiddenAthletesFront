@@ -22,6 +22,7 @@ export default function CheckoutForm({ id, price }) {
         stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
             if (paymentIntent.status === "succeeded") {
                 setMessage("Your payment succeeded");
+                alert("CALLING");
                 handleSuccessfulPayment(id, price); // Call with id and price
             } else {
                 setMessage("Unexpected error occurred");
@@ -44,6 +45,7 @@ export default function CheckoutForm({ id, price }) {
         if (error && (error.type === "card_error" || error.type === "validation_error")) {
             setMessage(error.message);
         } else if (!error) {
+            alert("ANOTHER CALL");
             handleSuccessfulPayment(id, price);
         }
 
@@ -51,6 +53,8 @@ export default function CheckoutForm({ id, price }) {
     };
 
     const handleSuccessfulPayment = async (id, price) => {
+        alert("CALLED ********");
+        alert(`${configData.SERVER_URL}/questionaire/api/payment-succeed`);
         try {
             console.log("Attempting to call payment-succeed endpoint...");
             const response = await axios.get(`${configData.SERVER_URL}/questionaire/api/payment-succeed`, {

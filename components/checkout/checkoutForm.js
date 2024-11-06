@@ -43,7 +43,7 @@ export default function CheckoutForm({ id, price }) {
 
         const { error } = await stripe.confirmPayment({
             elements,
-            confirmParams: { return_url: `${configData.HOME_PAGE}/payment-succeed` }
+            confirmParams: { return_url: `${configData.HOME_PAGE}/payment-succeed?q_id=${id}&amount=${price}` }
         });
 
         if (error && (error.type === "card_error" || error.type === "validation_error")) {

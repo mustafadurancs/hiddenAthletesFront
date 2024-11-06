@@ -5,12 +5,16 @@ import Footer from "@/components/_App/Footer";
 import configData from '../jsconfig.json';
 import axios from "axios";
 
+const [queryId, setQueryId] = useState(null);
+const [amount, setAmount] = useState(null);
+
 const handleSuccessfulPayment = async (id, price) => {
     alert("CALLED FROM ANYWHERE********");
     console.log("CALLED FROM ANYWHERE********");
     debugger;
     alert(`${configData.SERVER_URL}/questionaire/api/payment-succeed`);
     debugger;
+
     try {
         console.log("Attempting to call payment-succeed endpoint...");
         const response = await axios.post(
@@ -26,7 +30,21 @@ const handleSuccessfulPayment = async (id, price) => {
     }
     
 };
-handleSuccessfulPayment(161,99);
+
+useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const q_id = params.get('q_id'); // Get the 'q_id' value from the URL
+    const amountQ = params.get('amount')
+    if (q_id) {
+        setQueryId(q_id);
+    }
+    if (amountQ){
+        setAmount(amountQ);
+    }
+
+});
+
+handleSuccessfulPayment(queryId,amount);
 const PaymentSuccess = () => {
     return (
         <>

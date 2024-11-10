@@ -78,7 +78,7 @@ const Signup = () => {
                                 title: "You have been signed up!!!",
                                 text: "You will be directed to the email verification",
                                 icon: "success",
-                                timer: 3000,
+                                timer: 5000,
                                 timerProgressBar: true,
                                 showConfirmButton: true,
                             });

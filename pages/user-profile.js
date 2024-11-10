@@ -109,7 +109,7 @@ const UserProfile = () => {
                                     <h3> MY CONTACT &nbsp;
                                         {!editingContact && (
                                             <a href="#" onClick={() => setEditingContact(true)}>
-                                                <Icon.Edit />
+                                                <Icon.Edit /> Edit
                                             </a>
                                         )}
                                     </h3>
@@ -138,7 +138,7 @@ const UserProfile = () => {
                                     <h3> ATHLETIC INFO &nbsp;
                                         {!editingContact && (
                                             <a href="#" onClick={() => setEditingContact(true)}>
-                                                <Icon.Edit />
+                                                <Icon.Edit /> Edit
                                             </a>
                                         )}
                                     </h3>
@@ -166,7 +166,7 @@ const UserProfile = () => {
                                     <h3> ACADEMIC INFO &nbsp;
                                         {!editingContact && (
                                             <a href="#" onClick={() => setEditingContact(true)}>
-                                                <Icon.Edit />
+                                                <Icon.Edit /> Edit
                                             </a>
                                         )}
                                     </h3>

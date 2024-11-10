@@ -96,7 +96,7 @@ const Navbar = () => {
                                                     <Link href="/football" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Football</a>
                                                     </Link>
                                                 </li>
-
+                                                {/*
                                                 <li className="nav-item">
                                                     <Link href="/basketball" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Basketball</a>
                                                     </Link>
@@ -116,6 +116,7 @@ const Navbar = () => {
                                                     <Link href="/soccer-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Soccer </a>
                                                     </Link>
                                                 </li>
+                                                */}
                                                 {/*
                                                 <li className="nav-item">
                                                     <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Spare Menu</a>

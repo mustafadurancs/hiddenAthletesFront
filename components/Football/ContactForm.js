@@ -19,6 +19,17 @@ const alertContent = () => {
     });
 };
 
+const alertContentNotLoggedin = () => {
+    MySwal.fire({
+        title: "You are No logged in!",
+        text: "Yo have to login to submit your form !!!",
+        icon: "fail",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+    });
+};
+
 const INITIAL_STATE = {
     name: "",
     lastname: "",
@@ -46,6 +57,7 @@ const ContactForm = () => {
     useEffect(() => {
         const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
         if (!userID) {
+            alertContentNotLoggedin();
             router.push('/login'); // Redirect to login page if not logged in
         } else {
             console.log(userID);

@@ -44,7 +44,7 @@ const ContactForm = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
+        const userID = typeof window !== 'undefined' ? localStorage.getItem('userName') : null;
         if (!userID) {
             router.push('/login'); // Redirect to login page if not logged in
         } else {

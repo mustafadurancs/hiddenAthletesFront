@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
 import Link from 'next/link';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+
 const MySwal = withReactContent(Swal);
-//import configData from '../../utils/baseUrl';
 import configData from '../../jsconfig.json';
+
 const alertContent = () => {
     MySwal.fire({
         title: "Congratulations!",
         text: "Your information was successfully sent and will be back to you soon",
         icon: "success",
-        timer: 2000,
+        timer: 5000,
         timerProgressBar: true,
         showConfirmButton: false,
     });
 };
 
-const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
-const userEmail = typeof window !== 'undefined' ? localStorage.getItem('userName') : null;
-
-// Form initial state
 const INITIAL_STATE = {
     name: "",
     lastname: "",
@@ -41,38 +39,49 @@ const INITIAL_STATE = {
 };
 
 const ContactForm = () => {
+    const router = useRouter();
     const [contact, setContact] = useState(INITIAL_STATE);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    // Fetch user details
     useEffect(() => {
-        const fetchUserDetails = async () => {
-            try {
-                const username = localStorage.getItem('userName');
-                const response = await axios.get(`${configData.SERVER_URL}/user/api/id?username=${username}&password`)
-                const userData = response.data;
+        const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
+        if (!userID) {
+            router.push('/login'); // Redirect to login page if not logged in
+        } else {
+            setIsAuthenticated(true);
+        }
+    }, [router]);
 
-                // Update the contact state with user details
-                setContact((prevState) => ({
-                    ...prevState,
-                    name: userData.name || "",
-                    lastname: userData.lastname || "",
-                    address: userData.address || "",
-                    city: userData.city || "",
-                    state: userData.state || "",
-                    zipCode: userData.zipCode || "",
-                    phone: userData.phone || "",
-                    email: userData.email || "",
-                    sat: userData.sat || "",
-                    gpa: userData.gpa || "",
-                    act: userData.act || ""
-                }));
-            } catch (error) {
-                console.error("Error fetching user details:", error);
-            }
-        };
+    useEffect(() => {
+        if (isAuthenticated) {
+            const fetchUserDetails = async () => {
+                try {
+                    const username = localStorage.getItem('userName');
+                    const response = await axios.get(`${configData.SERVER_URL}/user/api/id?username=${username}`);
+                    const userData = response.data;
 
-        fetchUserDetails();
-    }, []);
+                    setContact((prevState) => ({
+                        ...prevState,
+                        name: userData.name || "",
+                        lastname: userData.lastname || "",
+                        address: userData.address || "",
+                        city: userData.city || "",
+                        state: userData.state || "",
+                        zipCode: userData.zipCode || "",
+                        phone: userData.phone || "",
+                        email: userData.email || "",
+                        sat: userData.sat || "",
+                        gpa: userData.gpa || "",
+                        act: userData.act || ""
+                    }));
+                } catch (error) {
+                    console.error("Error fetching user details:", error);
+                }
+            };
+
+            fetchUserDetails();
+        }
+    }, [isAuthenticated]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -83,6 +92,7 @@ const ContactForm = () => {
         e.preventDefault();
         try {
             const url = `${configData.SERVER_URL}/questionaire/api/save`;
+            const userID = localStorage.getItem('id');
             const { twoFourYear, startRatingBasedChart, type, region, notes } = contact;
             const payload = { 
                 twoFourYear, 
@@ -92,7 +102,6 @@ const ContactForm = () => {
                 user: { id: userID },
                 notes 
             };
-            console.log("This is payload-> ", payload);
 
             const response = await axios.post(url, payload, {
                 headers: {
@@ -108,6 +117,10 @@ const ContactForm = () => {
             console.log("Error in submission:", error);
         }
     };
+
+    if (!isAuthenticated) {
+        return null; // Render nothing while redirecting
+    }
 
     return (
         <div className="contact-area ptb-80">

@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Link from 'next/link';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-import baseUrl from '../../utils/baseUrl';
-
-import configData from '../../jsconfig.json';
-
+//import configData from '../../utils/baseUrl';
+import configData from '../jsconfig.json';
 const alertContent = () => {
     MySwal.fire({
         title: "Congratulations!",
@@ -24,22 +22,58 @@ const userEmail = typeof window !== 'undefined' ? localStorage.getItem('userName
 
 // Form initial state
 const INITIAL_STATE = {
+    name: "",
+    lastname: "",
+    address: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    phone: "",
+    email: "",
+    gpa: "",
+    sat: "",
+    act: "",
     twoFourYear: "", 
     startRatingBasedChart: "", 
     type: "", 
     region: "",
-    //attendingHBCU: "",
-    notes:""
-    
+    notes: ""
 };
 
 const ContactForm = () => {
     const [contact, setContact] = useState(INITIAL_STATE);
 
+    // Fetch user details
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            try {
+                const username = localStorage.getItem('userName');
+                const response = await axios.get(`${configData.SERVER_URL}/user/api/id?username=${username}&password`)
+                const userData = response.data;
+
+                // Update the contact state with user details
+                setContact((prevState) => ({
+                    ...prevState,
+                    name: userData.name || "",
+                    lastname: userData.lastname || "",
+                    address: userData.address || "",
+                    city: userData.city || "",
+                    state: userData.state || "",
+                    zipCode: userData.zipCode || "",
+                    phone: userData.phone || "",
+                    email: userData.email || ""
+                }));
+            } catch (error) {
+                console.error("Error fetching user details:", error);
+            }
+        };
+
+        fetchUserDetails();
+    }, []);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setContact((prevState) => ({ ...prevState, [name]: value }));
-        console.log("On change ---> ", contact);
     };
 
     const handleSubmit = async (e) => {
@@ -53,7 +87,6 @@ const ContactForm = () => {
                 type, 
                 region, 
                 user: { id: userID },
-                //attendingHBCU,
                 notes 
             };
             console.log("This is payload-> ", payload);
@@ -67,7 +100,7 @@ const ContactForm = () => {
             
             console.log("THIS IS RESPONSE ==>", response);
             setContact(INITIAL_STATE); // Reset the form state
-            alertContent(); // Assuming you have an alert function to display success
+            alertContent(); // Success alert
         } catch (error) {
             console.log("Error in submission:", error);
         }
@@ -91,13 +124,12 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="firstName"
+                                            name="name"
                                             placeholder="First Name"
                                             className="form-control"
-                                            value={contact.firstName}
+                                            value={contact.name}
                                             disabled
                                             onChange={handleChange}
-                                            //required
                                         />
                                     </div>
                                 </div>
@@ -105,13 +137,12 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="lastName"
+                                            name="lastname"
                                             placeholder="Last Name"
                                             className="form-control"
-                                            value={contact.lastName}
+                                            value={contact.lastname}
                                             disabled
                                             onChange={handleChange}
-                                            //required
                                         />
                                     </div>
                                 </div>
@@ -119,16 +150,22 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="homeAddress"
+                                            name="address"
                                             placeholder="Home Address"
                                             className="form-control"
-                                            value={contact.homeAddress}
+                                            value={contact.address}
                                             disabled
                                             onChange={handleChange}
-                                            //required
                                         />
                                     </div>
                                 </div>
+                                {/* Add the remaining fields here */}
+                                {/* Include Academic and other fields */}
+
+
+
+
+
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <input
@@ -225,7 +262,7 @@ const ContactForm = () => {
                                             name="phoneNumber"
                                             placeholder="Phone Number"
                                             className="form-control"
-                                            value={contact.phoneNumber}
+                                            value={contact.phone}
                                             disabled
                                             onChange={handleChange}
                                         />
@@ -418,6 +455,13 @@ const ContactForm = () => {
                                     </div>
                                 </div>
 
+
+
+
+
+
+
+
                                 <div className="col-lg-12 col-sm-12">
                                     <button type="submit" className="btn btn-primary">Send Form</button>
                                 </div>
@@ -431,5 +475,3 @@ const ContactForm = () => {
 }
 
 export default ContactForm;
-
-

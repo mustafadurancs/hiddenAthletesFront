@@ -85,7 +85,7 @@ const Signup = () => {
                                 // Redirect after the timer finishes
                                 setTimeout(() => {
                                     window.location.href = "/email-sent";
-                                }, 5000); // Match the timer duration
+                                }, 2000); // Match the timer duration
                             });
                             
                         })

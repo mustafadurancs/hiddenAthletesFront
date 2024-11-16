@@ -159,7 +159,7 @@ const Signup = () => {
 
                             <div className="mb-3">
                                 <label className="form-label">Confirm Password</label>
-                                <input
+                                <input  style={{color: 'red' }}
                                     type="password"
                                     className="form-control"
                                     id="ConfirmPassword"

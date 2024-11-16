@@ -78,11 +78,16 @@ const Signup = () => {
                                 title: "You have been signed up!!!",
                                 text: "You will be directed to the email verification",
                                 icon: "success",
-                                timer: 5000,
+                                timer: 5000, // Display the modal for 5 seconds
                                 timerProgressBar: true,
                                 showConfirmButton: true,
+                            }).then(() => {
+                                // Redirect after the timer finishes
+                                setTimeout(() => {
+                                    window.location.href = "/email-sent";
+                                }, 5000); // Match the timer duration
                             });
-                            window.location.href = "/email-sent";
+                            
                         })
                         .catch((error) => {
                             console.log(error);

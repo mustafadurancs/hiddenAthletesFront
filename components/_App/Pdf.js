@@ -66,7 +66,7 @@ const DownloadPDF = () => {
     };
 
     return (
-        <div>
+        <div style={{alignContent:'end'}}>
             <button onClick={fetchPDFIds}>Get My Evaluations</button>
             <div id="error-container"></div>
             {loading && <p>Loading...</p>}

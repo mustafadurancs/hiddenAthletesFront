@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-import configData from '../../utils/baseUrl';
-
+//import configData from '../../utils/baseUrl';
+import configData from '../jsconfig.json';
 const alertContent = () => {
     MySwal.fire({
         title: "Congratulations!",

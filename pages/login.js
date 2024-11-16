@@ -63,7 +63,7 @@ const Login = () => {
                             <Link href="/">
                                 <a><img src="/images/logo.png" /></a>
                             </Link>
-                            <p style={{color:'red'}}>Don't have an account yet? <Link href="/sign-up">Sign Up</Link></p>
+                            <p style={{color:'red'}}>Don't have an account yet? <Link href="/sign-up"><span style={{font:'large'}}>Sign Up</span></Link></p>
                         </div>
 
                         <form onSubmit={handleLogin}>

@@ -97,8 +97,9 @@ const UserProfile = () => {
         <>
             <Navbar />
             <PageBanner pageTitle="YOUR HIDDEN ATHLETE PROFILE" />
-            <DownloadPDF/>
+            
             <div className="container">
+                <DownloadPDF/>
                 <div className="row justify-content-center">
                     <div className="col-lg-12 col-md-12" style={{ background: 'orange' }}>
                     </div>

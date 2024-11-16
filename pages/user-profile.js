@@ -106,7 +106,7 @@ const UserProfile = () => {
                     </div>
                     <div className="row" style={backgroundImage}>
                         <div className="col-lg-12 col-md-12">
-                            <div className="team-content">
+                            <div className="team-content" style={{color:'black'}}>
                                 <div className="team-info">
                                     <h3> MY CONTACT &nbsp;
                                         {!editingContact && (

@@ -33,6 +33,7 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem("userName");
         localStorage.removeItem("id");
+        alert(localStorage.getItem('id'));
         window.location("/");
     };
 

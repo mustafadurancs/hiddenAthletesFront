@@ -48,6 +48,7 @@ const ContactForm = () => {
         if (!userID) {
             router.push('/login'); // Redirect to login page if not logged in
         } else {
+            console.log(userID);
             setIsAuthenticated(true);
         }
     }, [router]);

@@ -23,7 +23,7 @@ const alertContentNotLoggedin = () => {
     MySwal.fire({
         title: "You are No logged in!",
         text: "Yo have to login to submit your form !!!",
-        icon: "fail",
+        icon: "error",
         timer: 5000,
         timerProgressBar: true,
         showConfirmButton: false,

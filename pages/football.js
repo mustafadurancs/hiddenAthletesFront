@@ -22,13 +22,13 @@ const userEmail = typeof window !== 'undefined' ? localStorage.getItem('userName
 
 // Form initial state
 const INITIAL_STATE = {
-    firstName: "",
-    lastName: "",
-    homeAddress: "",
+    name: "",
+    lastname: "",
+    address: "",
     city: "",
     state: "",
     zipCode: "",
-    phoneNumber: "",
+    phone: "",
     email: "",
     gpa: "",
     sat: "",
@@ -54,13 +54,13 @@ const ContactForm = () => {
                 // Update the contact state with user details
                 setContact((prevState) => ({
                     ...prevState,
-                    firstName: userData.firstName || "",
-                    lastName: userData.lastName || "",
-                    homeAddress: userData.address || "",
+                    name: userData.name || "",
+                    lastname: userData.lastname || "",
+                    address: userData.address || "",
                     city: userData.city || "",
                     state: userData.state || "",
                     zipCode: userData.zipCode || "",
-                    phoneNumber: userData.phone || "",
+                    phone: userData.phone || "",
                     email: userData.email || ""
                 }));
             } catch (error) {
@@ -124,10 +124,10 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="firstName"
+                                            name="name"
                                             placeholder="First Name"
                                             className="form-control"
-                                            value={contact.firstName}
+                                            value={contact.name}
                                             disabled
                                             onChange={handleChange}
                                         />
@@ -137,10 +137,10 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="lastName"
+                                            name="lastname"
                                             placeholder="Last Name"
                                             className="form-control"
-                                            value={contact.lastName}
+                                            value={contact.lastname}
                                             disabled
                                             onChange={handleChange}
                                         />
@@ -150,10 +150,10 @@ const ContactForm = () => {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            name="homeAddress"
+                                            name="address"
                                             placeholder="Home Address"
                                             className="form-control"
-                                            value={contact.homeAddress}
+                                            value={contact.address}
                                             disabled
                                             onChange={handleChange}
                                         />

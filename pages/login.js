@@ -89,7 +89,7 @@ const Login = () => {
 
                             <button type="submit" className="btn btn-primary">Login</button>
                         </form>
-
+                        {/*
                         <div className="foot">
                             <p>or connect with</p>
                             <ul>
@@ -110,6 +110,8 @@ const Login = () => {
                                 </li>
                             </ul>
                         </div>
+                        */}
+
                     </div>
                 </div>
             </div>

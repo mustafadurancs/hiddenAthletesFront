@@ -4,7 +4,7 @@ import Footer from '@/components/_App/Footer';
 import PageBanner from '@/components/Common/PageBanner';
 import * as Icon from 'react-feather';
 import axios from 'axios';
-
+import DownloadPDF from "@/components/_App/Pdf";
 import configData from '../jsconfig.json';
 
 const backgroundImage = {
@@ -97,7 +97,7 @@ const UserProfile = () => {
         <>
             <Navbar />
             <PageBanner pageTitle="YOUR HIDDEN ATHLETE PROFILE" />
-
+            <DownloadPDF/>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-12 col-md-12" style={{ background: 'orange' }}>

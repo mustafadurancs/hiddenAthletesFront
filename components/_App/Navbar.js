@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from '@/utils/ActiveLink';
 import * as Icon from 'react-feather';
-import DownloadPDF from "@/components/_App/Pdf";
+
 import configData from '../../jsconfig.json';
 
 
@@ -53,7 +53,7 @@ const Navbar = () => {
                             {userName ? (
 
                             //<li> <Link href="/"><a>Download Your profile <DownloadPDF/> <Icon.Download/></a></Link> </li>
-                            <li><DownloadPDF/></li>
+                            <li></li>
 
                                 ):
                                 (<p></p> )

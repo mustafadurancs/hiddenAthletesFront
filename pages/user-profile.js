@@ -99,9 +99,10 @@ const UserProfile = () => {
             <PageBanner pageTitle="YOUR HIDDEN ATHLETE PROFILE" />
             
             <div className="container">
-                <DownloadPDF/>
+                
                 <div className="row justify-content-center">
                     <div className="col-lg-12 col-md-12" style={{ background: 'orange' }}>
+                    <DownloadPDF/>
                     </div>
                     <div className="row" style={backgroundImage}>
                         <div className="col-lg-12 col-md-12">

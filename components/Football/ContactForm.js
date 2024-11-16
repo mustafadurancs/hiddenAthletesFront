@@ -58,7 +58,7 @@ const ContactForm = () => {
             const fetchUserDetails = async () => {
                 try {
                     const username = localStorage.getItem('userName');
-                    const response = await axios.get(`${configData.SERVER_URL}/user/api/id?username=${username}`);
+                    const response = await axios.get(`${configData.SERVER_URL}/user/api/id?username=${username}&password`);
                     const userData = response.data;
 
                     setContact((prevState) => ({

@@ -112,7 +112,7 @@ const UserProfile = () => {
                                 <div className="team-info" style={{color:'black'}}>
                                     <h3> MY CONTACT &nbsp;
                                         {!editingContact && (
-                                            <a href="#" onClick={() => setEditingContact(true)}>
+                                            <a href="#" onClick={() => {setEditingContact(true);setEditingAcademic(false)}}>
                                                 <Icon.Edit /> Edit
                                             </a>
                                         )}

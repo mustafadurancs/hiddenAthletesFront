@@ -12,16 +12,23 @@ const Navbar = () => {
         setMenu(!menu)
     }
 
-    React.useEffect(() => {
-        let elementId = document.getElementById("header");
-        document.addEventListener("scroll", () => {
+    useEffect(() => {
+        const handleScroll = () => {
+            const elementId = document.getElementById("header");
             if (window.scrollY > 170) {
                 elementId.classList.add("is-sticky");
             } else {
                 elementId.classList.remove("is-sticky");
             }
-        });
-    })
+        };
+
+        document.addEventListener("scroll", handleScroll);
+
+        return () => {
+            document.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
 
     const classOne = menu ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
     const classTwo = menu ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
@@ -33,8 +40,7 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem("userName");
         localStorage.removeItem("id");
-        alert(localStorage.getItem('id'));
-        window.location("/");
+        window.location, href = "/";
     };
 
 
@@ -49,17 +55,9 @@ const Navbar = () => {
                         </a>
                         </Link>
                         <ul>
-                            <li>{userName}</li>
-                            {userName ? (
-
-                            //<li> <Link href="/"><a>Download Your profile <DownloadPDF/> <Icon.Download/></a></Link> </li>
-                            <li></li>
-
-                                ):
-                                (<p></p> )
-
-                            }
+                            {userName && <li>{userName}</li>}
                         </ul>
+
                         <button
                             onClick={toggleNavbar}
                             className={classTwo}

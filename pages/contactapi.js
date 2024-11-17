@@ -37,7 +37,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "/api/contact"; // API endpoint
+        const url = "https://hiddenathletesfront.onrender.com/api/contactapi";// API endpoint
       const { name, email, number, subject, text } = contact;
       const payload = { name, email, number, subject, text };
       const response = await axios.post(url, payload);

@@ -51,7 +51,7 @@ const UserProfile = () => {
             email: user.email,
             phone: user.phone,
             address: user.address,
-            twitter_handle: user.twitter_handle,
+            titter_handle: user.titter_handle,
             instagram: user.instagram,
             facebook: user.facebook,
             snapchat: user.snapchat,
@@ -138,7 +138,7 @@ const UserProfile = () => {
 
                                                 {/* Right Column */}
                                                 <div className="col-md-6">
-                                                    <p><Icon.Twitter /> Twitter: {editingContact ? <input type="text" value={user.twitter_handle} onChange={(e) => setUser({ ...user, twitter_handle: e.target.value })} /> : user.twitter_handle}</p>
+                                                    <p><Icon.Twitter /> Twitter: {editingContact ? <input type="text" value={user.titter_handle} onChange={(e) => setUser({ ...user, titter_handle: e.target.value })} /> : user.titter_handle}</p>
                                                     <p><Icon.Facebook /> Facebook: {editingContact ? <input type="text" value={user.facebook} onChange={(e) => setUser({ ...user, facebook: e.target.value })} /> : user.facebook}</p>
                                                     <p><Icon.Instagram /> Instagram: {editingContact ? <input type="text" value={user.instagram} onChange={(e) => setUser({ ...user, instagram: e.target.value })} /> : user.instagram}</p>
                                                     <p><Icon.Square /> Snapchat: {editingContact ? <input type="text" value={user.snapchat} onChange={(e) => setUser({ ...user, snapchat: e.target.value })} /> : user.snapchat}</p>

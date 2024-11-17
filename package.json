@@ -39,9 +39,9 @@
         "sass": "^1.43.4",
         "stripe": "^14.7.0",
         "styled-components": "^6.1.1",
-        "sweetalert2": "^11.14.5",
+        "sweetalert2": "^11.6.13",
         "sweetalert2-react-content": "^5.0.0",
-        "swiper": "^8.3.2",
+        "swiper": "^11.1.14",
         "zxcvbn": "^4.4.2"
     },
     "license": "MIT"

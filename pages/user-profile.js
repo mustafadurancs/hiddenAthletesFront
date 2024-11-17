@@ -182,7 +182,7 @@ const UserProfile = () => {
                                             <p><Icon.User /> ACT: {editingAcademic ? <input type="text" value={user.act} onChange={(e) => setUser({ ...user, act: e.target.value })} /> : user.act}</p>
                                         </div>
                                         <div className="col-md-6">
-                                            <p><Icon.FileText /> Transcript: {editingAcedemic ? <input type="text" value={user.transcript} onChange={(e) => setUser({ ...user, transcript: e.target.value })} /> : user.transcript}</p>
+                                            <p><Icon.FileText /> Transcript: {editingAcademic ? <input type="text" value={user.transcript} onChange={(e) => setUser({ ...user, transcript: e.target.value })} /> : user.transcript}</p>
                                         </div>
                                     </div>
                                 </div>

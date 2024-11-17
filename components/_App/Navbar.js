@@ -50,15 +50,7 @@ const Navbar = () => {
                         </Link>
                         <ul>
                             <li>{userName}</li>
-                            {userName ? (
-
-                            //<li> <Link href="/"><a>Download Your profile <DownloadPDF/> <Icon.Download/></a></Link> </li>
-                            <li><DownloadPDF/></li>
-
-                                ):
-                                (<p></p> )
-
-                            }
+                            
                         </ul>
                         <button
                             onClick={toggleNavbar}

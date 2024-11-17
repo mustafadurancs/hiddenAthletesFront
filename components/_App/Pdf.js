@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import configData from '../../jsconfig.json';
+import * as Icon from 'react-feather';
 
 const userID = typeof window !== 'undefined' ? localStorage.getItem('id') : null;
 
@@ -66,8 +67,8 @@ const DownloadPDF = () => {
     };
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-            <button onClick={fetchPDFIds}>Get My Evaluations</button>
+        <div>
+            <button onClick={fetchPDFIds} style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>Get My Evaluations</button>
             <div id="error-container"></div>
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -79,11 +80,11 @@ const DownloadPDF = () => {
                             <li key={pdf.id}>
                                 {pdf.paid ? (
                                     <a href={pdf.url} download={`profile_${pdf.id}.pdf`}>
-                                        Download PDF {pdf.id} - {pdf.creationDate}
+                                        Download PDF <Icon.Download />  {pdf.creationDate}
                                     </a>
                                 ) : (
                                     <a href={`${configData.HOME_PAGE}/payment?q_id=${pdf.id}`}>
-                                        Pay Now to Download PDF {pdf.id} - {pdf.creationDate}
+                                        Pay Now to Download PDF <Icon.Download /> {pdf.creationDate}
                                     </a>
 
                                 )}

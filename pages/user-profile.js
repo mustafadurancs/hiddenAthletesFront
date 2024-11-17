@@ -132,6 +132,8 @@ const UserProfile = () => {
                                                     <p><Icon.Mail /> Email: {editingContact ? <input type="text" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} /> : user.email}</p>
                                                     <p><Icon.Phone /> Phone: {editingContact ? <input type="text" value={user.phone} onChange={(e) => setUser({ ...user, phone: e.target.value })} /> : user.phone}</p>
                                                     <p><Icon.MapPin /> Address: {editingContact ? <input type="text" value={user.address} onChange={(e) => setUser({ ...user, address: e.target.value })} /> : user.address}</p>
+                                                    <p><Icon.Info /> About Me: {editingContact ? <input type="text" value={user.aboutMe} onChange={(e) => setUser({ ...user, aboutMe: e.target.value })} /> : user.aboutMe}</p>
+                                                    <p><Icon.Link /> HighLight: {editingContact ? <input type="text" value={user.highLight} onChange={(e) => setUser({ ...user, highLight: e.target.value })} /> : user.highLight}</p>
                                                 </div>
     
                                                 {/* Right Column */}
@@ -139,8 +141,11 @@ const UserProfile = () => {
                                                     <p><Icon.Twitter /> Twitter: {editingContact ? <input type="text" value={user.twitter_handle} onChange={(e) => setUser({ ...user, twitter_handle: e.target.value })} /> : user.twitter_handle}</p>
                                                     <p><Icon.Facebook /> Facebook: {editingContact ? <input type="text" value={user.facebook} onChange={(e) => setUser({ ...user, facebook: e.target.value })} /> : user.facebook}</p>
                                                     <p><Icon.Instagram /> Instagram: {editingContact ? <input type="text" value={user.instagram} onChange={(e) => setUser({ ...user, instagram: e.target.value })} /> : user.instagram}</p>
-                                                    <p><Icon.Square /> Snapchat: {editingContact ? <input type="text" value={user.snapchat} onChange={(e) => setUser({ ...user, snapchat: e.target.value })} /> : user.snapchat}</p>
-                                                    <p><Icon.Info /> About Me: {editingContact ? <input type="text" value={user.aboutMe} onChange={(e) => setUser({ ...user, aboutMe: e.target.value })} /> : user.aboutMe}</p>
+                                                    <p><Icon.Square /> Snapchat: {editingContact ? <input type="text" value={user.snapchat} onChange={(e) => setUser({ ...user, snapchat: e.target.value })} /> : user.snapchat}</p>                                                    
+                                                    <p><Icon.BarChart2 /> Statistics: {editingContact ? <input type="text" value={user.statistics} onChange={(e) => setUser({ ...user, statistics: e.target.value })} /> : user.statistics}</p>
+                                            <p><Icon.User /> Senior Year: {editingContact ? <input type="text" value={user.seniorYear} onChange={(e) => setUser({ ...user, seniorYear: e.target.value })} /> : user.seniorYear}</p>
+                                            <p><Icon.User /> Junior Year: {editingContact ? <input type="text" value={user.juniorYear} onChange={(e) => setUser({ ...user, juniorYear: e.target.value })} /> : user.juniorYear}</p>
+                                            
                                                 </div>
                                             </div>
                                         </div>

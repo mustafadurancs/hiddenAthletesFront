@@ -25,6 +25,7 @@ const UserProfile = () => {
     const [user, setUser] = useState(null);
     const [editingContact, setEditingContact] = useState(false);
     const [editingAcademic, setEditingAcademic] = useState(false);
+    const [editingAthletic, setEditingAthletic] = useState(false);
 
     const username = userEmail;
 
@@ -84,7 +85,8 @@ const UserProfile = () => {
             .then((response) => {
                 console.log('Contact information updated successfully');
                 setEditingContact(false);
-                setEditingAcademic(false); 
+                setEditingAcademic(false);
+                setEditingAthletic(false); 
             })
             .catch((error) => {
                 console.error('Error updating contact information:', error);
@@ -112,7 +114,7 @@ const UserProfile = () => {
                                 <div className="team-info" style={{color:'black'}}>
                                     <h3> MY CONTACT &nbsp;
                                         {!editingContact && (
-                                            <a href="#" onClick={() => {setEditingContact(true);setEditingAcademic(false)}}>
+                                            <a href="#" onClick={() => {setEditingContact(true);setEditingAcademic(false);setEditingAthletic(false)}}>
                                                 <Icon.Edit /> Edit
                                             </a>
                                         )}
@@ -138,10 +140,10 @@ const UserProfile = () => {
                                             <p><Icon.Link /> HighLight: {editingContact ? <input type="text" value={user.highLight} onChange={(e) => setUser({ ...user, highLight: e.target.value })} /> : user.highLight}</p>
                                         </div>
                                     </div>
-
+                                    <hr/>
                                     <h3> ATHLETIC INFO &nbsp;
                                         {!editingContact && (
-                                            <a href="#" onClick={() => setEditingContact(true)}>
+                                            <a href="#" onClick={() => {setEditingAthletic(true); setEditingAcademic(false);setEditingContact(false)}}>
                                                 <Icon.Edit /> Edit
                                             </a>
                                         )}
@@ -149,27 +151,27 @@ const UserProfile = () => {
 
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <p><Icon.Activity /> Height: {editingContact ? <input type="text" value={user.height} onChange={(e) => setUser({ ...user, height: e.target.value })} /> : user.height}</p>
-                                            <p><Icon.Activity /> Weight: {editingContact ? <input type="text" value={user.weight} onChange={(e) => setUser({ ...user, weight: e.target.value })} /> : user.weight}</p>
-                                            <p><Icon.User /> 40 Yard Dash: {editingContact ? <input type="text" value={user.forty} onChange={(e) => setUser({ ...user, forty: e.target.value })} /> : user.forty}</p>
-                                            <p><Icon.User /> 40 Yard Dash (Laser): {editingContact ? <input type="text" value={user.fortyLazer} onChange={(e) => setUser({ ...user, fortyLazer: e.target.value })} /> : user.fortyLazer}</p>
-                                            <p><Icon.User /> Pro Shuttle: {editingContact ? <input type="text" value={user.proShuttle} onChange={(e) => setUser({ ...user, proShuttle: e.target.value })} /> : user.proShuttle}</p>
-                                            <p><Icon.User /> Vertical Jump: {editingContact ? <input type="text" value={user.vertical} onChange={(e) => setUser({ ...user, vertical: e.target.value })} /> : user.vertical}</p>
-                                            <p><Icon.User /> Broad Jump: {editingContact ? <input type="text" value={user.broadJump} onChange={(e) => setUser({ ...user, broadJump: e.target.value })} /> : user.broadJump}</p>
+                                            <p><Icon.Activity /> Height: {editingAthletic ? <input type="text" value={user.height} onChange={(e) => setUser({ ...user, height: e.target.value })} /> : user.height}</p>
+                                            <p><Icon.Activity /> Weight: {editingAthletic ? <input type="text" value={user.weight} onChange={(e) => setUser({ ...user, weight: e.target.value })} /> : user.weight}</p>
+                                            <p><Icon.User /> 40 Yard Dash: {editingAthletic ? <input type="text" value={user.forty} onChange={(e) => setUser({ ...user, forty: e.target.value })} /> : user.forty}</p>
+                                            <p><Icon.User /> 40 Yard Dash (Laser): {editingAthletic ? <input type="text" value={user.fortyLazer} onChange={(e) => setUser({ ...user, fortyLazer: e.target.value })} /> : user.fortyLazer}</p>
+                                            <p><Icon.User /> Pro Shuttle: {editingAthletic ? <input type="text" value={user.proShuttle} onChange={(e) => setUser({ ...user, proShuttle: e.target.value })} /> : user.proShuttle}</p>
+                                            <p><Icon.User /> Vertical Jump: {editingAthletic ? <input type="text" value={user.vertical} onChange={(e) => setUser({ ...user, vertical: e.target.value })} /> : user.vertical}</p>
+                                            <p><Icon.User /> Broad Jump: {editingAthletic ? <input type="text" value={user.broadJump} onChange={(e) => setUser({ ...user, broadJump: e.target.value })} /> : user.broadJump}</p>
                                         </div>
                                         <div className="col-md-6">
-                                            <p><Icon.User /> Bench Press: {editingContact ? <input type="text" value={user.bench} onChange={(e) => setUser({ ...user, bench: e.target.value })} /> : user.bench}</p>
-                                            <p><Icon.User /> Squat: {editingContact ? <input type="text" value={user.squat} onChange={(e) => setUser({ ...user, squat: e.target.value })} /> : user.squat}</p>
-                                            <p><Icon.User /> Power Clean: {editingContact ? <input type="text" value={user.pClean} onChange={(e) => setUser({ ...user, pClean: e.target.value })} /> : user.pClean}</p>
-                                            <p><Icon.User /> Strength: {editingContact ? <input type="text" value={user.strength} onChange={(e) => setUser({ ...user, strength: e.target.value })} /> : user.strength}</p>
-                                            <p><Icon.User /> Speed: {editingContact ? <input type="text" value={user.speed} onChange={(e) => setUser({ ...user, speed: e.target.value })} /> : user.speed}</p>
-                                            <p><Icon.Star /> Star Rating: {editingContact ? <input type="text" value={user.starRating} onChange={(e) => setUser({ ...user, starRating: e.target.value })} /> : user.starRating}</p>
+                                            <p><Icon.User /> Bench Press: {editingAthletic ? <input type="text" value={user.bench} onChange={(e) => setUser({ ...user, bench: e.target.value })} /> : user.bench}</p>
+                                            <p><Icon.User /> Squat: {editingAthletic ? <input type="text" value={user.squat} onChange={(e) => setUser({ ...user, squat: e.target.value })} /> : user.squat}</p>
+                                            <p><Icon.User /> Power Clean: {editingAthletic ? <input type="text" value={user.pClean} onChange={(e) => setUser({ ...user, pClean: e.target.value })} /> : user.pClean}</p>
+                                            <p><Icon.User /> Strength: {editingAthletic ? <input type="text" value={user.strength} onChange={(e) => setUser({ ...user, strength: e.target.value })} /> : user.strength}</p>
+                                            <p><Icon.User /> Speed: {editingAthletic ? <input type="text" value={user.speed} onChange={(e) => setUser({ ...user, speed: e.target.value })} /> : user.speed}</p>
+                                            <p><Icon.Star /> Star Rating: {editingAthletic ? <input type="text" value={user.starRating} onChange={(e) => setUser({ ...user, starRating: e.target.value })} /> : user.starRating}</p>
                                         </div>
                                     </div>
-
+                                    <hr/>
                                     <h3> ACADEMIC INFO &nbsp;
                                         {!editingAcademic && (
-                                            <a href="#" onClick={() => setEditingAcademic(true)}>
+                                            <a href="#" onClick={() => {setEditingAcademic(true); setEditingAthletic(false);setEditingContact(false)}}>
                                                 <Icon.Edit /> Edit
                                             </a>
                                         )}
@@ -190,12 +192,12 @@ const UserProfile = () => {
                                 <div className="contact-info">
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12">
-                                            {(editingContact || editingAcademic) && (
+                                            {(editingContact || editingAcademic || editingAthletic) && (
                                                 <>
                                                     <button className="btn btn-primary" onClick={handleSaveContact}>
                                                         <Icon.Check /> Save
                                                     </button>
-                                                    <button className="btn btn-danger" onClick={() => {setEditingContact(false); setEditingAcademic(false)}}>
+                                                    <button className="btn btn-danger" onClick={() => {setEditingContact(false); setEditingAcademic(false); setEditingAthletic(false)}}>
                                                         <Icon.X /> Cancel
                                                     </button>
                                                 </>

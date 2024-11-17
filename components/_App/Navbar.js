@@ -40,7 +40,7 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem("userName");
         localStorage.removeItem("id");
-        window.location, href = "/";
+        window.location.href = "/";
     };
 
 

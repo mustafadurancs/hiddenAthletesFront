@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
-import Link from '@/utils/ActiveLink';
-import * as Icon from 'react-feather';
+import Link from "@/utils/ActiveLink"; // Ensure alias '@' is properly configured
+import { ChevronDown } from "react-feather"; // Import only required icons to reduce bundle size
 
-import configData from '../../jsconfig.json';
-
+import configData from "../../jsconfig.json"; // Verify this import works in your build setup
 
 const Navbar = () => {
-    const [menu, setMenu] = useState(true)
-    const [userName, setUserName] = useState(null)
+    const [menu, setMenu] = useState(true);
+    const [userName, setUserName] = useState(null);
+
     const toggleNavbar = () => {
-        setMenu(!menu)
-    }
+        setMenu(!menu);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
-            const elementId = document.getElementById("header");
-            if (window.scrollY > 170) {
-                elementId.classList.add("is-sticky");
-            } else {
-                elementId.classList.remove("is-sticky");
+            const header = document.getElementById("header");
+            if (header) {
+                if (window.scrollY > 170) {
+                    header.classList.add("is-sticky");
+                } else {
+                    header.classList.remove("is-sticky");
+                }
             }
         };
 
@@ -29,17 +31,19 @@ const Navbar = () => {
         };
     }, []);
 
+    const classOne = menu
+        ? "collapse navbar-collapse"
+        : "collapse navbar-collapse show";
+    const classTwo = menu
+        ? "navbar-toggler navbar-toggler-right collapsed"
+        : "navbar-toggler navbar-toggler-right";
 
-    const classOne = menu ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-    const classTwo = menu ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
-    
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setUserName(localStorage.getItem('userName'));
+        if (typeof window !== "undefined") {
+            const storedUserName = localStorage.getItem("userName");
+            setUserName(storedUserName || null);
         }
     }, []);
-    
-
 
     const handleLogout = () => {
         localStorage.removeItem("userName");
@@ -47,17 +51,18 @@ const Navbar = () => {
         window.location.href = "/";
     };
 
-
     return (
         <header id="header" className="headroom navbar-style-three">
             <div className="startp-nav">
                 <div className="container-fluid">
                     <nav className="navbar navbar-expand-md navbar-light">
-                        <Link href="/"><a onClick={toggleNavbar} className="navbar-brand">
-                            <img src="/images/logo.png" alt="logo" />
-                            <img src="/images/combine.png" alt="combine" />
-                        </a>
+                        <Link href="/">
+                            <a onClick={toggleNavbar} className="navbar-brand">
+                                <img src="/images/logo.png" alt="logo" />
+                                <img src="/images/combine.png" alt="combine" />
+                            </a>
                         </Link>
+
                         <ul>
                             {userName && <li>{userName}</li>}
                         </ul>
@@ -66,8 +71,7 @@ const Navbar = () => {
                             onClick={toggleNavbar}
                             className={classTwo}
                             type="button"
-                            data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
                             aria-expanded="false"
                             aria-label="Toggle navigation"
                         >
@@ -77,255 +81,156 @@ const Navbar = () => {
                         </button>
 
                         <div className={classOne} id="navbarSupportedContent">
-
                             <ul className="navbar-nav ms-auto">
                                 <li className="nav-item">
-
-                                    <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        Recruiting  <Icon.ChevronDown />
-                                    </a>
+                                    <Link href="/#" activeClassName="active">
+                                        <a
+                                            onClick={(e) => e.preventDefault()}
+                                            className="nav-link"
+                                        >
+                                            Recruiting <ChevronDown />
+                                        </a>
                                     </Link>
 
                                     <ul className="dropdown-menu">
-
-
                                         <li className="nav-item">
-                                            <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                                Pick a Sport <Icon.ChevronDown />
-                                            </a>
+                                            <Link
+                                                href="/#"
+                                                activeClassName="active"
+                                            >
+                                                <a
+                                                    onClick={(e) =>
+                                                        e.preventDefault()
+                                                    }
+                                                    className="nav-link"
+                                                >
+                                                    Pick a Sport{" "}
+                                                    <ChevronDown />
+                                                </a>
                                             </Link>
 
                                             <ul className="dropdown-menu">
                                                 <li className="nav-item">
-                                                    <Link href="/football" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Football</a>
+                                                    <Link
+                                                        href="/football"
+                                                        activeClassName="active"
+                                                    >
+                                                        <a
+                                                            onClick={
+                                                                toggleNavbar
+                                                            }
+                                                            className="nav-link"
+                                                        >
+                                                            Football
+                                                        </a>
                                                     </Link>
                                                 </li>
-                                                {/*
-                                                <li className="nav-item">
+                                                {/* Uncomment below as needed */}
+                                                {/* <li className="nav-item">
                                                     <Link href="/basketball" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Basketball</a>
                                                     </Link>
-                                                </li>
-
-                                                <li className="nav-item">
-                                                    <Link href="/soccer" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Soccer</a>
-                                                    </Link>
-                                                </li>
-
-                                                <li className="nav-item">
-                                                    <Link href="/basketball-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Basketball</a>
-                                                    </Link>
-                                                </li>
-
-                                                <li className="nav-item">
-                                                    <Link href="/soccer-woman" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Soccer </a>
-                                                    </Link>
-                                                </li>
-                                                */}
-                                                {/*
-                                                <li className="nav-item">
-                                                    <Link href="/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Spare Menu</a>
-                                                    </Link>
-                                                </li>
-                                                */}
-                                            </ul>
-                                        </li>
-
-
-
-
-                                        <li className="nav-item">
-                                            <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                                Eligibility Centers <Icon.ChevronDown />
-                                            </a>
-                                            </Link>
-
-                                            <ul className="dropdown-menu">
-                                                <li className="nav-item">
-                                                    <Link href="https://web3.ncaa.org/ecwr3/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA</a>
-                                                    </Link>
-                                                </li>
-
-                                                <li className="nav-item">
-                                                    <Link href="https://play.mynaia.org/" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NAIA</a>
-                                                    </Link>
-                                                </li>
-
+                                                </li> */}
                                             </ul>
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/recruiting-rules" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA / NAIA Rules</a>
+                                            <Link
+                                                href="/recruiting-rules"
+                                                activeClassName="active"
+                                            >
+                                                <a
+                                                    onClick={toggleNavbar}
+                                                    className="nav-link"
+                                                >
+                                                    NCAA / NAIA Rules
+                                                </a>
                                             </Link>
                                         </li>
-
-
-
-                                        <li className="nav-item">
-                                            <Link href="https://ncaaorg.s3.amazonaws.com/compliance/recruiting/NCAA_RecruitingFactSheet.pdf" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA Recruiting Facts</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="https://www.ncaa.org/sports/2018/5/8/division-i-and-ii-recruiting-calendars.aspx" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">NCAA Recruiting Calendars</a>
-                                            </Link>
-                                        </li>
-
-
                                     </ul>
                                 </li>
 
                                 <li className="nav-item">
-                                    <Link href="/#"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        Evaluations <Icon.ChevronDown />
-                                    </a>
+                                    <Link href="/#">
+                                        <a
+                                            onClick={(e) => e.preventDefault()}
+                                            className="nav-link"
+                                        >
+                                            Evaluations <ChevronDown />
+                                        </a>
                                     </Link>
 
                                     <ul className="dropdown-menu">
                                         <li className="nav-item">
-                                            <Link href="/about-us" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Football</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/recruiting-rules" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Basketball</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/about-3" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Men's Soccer</a>
-                                            </Link>
-                                        </li>
-
-
-                                        <li className="nav-item">
-                                            <Link href="/recruiting-rules" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Basketball </a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/about-3" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Women's Soccer </a>
+                                            <Link
+                                                href="/about-us"
+                                                activeClassName="active"
+                                            >
+                                                <a
+                                                    onClick={toggleNavbar}
+                                                    className="nav-link"
+                                                >
+                                                    Football
+                                                </a>
                                             </Link>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li className="nav-item">
-                                    <Link href="/#"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        Combines <Icon.ChevronDown />
-                                    </a>
+                                    <Link href="/#">
+                                        <a
+                                            onClick={(e) => e.preventDefault()}
+                                            className="nav-link"
+                                        >
+                                            About Us <ChevronDown />
+                                        </a>
                                     </Link>
 
                                     <ul className="dropdown-menu">
                                         <li className="nav-item">
-                                            <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                                Camps <Icon.ChevronDown />
-                                            </a>
-                                            </Link>
-
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                                Lessons <Icon.ChevronDown />
-                                            </a>
-                                            </Link>
-
-
-                                        </li>
-
-
-                                    </ul>
-                                </li>
-
-                                {/*
-
-                                <li className="nav-item">
-                                    <Link href="/#" activeClassName="active"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        Agency <Icon.ChevronDown />
-                                    </a>
-                                    </Link>
-                                    {/*
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <Link href="/shop" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Shop</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/checkout" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Checkout</a>
+                                            <Link
+                                                href="/about-us"
+                                                activeClassName="active"
+                                            >
+                                                <a
+                                                    onClick={toggleNavbar}
+                                                    className="nav-link"
+                                                >
+                                                    Mission Statement
+                                                </a>
                                             </Link>
                                         </li>
                                     </ul>
-
                                 </li>
-
-                            */}
-
-                                <li className="nav-item">
-                                    <Link href="/#"><a onClick={e => e.preventDefault()} className="nav-link">
-                                        About Us <Icon.ChevronDown />
-                                    </a>
-                                    </Link>
-
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <Link href="/about-us" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Mission Statement</a>
-                                            </Link>
-                                        </li>
-                                        {/*
-                                        <li className="nav-item">
-                                            <Link href="/blog-2" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Staff</a>
-                                            </Link>
-                                        </li>
-                                        */}
-
-                                    </ul>
-                                </li>
-                                {/*
-                                <li className="nav-item">
-                                    <Link href="/contact" activeClassName="active"><a onClick={toggleNavbar} className="nav-link">Shop</a>
-                                    </Link>
-                                </li>
-                                */}
                             </ul>
-
                         </div>
 
                         <div className="others-option">
-                            {/*
-                            <Link href="/cart"><a className="cart-wrapper-btn">
-                                <Icon.ShoppingCart />
-                                <span>0</span>
-                            </a>
-                            </Link>
-                            */}
                             {userName ? (
-                                <Link href="/user-profile"><a className="btn btn-light">My Page</a>
-                                </Link>
+                                <>
+                                    <Link href="/user-profile">
+                                        <a className="btn btn-light">My Page</a>
+                                    </Link>
+                                    <Link href="/">
+                                        <a
+                                            className="btn btn-primary"
+                                            onClick={handleLogout}
+                                        >
+                                            Logout
+                                        </a>
+                                    </Link>
+                                </>
                             ) : (
-                                <Link href="/login"><a></a>
+                                <Link href="/login">
+                                    <a className="btn btn-primary">Login</a>
                                 </Link>
                             )}
-                            {userName ? (
-                                <Link href="/"><a className="btn btn-primary" onClick={handleLogout}>Logout</a>
-                                </Link>
-                            ) : (
-                                <Link href="/login"><a className="btn btn-primary">Login</a>
-                                </Link>
-                            )}
-
-
-
                         </div>
                     </nav>
-
                 </div>
             </div>
         </header>
     );
-}
-
+};
 
 export default Navbar;
-
-

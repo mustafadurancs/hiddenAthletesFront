@@ -24,6 +24,7 @@ if (userID === null) {
 const UserProfile = () => {
     const [user, setUser] = useState(null);
     const [editingContact, setEditingContact] = useState(false);
+    const [editingAcademic, setEditingAcademic] = useState(false);
 
     const username = userEmail;
 
@@ -82,6 +83,7 @@ const UserProfile = () => {
             .post(`${configData.SERVER_URL}/user/api/update`, data)
             .then((response) => {
                 console.log('Contact information updated successfully');
+                setEditingContact(false);
                 setEditingContact(false); 
             })
             .catch((error) => {
@@ -166,8 +168,8 @@ const UserProfile = () => {
                                     </div>
 
                                     <h3> ACADEMIC INFO &nbsp;
-                                        {!editingContact && (
-                                            <a href="#" onClick={() => setEditingContact(true)}>
+                                        {!editingAcademic && (
+                                            <a href="#" onClick={() => setEditingAcademic(true)}>
                                                 <Icon.Edit /> Edit
                                             </a>
                                         )}
@@ -175,12 +177,12 @@ const UserProfile = () => {
 
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <p><Icon.User /> GPA: {editingContact ? <input type="text" value={user.gpa} onChange={(e) => setUser({ ...user, gpa: e.target.value })} /> : user.gpa}</p>
-                                            <p><Icon.User /> SAT: {editingContact ? <input type="text" value={user.sat} onChange={(e) => setUser({ ...user, sat: e.target.value })} /> : user.sat}</p>
-                                            <p><Icon.User /> ACT: {editingContact ? <input type="text" value={user.act} onChange={(e) => setUser({ ...user, act: e.target.value })} /> : user.act}</p>
+                                            <p><Icon.User /> GPA: {editingAcademic ? <input type="text" value={user.gpa} onChange={(e) => setUser({ ...user, gpa: e.target.value })} /> : user.gpa}</p>
+                                            <p><Icon.User /> SAT: {editingAcademic ? <input type="text" value={user.sat} onChange={(e) => setUser({ ...user, sat: e.target.value })} /> : user.sat}</p>
+                                            <p><Icon.User /> ACT: {editingAcademic ? <input type="text" value={user.act} onChange={(e) => setUser({ ...user, act: e.target.value })} /> : user.act}</p>
                                         </div>
                                         <div className="col-md-6">
-                                            <p><Icon.FileText /> Transcript: {editingContact ? <input type="text" value={user.transcript} onChange={(e) => setUser({ ...user, transcript: e.target.value })} /> : user.transcript}</p>
+                                            <p><Icon.FileText /> Transcript: {editingAcedemic ? <input type="text" value={user.transcript} onChange={(e) => setUser({ ...user, transcript: e.target.value })} /> : user.transcript}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +195,7 @@ const UserProfile = () => {
                                                     <button className="btn btn-primary" onClick={handleSaveContact}>
                                                         <Icon.Check /> Save
                                                     </button>
-                                                    <button className="btn btn-danger" onClick={() => setEditingContact(false)}>
+                                                    <button className="btn btn-danger" onClick={() => {setEditingContact(false); setEditingAcademic(false)}}>
                                                         <Icon.X /> Cancel
                                                     </button>
                                                 </>

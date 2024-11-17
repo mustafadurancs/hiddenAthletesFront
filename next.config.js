@@ -9,7 +9,6 @@ module.exports = {
     },
     distDir: 'build',
     trailingSlash: true,
-    optimizeFonts: false,
     i18n: {
         locales: ['en', 'ar'],
         defaultLocale: 'en',

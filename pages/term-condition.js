@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from "@/components/_App/Navbar";
 import Footer from "@/components/_App/Footer";
 import PageBanner from '@/components/Common/PageBanner';
- 
+
 const TermCondition = () => {
     return (
         <>
@@ -12,20 +12,98 @@ const TermCondition = () => {
 
             <div className="main-text-area ptb-80">
                 <div className="container">
-                    <h3>Welcome to our Term & Condition</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <header>
+                        <h1>Terms and Conditions</h1>
+                    </header>
 
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-                    
-                    <h3>What is Lorem Ipsum?</h3>
-                    <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure</p>
- 
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                    <section id="introduction">
+                        <h2>1. Introduction</h2>
+                        <p>
+                            Welcome to [Website Name]! By accessing or using our website, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must refrain from using our services.
+                        </p>
+                    </section>
 
-                    <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    <section id="eligibility">
+                        <h2>2. Eligibility</h2>
+                        <p>
+                            Our services are intended for use by high school students, parents, and college recruiters. By using the website, you confirm that you are:
+                        </p>
+                        <ul>
+                            <li>At least 13 years old.</li>
+                            <li>If under 18, you have the consent of a parent or legal guardian to use our site.</li>
+                        </ul>
+                    </section>
+
+                    <section id="user-obligations">
+                        <h2>3. User Obligations</h2>
+                        <p>
+                            By using our services, you agree to:
+                        </p>
+                        <ul>
+                            <li>Provide accurate and truthful information when creating a profile or interacting with other users.</li>
+                            <li>Respect the privacy and rights of others, including students, parents, and college recruiters.</li>
+                            <li>Abide by applicable laws and regulations while using our platform.</li>
+                        </ul>
+                        <p>You must not:</p>
+                        <ul>
+                            <li>Use the website for unlawful or malicious activities.</li>
+                            <li>Attempt to breach the website’s security or disrupt its operation.</li>
+                            <li>Post any content that is offensive, harmful, or misleading.</li>
+                        </ul>
+                    </section>
+
+                    <section id="intellectual-property">
+                        <h2>4. Intellectual Property</h2>
+                        <p>
+                            All content, trademarks, and intellectual property on this website, including text, graphics, logos, and software, are the property of [Website Name] or its licensors. You may not copy, reproduce, or distribute any content without prior written consent.
+                        </p>
+                    </section>
+
+                    <section id="disclaimer">
+                        <h2>5. Disclaimer of Warranties</h2>
+                        <p>
+                            We provide our services "as is" without warranties of any kind, either express or implied. While we strive to ensure accuracy, we do not guarantee that our platform will be error-free, uninterrupted, or secure.
+                        </p>
+                    </section>
+
+                    <section id="limitation-of-liability">
+                        <h2>6. Limitation of Liability</h2>
+                        <p>
+                            To the fullest extent permitted by law, [Website Name] and its affiliates shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of our platform.
+                        </p>
+                    </section>
+
+                    <section id="termination">
+                        <h2>7. Termination</h2>
+                        <p>
+                            We reserve the right to suspend or terminate your access to our website at our sole discretion, without notice, for conduct that we believe violates these Terms and Conditions or is harmful to others.
+                        </p>
+                    </section>
+
+                    <section id="governing-law">
+                        <h2>8. Governing Law</h2>
+                        <p>
+                            These terms are governed by the laws of [Your State or Country]. Any disputes shall be resolved exclusively in the courts of [Your State or Country].
+                        </p>
+                    </section>
+
+                    <section id="changes">
+                        <h2>9. Changes to Terms</h2>
+                        <p>
+                            We may update these Terms and Conditions from time to time. If we make significant changes, we will notify you via email or post a notice on our website. Continued use of the platform after such changes constitutes your acceptance of the revised terms.
+                        </p>
+                    </section>
+
+                    <section id="contact-us">
+                        <h2>10. Contact Us</h2>
+                        <p>
+                            If you have any questions or concerns about these Terms and Conditions, please contact us at <a href="mailto:[support email]">[support email]</a>.
+                        </p>
+                    </section>
+
                 </div>
             </div>
- 
+
             <Footer />
         </>
     )

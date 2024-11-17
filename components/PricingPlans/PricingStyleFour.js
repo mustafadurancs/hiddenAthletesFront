@@ -27,9 +27,9 @@ class PricingStyleFour extends Component {
                     <div className="section-title">
                         <h2>Our Pricing Plan</h2>
                         <div className="bar"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p>You can choose a plan fits your needs</p>
                     </div>
-                    
+
                     <div className="tab pricing-tab bg-color">
                         <ul className="tabs">
                             <li
@@ -38,7 +38,7 @@ class PricingStyleFour extends Component {
                             >
                                 Recruiting
                             </li>
-                            
+
                             <li onClick={(e) => this.openTabSection(e, 'tab2')}>
                                 Evaluations
                             </li>
@@ -51,7 +51,7 @@ class PricingStyleFour extends Component {
                                         <div className="pricing-box">
                                             <div className="pricing-header">
                                                 <h3>OUR PRICE</h3>
-                                                <p>Get your business up <br /> and running</p>
+                                                <p>Some motto <br />here</p>
                                             </div>
 
                                             <div className="price">
@@ -59,19 +59,16 @@ class PricingStyleFour extends Component {
                                             </div>
 
                                             <div className="buy-btn">
-                                                <Link href="#">
-                                                    <a className="btn btn-primary">Get Started Free</a>
+                                                <Link href="/login">
+                                                    <a className="btn btn-primary">Get Started</a>
                                                 </Link>
                                             </div>
 
                                             <ul className="pricing-features">
-                                                <li><Icon.Check /> Drag & Drop Builder</li>
-                                                <li><Icon.Check /> Lead Generation & Sales</li>
-                                                <li><Icon.Check /> Boot & Digital Assistants</li>
-                                                <li><Icon.Check /> Customer Service</li>
-                                                <li><Icon.Check /> Up to 1000 Subscribers</li>
-                                                <li><Icon.Check /> Unlimited Broadcasts</li>
-                                                <li><Icon.Check /> Landing Pages & Web Widgets</li>
+                                                <li><Icon.Check /> Benefit 1</li>
+                                                <li><Icon.Check /> Benefit 2</li>
+                                                <li><Icon.Check /> Benefit 3</li>
+
                                             </ul>
                                         </div>
                                     </div>

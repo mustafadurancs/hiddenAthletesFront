@@ -2,6 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import * as Icon from 'react-feather';
 
+const socialLinks = [
+    { href: 'https://www.facebook.com/profile.php?id=100069589126238', className: 'facebook', icon: <Icon.Facebook /> },
+    { href: 'https://twitter.com/HiddenAthletes', className: 'twitter', icon: <Icon.Twitter /> },
+    { href: 'https://www.instagram.com/hiddenathletesllc/', className: 'instagram', icon: <Icon.Instagram /> },
+    { href: 'https://www.linkedin.com/company/hidden-athletes', className: 'linkedin', icon: <Icon.Linkedin /> },
+    { href: 'https://www.youtube.com/', className: 'youtube', icon: <Icon.Youtube /> },
+];
+
+
 const Footer = () => {
 
     const currentYear = new Date().getFullYear();
@@ -84,7 +93,7 @@ const Footer = () => {
                     <div className="col-lg-3 col-md-6">
                         <div className="single-footer-widget">
                             <h3>Follow Us</h3>
-                            
+
                             <ul className="footer-contact-info">
                                 {/*
                                 <li>
@@ -104,10 +113,10 @@ const Footer = () => {
                                 */}
                             </ul>
                             <ul className="social-links">
-                                <li> 
+                                <li>
                                     <a href="https://www.facebook.com/profile.php?id=100069589126238" className="facebook" target="_blank">
                                         <Icon.Facebook />
-                                    </a> 
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="https://twitter.com/HiddenAthletes" className="twitter" target="_blank">
@@ -126,7 +135,7 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <a href="https://www.youtube.com/" className="youtube" target="_blank">
-                                        <Icon.Youtube/>
+                                        <Icon.Youtube />
                                     </a>
                                 </li>
                             </ul>
@@ -152,7 +161,7 @@ const Footer = () => {
             </div>
         </footer>
     )
-     
+
 }
 
 export default Footer; 

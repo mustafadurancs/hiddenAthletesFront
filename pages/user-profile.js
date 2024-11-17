@@ -190,7 +190,7 @@ const UserProfile = () => {
                                 <div className="contact-info">
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12">
-                                            {editingContact && (
+                                            {(editingContact || editingAcademic) && (
                                                 <>
                                                     <button className="btn btn-primary" onClick={handleSaveContact}>
                                                         <Icon.Check /> Save

@@ -16,7 +16,6 @@
         "animate.css": "^4.1.1",
         "axios": "^1.7.7",
         "next": "^15.0.3",
-        "nodemailer": "^6.9.16",
         "nodemailer-sendgrid-transport": "^0.2.0",
         "query-string": "^9.0.0",
         "react": "^18.2.0",

@@ -84,7 +84,7 @@ const UserProfile = () => {
             .then((response) => {
                 console.log('Contact information updated successfully');
                 setEditingContact(false);
-                setEditingContact(false); 
+                setEditingAcademic(false); 
             })
             .catch((error) => {
                 console.error('Error updating contact information:', error);

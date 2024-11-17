@@ -5,7 +5,7 @@ import FunFactsArea from "@/components/Common/FunFactsArea";
 import Footer from "@/components/_App/Footer";
 import PageBanner from '@/components/Common/PageBanner';
 import FeedbackStyleFour from '@/components/Common/FeedbackStyleFour';
-import Partner from '@/components/MachineLearning/Partner';
+import Partner from '@/components/Recruiting/Partner';
 
 const RecruitingRules = () => {
     return (

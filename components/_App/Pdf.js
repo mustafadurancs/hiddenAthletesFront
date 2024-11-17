@@ -67,28 +67,57 @@ const DownloadPDF = () => {
     };
 
     return (
-        <div>
-            <button onClick={fetchPDFIds} style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>Get My Evaluations</button>
-            <div id="error-container"></div>
-            {loading && <p>Loading...</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-
+        <div className="container">
+            {/* Fancy Button */}
+            <div className="text-end mb-3">
+                <button 
+                    onClick={fetchPDFIds} 
+                    className="btn btn-primary btn-lg shadow-sm" 
+                    style={{ borderRadius: '25px', padding: '10px 20px' }}
+                >
+                    Get My Evaluations <Icon.Download />
+                </button>
+            </div>
+    
+            {/* Error and Loading Messages */}
+            <div id="error-container" className="mb-3">
+                {loading && (
+                    <div className="text-center">
+                        <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                        <p>Loading...</p>
+                    </div>
+                )}
+                {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
+            </div>
+    
+            {/* PDF Links */}
             {pdfLinks.length > 0 && (
-                <div>
-                    <ul>
+                <div className="card shadow p-4">
+                    <h3 className="card-title mb-4">My Evaluations</h3>
+                    <ul className="list-group">
                         {pdfLinks.map((pdf) => (
-                            <li key={pdf.id}>
+                            <li 
+                                key={pdf.id} 
+                                className="list-group-item d-flex justify-content-between align-items-center"
+                            >
                                 {pdf.paid ? (
-                                    <a href={pdf.url} download={`profile_${pdf.id}.pdf`}>
-                                        Download PDF <Icon.Download />  {pdf.creationDate}
+                                    <a 
+                                        href={pdf.url} 
+                                        download={`profile_${pdf.id}.pdf`} 
+                                        className="text-success fw-bold"
+                                    >
+                                        Download PDF <Icon.Download /> <small className="text-muted">({pdf.creationDate})</small>
                                     </a>
                                 ) : (
-                                    <a href={`${configData.HOME_PAGE}/payment?q_id=${pdf.id}`}>
-                                        Pay Now to Download PDF <Icon.Download /> {pdf.creationDate}
+                                    <a 
+                                        href={`${configData.HOME_PAGE}/payment?q_id=${pdf.id}`} 
+                                        className="text-danger fw-bold"
+                                    >
+                                        Pay Now to Download PDF <Icon.Download /> <small className="text-muted">({pdf.creationDate})</small>
                                     </a>
-
                                 )}
-
                             </li>
                         ))}
                     </ul>
@@ -96,6 +125,7 @@ const DownloadPDF = () => {
             )}
         </div>
     );
+    
 };
 
 export default DownloadPDF;

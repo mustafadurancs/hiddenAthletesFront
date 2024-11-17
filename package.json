@@ -16,7 +16,7 @@
         "@tinymce/tinymce-react": "^5.1.1",
         "animate.css": "^4.1.1",
         "axios": "^1.7.7",
-        "esdoc": "^0.4.8",
+        "esdoc": "^0.4.2",
         "marked": "^15.0.0",
         "minimist": "^1.2.8",
         "next": "^15.0.3",

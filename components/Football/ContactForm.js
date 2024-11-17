@@ -118,10 +118,25 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation for empty fields
+        if (!contact.gpa || !contact.sat || !contact.act) {
+            MySwal.fire({
+                title: "Missing Academic Information",
+                text: "Please fill out the GPA, SAT, and ACT fields before submitting the form.",
+                icon: "error",
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+            });
+            return;
+        }
+
         if (!isChecked) {
             alertCheckboxNotChecked();
             return;
         }
+
         try {
             const url = `${configData.SERVER_URL}/questionaire/api/save`;
             const userID = localStorage.getItem('id');
@@ -149,6 +164,7 @@ const ContactForm = () => {
             console.log("Error in submission:", error);
         }
     };
+
 
     if (!isAuthenticated) {
         return null; // Render nothing while redirecting

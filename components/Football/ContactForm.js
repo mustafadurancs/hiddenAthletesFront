@@ -120,10 +120,10 @@ const ContactForm = () => {
         e.preventDefault();
 
         // Validation for empty fields
-        if (!contact.gpa || !contact.sat || !contact.act) {
+        if (!contact.gpa || !contact.sat || !contact.act || !contact.name || !contact.lastname || !contact.phone) {
             MySwal.fire({
                 title: "Missing Academic Information",
-                text: "Please fill out the GPA, SAT, and ACT fields before submitting the form.",
+                text: "Please fill out the GPA, SAT, ACT, Name, Last Name and Phone Number fields from 'MY PAGE' before submitting the form.",
                 icon: "error",
                 timer: 5000,
                 timerProgressBar: true,

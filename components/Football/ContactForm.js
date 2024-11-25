@@ -223,8 +223,8 @@ const ContactForm = () => {
                                         />
                                     </div>
                                 </div>
-                                {/* Add the remaining fields here */}
-                                {/* Include Academic and other fields */}
+                                {/* Address sections 
+                               
 
 
 
@@ -319,6 +319,7 @@ const ContactForm = () => {
                                         />
                                     </div>
                                 </div>
+                                */}
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <input

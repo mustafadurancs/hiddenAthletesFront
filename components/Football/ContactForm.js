@@ -83,7 +83,7 @@ const ContactForm = () => {
                     const username = localStorage.getItem('userName');
                     const response = await axios.get(`${configData.SERVER_URL}/user/api/id?username=${username}&password`);
                     const userData = response.data;
-
+                    console.log(userData);
                     setContact((prevState) => ({
                         ...prevState,
                         name: userData.name || "",

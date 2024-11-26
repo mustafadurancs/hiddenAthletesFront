@@ -48,7 +48,7 @@ const UserProfile = () => {
             sport: user.sport,
             position: user.position,
             tangibles: user.tangibles,
-            email: user.email,
+            email: user.usrname,
             phone: user.phone,
             address: user.address,
             titter_handle: user.titter_handle,

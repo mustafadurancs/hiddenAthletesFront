@@ -93,7 +93,7 @@ const ContactForm = () => {
                         state: userData.state || "",
                         zipCode: userData.zipCode || "",
                         phone: userData.phone || "",
-                        email: userData.email || "",
+                        email: userData.username || "",
                         sat: userData.sat || "",
                         gpa: userData.gpa || "",
                         act: userData.act || ""

@@ -173,13 +173,14 @@ const UserProfile = () => {
                                                                 onChange={(e) =>
                                                                     setUser({ ...user, height: e.target.value })
                                                                 }
-
                                                             >
                                                                 <option value="" disabled>
                                                                     Select height
                                                                 </option>
-                                                                {[...Array(8)].map((_, feet) => (
-                                                                    [...Array(12)].map((_, inches) => (
+                                                                {[...Array(3)].map((_, i) => {
+                                                                    const feet = i + 5;
+
+                                                                    return [...Array(12)].map((_, inches) => (
                                                                         <option
                                                                             key={`${feet}-${inches}`}
                                                                             value={`${feet}' ${inches}"`}
@@ -187,7 +188,7 @@ const UserProfile = () => {
                                                                             {feet}' {inches}"
                                                                         </option>
                                                                     ))
-                                                                ))}
+                                                                })}
                                                             </select>
                                                         ) : (
                                                             user.height

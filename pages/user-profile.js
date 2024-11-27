@@ -32,7 +32,7 @@ const UserProfile = () => {
     useEffect(() => {
         axios
             .get(`${configData.SERVER_URL}/user/api/id?username=${username}&password`)
-            .then((response) => {                
+            .then((response) => {
                 setUser(response.data);
             })
             .catch((error) => {
@@ -129,7 +129,7 @@ const UserProfile = () => {
                                                 <div className="col-md-6">
                                                     <p><Icon.User /> Name: {editingContact ? <input type="text" value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })} /> : user.name}</p>
                                                     <p><Icon.User /> Last Name: {editingContact ? <input type="text" value={user.lastname} onChange={(e) => setUser({ ...user, lastname: e.target.value })} /> : user.lastname}</p>
-                                                    <p><Icon.Mail /> Email: {editingContact ? <input type="text" value={user.username} onChange={(e) => setUser({ ...user, email: e.target.value })}  disabled/> : user.username}</p>
+                                                    <p><Icon.Mail /> Email: {editingContact ? <input type="text" value={user.username} onChange={(e) => setUser({ ...user, email: e.target.value })} disabled /> : user.username}</p>
                                                     <p><Icon.Phone /> Phone: {editingContact ? <input type="text" value={user.phone} onChange={(e) => setUser({ ...user, phone: e.target.value })} /> : user.phone}</p>
                                                     <p><Icon.MapPin /> Address: {editingContact ? <input type="text" value={user.address} onChange={(e) => setUser({ ...user, address: e.target.value })} /> : user.address}</p>
                                                     <p><Icon.Info /> About Me: {editingContact ? <input type="text" value={user.aboutMe} onChange={(e) => setUser({ ...user, aboutMe: e.target.value })} /> : user.aboutMe}</p>
@@ -165,39 +165,34 @@ const UserProfile = () => {
                                             <div className="row">
                                                 {/* Left Column */}
                                                 <div className="col-md-6">
-                                                <p>
-  <Icon.Activity /> Height:{" "}
-  {editingAthletic ? (
-    <select
-      value={user.height || ""}
-      onChange={(e) =>
-        setUser({ ...user, height: e.target.value })
-      }
-      style={{
-        width: "120px",
-        padding: "5px",
-        borderRadius: "4px",
-        border: "1px solid #ccc",
-      }}
-    >
-      <option value="" disabled>
-        Select height
-      </option>
-      {[...Array(8)].map((_, feet) => (
-        [...Array(12)].map((_, inches) => (
-          <option
-            key={`${feet}-${inches}`}
-            value={`${feet}' ${inches}"`}
-          >
-            {feet}' {inches}"
-          </option>
-        ))
-      ))}
-    </select>
-  ) : (
-    user.height
-  )}
-</p>
+                                                    <p>
+                                                        <Icon.Activity /> Height:{" "}
+                                                        {editingAthletic ? (
+                                                            <select
+                                                                value={user.height || ""}
+                                                                onChange={(e) =>
+                                                                    setUser({ ...user, height: e.target.value })
+                                                                }
+
+                                                            >
+                                                                <option value="" disabled>
+                                                                    Select height
+                                                                </option>
+                                                                {[...Array(8)].map((_, feet) => (
+                                                                    [...Array(12)].map((_, inches) => (
+                                                                        <option
+                                                                            key={`${feet}-${inches}`}
+                                                                            value={`${feet}' ${inches}"`}
+                                                                        >
+                                                                            {feet}' {inches}"
+                                                                        </option>
+                                                                    ))
+                                                                ))}
+                                                            </select>
+                                                        ) : (
+                                                            user.height
+                                                        )}
+                                                    </p>
 
                                                     <p><Icon.Activity /> Weight: {editingAthletic ? <input type="text" value={user.weight} onChange={(e) => setUser({ ...user, weight: e.target.value })} /> : user.weight}</p>
                                                     <p><Icon.User /> 40 Yard Dash: {editingAthletic ? <input type="text" value={user.forty} onChange={(e) => setUser({ ...user, forty: e.target.value })} /> : user.forty}</p>
@@ -209,7 +204,7 @@ const UserProfile = () => {
 
                                                 {/* Right Column */}
                                                 <div className="col-md-6">
-                                                    
+
                                                     <p><Icon.User /> Bench Press: {editingAthletic ? <input type="text" value={user.bench} onChange={(e) => setUser({ ...user, bench: e.target.value })} /> : user.bench}</p>
                                                     <p><Icon.User /> Squat: {editingAthletic ? <input type="text" value={user.squat} onChange={(e) => setUser({ ...user, squat: e.target.value })} /> : user.squat}</p>
                                                     <p><Icon.User /> Power Clean: {editingAthletic ? <input type="text" value={user.pClean} onChange={(e) => setUser({ ...user, pClean: e.target.value })} /> : user.pClean}</p>

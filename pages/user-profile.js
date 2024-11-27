@@ -129,7 +129,7 @@ const UserProfile = () => {
                                                 <div className="col-md-6">
                                                     <p><Icon.User /> Name: {editingContact ? <input type="text" value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })} /> : user.name}</p>
                                                     <p><Icon.User /> Last Name: {editingContact ? <input type="text" value={user.lastname} onChange={(e) => setUser({ ...user, lastname: e.target.value })} /> : user.lastname}</p>
-                                                    <p><Icon.Mail /> Email: {editingContact ? <input type="text" value={user.username} onChange={(e) => setUser({ ...user, email: e.target.value })}  /> : user.username}</p>
+                                                    <p><Icon.Mail /> Email: {editingContact ? <input type="text" value={user.username} onChange={(e) => setUser({ ...user, email: e.target.value })}  disabled/> : user.username}</p>
                                                     <p><Icon.Phone /> Phone: {editingContact ? <input type="text" value={user.phone} onChange={(e) => setUser({ ...user, phone: e.target.value })} /> : user.phone}</p>
                                                     <p><Icon.MapPin /> Address: {editingContact ? <input type="text" value={user.address} onChange={(e) => setUser({ ...user, address: e.target.value })} /> : user.address}</p>
                                                     <p><Icon.Info /> About Me: {editingContact ? <input type="text" value={user.aboutMe} onChange={(e) => setUser({ ...user, aboutMe: e.target.value })} /> : user.aboutMe}</p>

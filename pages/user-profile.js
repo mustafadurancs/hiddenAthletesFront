@@ -183,7 +183,7 @@ const UserProfile = () => {
                                                                     return [...Array(12)].map((_, inches) => (
                                                                         <option
                                                                             key={`${feet}-${inches}`}
-                                                                            value={`${feet}' ${inches}"`}
+                                                                            value={`${feet}.${inches}"`}
                                                                         >
                                                                             {feet}' {inches}"
                                                                         </option>

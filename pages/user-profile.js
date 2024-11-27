@@ -175,13 +175,15 @@ const UserProfile = () => {
                                                 </div>
 
                                                 {/* Right Column */}
-                                                <div className="col-md-6">                                                    
-                                                    <p><Icon.Activity /> Bench Press: {editingAthletic ? <input type="number" placeholder="Enter weight in lbs" value={user.bench || ''} onChange={(e) => setUser({ ...user, bench: e.target.value })} style={{ width: '120px', marginLeft: '8px' }} /> : `${user.bench || 'N/A'} lbs`}</p>
-                                                    <p><Icon.Activity /> Squat: {editingAthletic ? <input type="number" placeholder="Enter weight in lbs" value={user.squat || ''} onChange={(e) => setUser({ ...user, squat: e.target.value })} style={{ width: '120px', marginLeft: '8px' }} /> : `${user.squat || 'N/A'} lbs`}</p>
-                                                    <p><Icon.Zap /> Power Clean: {editingAthletic ? <input type="number" placeholder="Enter weight in lbs" value={user.pClean || ''} onChange={(e) => setUser({ ...user, pClean: e.target.value })} style={{ width: '120px', marginLeft: '8px' }} /> : `${user.pClean || 'N/A'} lbs`}</p>
-                                                    <p><Icon.BarChart2 /> Strength: {editingAthletic ? <input type="number" placeholder="Enter strength level" value={user.strength || ''} onChange={(e) => setUser({ ...user, strength: e.target.value })} style={{ width: '120px', marginLeft: '8px' }} /> : `${user.strength || 'N/A'}`}</p>
-                                                    <p><Icon.Wind /> Speed: {editingAthletic ? <input type="number" placeholder="Enter speed in mph" value={user.speed || ''} onChange={(e) => setUser({ ...user, speed: e.target.value })} style={{ width: '120px', marginLeft: '8px' }} /> : `${user.speed || 'N/A'} mph`}</p>
-                                                    <p><Icon.Star /> Star Rating: {editingAthletic ? <input type="number" min="1" max="5" placeholder="Enter rating (1-5)" value={user.starRating || ''} onChange={(e) => setUser({ ...user, starRating: e.target.value })} style={{ width: '120px', marginLeft: '8px' }} /> : `${user.starRating || 'N/A'} / 5`}</p>
+                                                <div className="col-md-6">
+                                                    
+                                                    <p><Icon.User /> Bench Press: {editingAthletic ? <input type="text" value={user.bench} onChange={(e) => setUser({ ...user, bench: e.target.value })} /> : user.bench}</p>
+                                                    <p><Icon.User /> Squat: {editingAthletic ? <input type="text" value={user.squat} onChange={(e) => setUser({ ...user, squat: e.target.value })} /> : user.squat}</p>
+                                                    <p><Icon.User /> Power Clean: {editingAthletic ? <input type="text" value={user.pClean} onChange={(e) => setUser({ ...user, pClean: e.target.value })} /> : user.pClean}</p>
+                                                    <p><Icon.User /> Strength: {editingAthletic ? <input type="text" value={user.strength} onChange={(e) => setUser({ ...user, strength: e.target.value })} /> : user.strength}</p>
+                                                    <p><Icon.User /> Speed: {editingAthletic ? <input type="text" value={user.speed} onChange={(e) => setUser({ ...user, speed: e.target.value })} /> : user.speed}</p>
+                                                    <p><Icon.Star /> Star Rating: {editingAthletic ? <input type="text" value={user.starRating} onChange={(e) => setUser({ ...user, starRating: e.target.value })} /> : user.starRating}</p>
+
                                                 </div>
                                             </div>
                                         </div>

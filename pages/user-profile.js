@@ -165,7 +165,7 @@ const UserProfile = () => {
                                             <div className="row">
                                                 {/* Left Column */}
                                                 <div className="col-md-6">
-                                                <p><Icon.ArrowsVertical  /> Height: {editingAthletic ? <input type="number" placeholder="Enter height in cm" value={user.height || ''} onChange={(e) => setUser({ ...user, height: e.target.value })} style={{ width: '80px', marginLeft: '8px' }} /> : `${user.height || 'N/A'} cm`}</p>
+                                                    <p><Icon.Activity /> Height: {editingAthletic ? <input type="text" value={user.height} onChange={(e) => setUser({ ...user, height: e.target.value })} /> : user.height}</p>
                                                     <p><Icon.Activity /> Weight: {editingAthletic ? <input type="text" value={user.weight} onChange={(e) => setUser({ ...user, weight: e.target.value })} /> : user.weight}</p>
                                                     <p><Icon.User /> 40 Yard Dash: {editingAthletic ? <input type="text" value={user.forty} onChange={(e) => setUser({ ...user, forty: e.target.value })} /> : user.forty}</p>
                                                     <p><Icon.User /> 40 Yard Dash (Laser): {editingAthletic ? <input type="text" value={user.fortyLazer} onChange={(e) => setUser({ ...user, fortyLazer: e.target.value })} /> : user.fortyLazer}</p>

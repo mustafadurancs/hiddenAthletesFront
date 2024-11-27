@@ -143,8 +143,8 @@ const UserProfile = () => {
                                                     <p><Icon.Instagram /> Instagram: {editingContact ? <input type="text" value={user.instagram} onChange={(e) => setUser({ ...user, instagram: e.target.value })} /> : user.instagram}</p>
                                                     <p><Icon.Square /> Snapchat: {editingContact ? <input type="text" value={user.snapchat} onChange={(e) => setUser({ ...user, snapchat: e.target.value })} /> : user.snapchat}</p>
                                                     <p><Icon.BarChart2 /> Statistics: {editingContact ? <input type="text" value={user.statistics} onChange={(e) => setUser({ ...user, statistics: e.target.value })} /> : user.statistics}</p>
-                                                    <p><Icon.User /> Senior Year: {editingContact ? <input type="text" value={user.seniorYear} onChange={(e) => setUser({ ...user, seniorYear: e.target.value })} /> : user.seniorYear}</p>
-                                                    <p><Icon.User /> Junior Year: {editingContact ? <input type="text" value={user.juniorYear} onChange={(e) => setUser({ ...user, juniorYear: e.target.value })} /> : user.juniorYear}</p>
+                                                    <p><Icon.BookOpen /> Senior Year: {editingContact ? <input type="text" value={user.seniorYear} onChange={(e) => setUser({ ...user, seniorYear: e.target.value })} /> : user.seniorYear}</p>
+                                                    <p><Icon.BookOpen /> Junior Year: {editingContact ? <input type="text" value={user.juniorYear} onChange={(e) => setUser({ ...user, juniorYear: e.target.value })} /> : user.juniorYear}</p>
 
                                                 </div>
                                             </div>
@@ -165,8 +165,8 @@ const UserProfile = () => {
                                             <div className="row">
                                                 {/* Left Column */}
                                                 <div className="col-md-6">
-                                                    <p><Icon.Activity /> Height: {editingAthletic ? <input type="text" value={user.height} onChange={(e) => setUser({ ...user, height: e.target.value })} /> : user.height}</p>
-                                                    <p><Icon.Activity /> Weight: {editingAthletic ? <input type="text" value={user.weight} onChange={(e) => setUser({ ...user, weight: e.target.value })} /> : user.weight}</p>
+                                                <p><Icon.ArrowsVertical  /> Height: {editingAthletic ? <input type="number" placeholder="Enter height in cm" value={user.height || ''} onChange={(e) => setUser({ ...user, height: e.target.value })} style={{ width: '80px', marginLeft: '8px' }} /> : `${user.height || 'N/A'} cm`}</p>
+                                                    <p><Icon.Tool /> Weight: {editingAthletic ? <input type="text" value={user.weight} onChange={(e) => setUser({ ...user, weight: e.target.value })} /> : user.weight}</p>
                                                     <p><Icon.User /> 40 Yard Dash: {editingAthletic ? <input type="text" value={user.forty} onChange={(e) => setUser({ ...user, forty: e.target.value })} /> : user.forty}</p>
                                                     <p><Icon.User /> 40 Yard Dash (Laser): {editingAthletic ? <input type="text" value={user.fortyLazer} onChange={(e) => setUser({ ...user, fortyLazer: e.target.value })} /> : user.fortyLazer}</p>
                                                     <p><Icon.User /> Pro Shuttle: {editingAthletic ? <input type="text" value={user.proShuttle} onChange={(e) => setUser({ ...user, proShuttle: e.target.value })} /> : user.proShuttle}</p>
